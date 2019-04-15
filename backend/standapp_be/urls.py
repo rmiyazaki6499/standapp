@@ -20,7 +20,7 @@ from rest_framework import routers
 from standapp_be.app import views
 
 router = routers.DefaultRouter()
-router.register(r'app', views.UserViewSet)
+router.register(r'app', views.AppViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
