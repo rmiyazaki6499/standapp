@@ -11,7 +11,7 @@ class Progress(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 class Standup(models.Model):
-    date = models.DateTimeField(auto_now=True, auto_now_add=False)
+    date = models.DateTimeField('date of standup')
 
 
 

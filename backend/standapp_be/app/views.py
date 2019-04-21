@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework import viewsets
-from standapp_be.app.serializers import AppSerializer
+from standapp_be.app.serializers import ProgressSerializer, StandupSerializer
 from .models import Progress
 
 
@@ -14,4 +14,4 @@ from .models import Progress
 
 class ProgressViewSet(viewsets.ModelViewSet):
     queryset = Progress.objects.all()
-    serializer_class = AppSerializer
+    serializer_class = ProgressSerializer
