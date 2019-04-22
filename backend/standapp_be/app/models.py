@@ -9,6 +9,8 @@ class Progress(models.Model):
     blocker = models.CharField(max_length=255)
     standup = models.ForeignKey('Standup', on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.accomplished
 
 class Standup(models.Model):
     date = models.DateTimeField('date of standup')

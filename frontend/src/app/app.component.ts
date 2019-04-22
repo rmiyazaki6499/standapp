@@ -9,7 +9,7 @@ import { ApiService } from './api.service';
 })
 export class AppComponent {
   title = 'StandApp';
-  progresses = [{accomplished: 'Initial Setup of StandApp project'}, {accomplished: 'Second Entry'}]
+  progresses = [{accomplished: 'Initial Setup of StandApp project'}, {accomplished: 'Second Entry'}];
 
   constructor(private api: ApiService) {
     this.getProgresses();
