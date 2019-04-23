@@ -9,19 +9,23 @@ import { ApiService } from './api.service';
 })
 export class AppComponent {
   title = 'StandApp';
-  progresses = [{accomplished: 'Initial Setup of StandApp project'}, {accomplished: 'Second Entry'}];
+  progresses = [{accomplished: 'test', working_on: 'test', blocker: 'test'}];
 
   constructor(private api: ApiService) {
     this.getProgresses();
   }
   getProgresses = () => {
+    console.log('getProgresses');
+      // this.progresses = [{accomplished: 'Test'}, {accomplished: 'Entry'}];
+
     this.api.getAllProgresses().subscribe(
       data => {
-        this.progresses = data;
+        this.progresses = data.results;
+        console.log(data);
       },
       error => {
-        console.log(error)
+        console.log(error);
       }
-    )
+    );
   }
 }

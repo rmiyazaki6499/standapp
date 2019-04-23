@@ -7,13 +7,13 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
 
-  baseurl = "http://127.0.0.1:8000";
+  baseurl = 'http://127.0.0.1:8000';
   httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 
   constructor(private http: HttpClient) { }
 
   getAllProgresses(): Observable<any> {
-    return this.http.get(this.baseurl + '/app/',
+    return this.http.get(this.baseurl + '/progress/',
     {headers: this.httpHeaders});
   }
 }
