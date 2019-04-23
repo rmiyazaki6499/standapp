@@ -1,17 +1,14 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
-from .models import Progress, Standup
+from .models import Progress, Standup, User
 
 
-class AppSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ('url', 'username', 'email', 'groups')
-
+class ProgressSerializer(serializers.ModelSerializer):
     class Meta:
         model = Progress
-        fields = ('user', 'accomplished', 'working_on', 'blocker', 'standup')
+        fields = ('id', 'user', 'accomplished', 'working_on', 'blocker', 'standup')
 
+class StandupSerializer(serializers.ModelSerializer):
     class Meta:
         model = Standup
-        fields = ('date')
+        fields = ('id', 'date')
