@@ -1,6 +1,8 @@
 from django.contrib.auth.models import User
 from rest_framework import viewsets
-from standapp_be.app.serializers import ProgressSerializer, StandupSerializer
+from rest_framework.response import Response
+
+from standapp_be.app.serializers import *
 from .models import Progress
 
 
@@ -15,3 +17,8 @@ from .models import Progress
 class ProgressViewSet(viewsets.ModelViewSet):
     queryset = Progress.objects.all()
     serializer_class = ProgressSerializer
+
+    def list(self, request, *args, **kwargs):
+        progresses = Progress.objects.all()
+        serializer = ProgressMiniSerializer(progresses, many=True)
+        return Response(serializer.data)
