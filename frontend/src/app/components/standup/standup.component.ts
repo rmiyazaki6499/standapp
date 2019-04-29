@@ -4,23 +4,35 @@ import { ApiService } from '../../api.service';
 @Component({
   selector: 'app-standup',
   template: `
-  <div style="text-align:center">
+<div style="text-align:center">
   <h1>{{ title }}!</h1>
-</div>
 <h2>List of Stand Ups:</h2>
-<ul>
-  <li *ngFor="let standup of standups">
-    <div (click)="standupClicked(standup)">
-      <h2>{{ standup.date }}</h2>
-    </div>
-  </li>
-</ul>
+</div>
 
+<section class="section">
+<div class="container">
+<div class="columns is-multiline">
+
+<div class="column is-4" *ngFor="let standup of standups">
+    <div class="card">
+      <div class="card-content">
+        <div (click)="standupClicked(standup)">
+    {{ standup.date }}
+        </div>
+      </div>
+    </div>
+</div>
+
+</div>
+</div>
+</section>
 <hr>
 Date <input [(ngModel)]="selectedStandup.date"><br/>
 <button *ngIf="selectedStandup.id" (click)="updateStandup()">UPDATE</button>
 <button (click)="createStandup()">CREATE</button>
 <button *ngIf="selectedStandup.id" (click)="deleteStandup()">DELETE</button>
+
+
 `,
   styles: [],
 })
