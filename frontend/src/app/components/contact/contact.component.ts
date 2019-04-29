@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-contact',
   template: `
-    <section class="hero is-primary is-bold">
+    <section class="hero is-info">
     <div class="hero-body">
     <div class="container">
 

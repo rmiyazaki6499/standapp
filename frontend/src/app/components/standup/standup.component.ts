@@ -4,12 +4,12 @@ import { ApiService } from '../../api.service';
 @Component({
   selector: 'app-standup',
   template: `
-<div style="text-align:center">
+<section class="hero is-info">
+  <div style="text-align:center">
   <h1>{{ title }}!</h1>
 <h2>List of Stand Ups:</h2>
 </div>
 
-<section class="section">
 <div class="container">
 <div class="columns is-multiline">
 
@@ -25,14 +25,13 @@ import { ApiService } from '../../api.service';
 
 </div>
 </div>
-</section>
+
 <hr>
 Date <input [(ngModel)]="selectedStandup.date"><br/>
-<button *ngIf="selectedStandup.id" (click)="updateStandup()">UPDATE</button>
-<button (click)="createStandup()">CREATE</button>
-<button *ngIf="selectedStandup.id" (click)="deleteStandup()">DELETE</button>
-
-
+<button class="button is-danger is-large" *ngIf="selectedStandup.id" (click)="updateStandup()">Update</button>
+<button class="button is-danger is-large" (click)="createStandup()">Create</button>
+<button class="button is-danger is-large" *ngIf="selectedStandup.id" (click)="deleteStandup()">Delete</button>
+</section>
 `,
   styles: [],
 })

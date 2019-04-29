@@ -4,13 +4,13 @@ import { ApiService } from '../../api.service';
 @Component({
   selector: 'app-progress',
   template: `
+<section class="hero is-info">
 <div style="text-align:center">
   <h1>{{ title }}!
   <h2>List of Progress Accomplishments:</h2>
   </h1>
 </div>
 
-<section class="section">
 <div class="container">
 <div class="columns is-multiline">
 
@@ -30,15 +30,16 @@ import { ApiService } from '../../api.service';
   </div>
 </div>
 </div>
-</section>
 
 <hr>
 Accomplished <input [(ngModel)]="selectedProgress.accomplished"><br/>
 Working On <input [(ngModel)]="selectedProgress.working_on"><br/>
 Blocker <input [(ngModel)]="selectedProgress.blocker"><br/>
-<button *ngIf="selectedProgress.id" (click)="updateProgress()">UPDATE</button>
-<button (click)="createProgress()">CREATE</button>
-<button *ngIf="selectedProgress.id" (click)="deleteProgress()">DELETE</button>
+<button class="button is-danger is-large" *ngIf="selectedProgress.id" (click)="updateProgress()">Update</button>
+<button class="button is-danger is-large" (click)="createProgress()">Create</button>
+<button class="button is-danger is-large" *ngIf="selectedProgress.id" (click)="deleteProgress()">Delete</button>
+
+</section>
 `,
   styleUrls: [],
 })
