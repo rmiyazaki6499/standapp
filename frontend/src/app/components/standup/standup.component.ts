@@ -3,52 +3,41 @@ import { ApiService } from '../../api.service';
 
 @Component({
   selector: 'app-standup',
-  templateUrl: './standup.component.html',
-  styleUrls: ['./standup.component.scss'],
   template: `
   <div style="text-align:center">
-  <h1>{{ title }}!
-</h1>
+  <h1>{{ title }}!</h1>
 </div>
-<h2>List of Progress Accomplishments:</h2>
+<h2>List of Stand Ups:</h2>
 <ul>
-  <li *ngFor="let progress of progresses">
-<!--    <h2>id: {{ progress.id }}</h2>-->
-    <div (click)="progressClicked(progress)">
-      <h2>Accomplished: {{ progress.accomplished }}</h2>
-      <h2>Working On: {{ progress.working_on }}</h2>
-      <h2>Blockers: {{ progress.blocker }}</h2>
-  <!--    <h2>User: {{ progress.user }}</h2>-->
-  <!--    <h2>Standup: {{ progress.standup }}</h2>-->
+  <li *ngFor="let standup of standups">
+    <div (click)="standupClicked(standup)">
+      <h2>{{ standup.date }}</h2>
     </div>
   </li>
 </ul>
 
-
 <hr>
-Accomplished <input [(ngModel)]="selectedProgress.accomplished"><br/>
-Working On <input [(ngModel)]="selectedProgress.working_on"><br/>
-Blocker <input [(ngModel)]="selectedProgress.blocker"><br/>
-<button *ngIf="selectedProgress.id" (click)="updateProgress()">UPDATE</button>
-<button (click)="createProgress()">CREATE</button>
-<button *ngIf="selectedProgress.id" (click)="deleteProgress()">DELETE</button>
-`
+Date <input [(ngModel)]="selectedStandup.date"><br/>
+<button *ngIf="selectedStandup.id" (click)="updateStandup()">UPDATE</button>
+<button (click)="createStandup()">CREATE</button>
+<button *ngIf="selectedStandup.id" (click)="deleteStandup()">DELETE</button>
+`,
+  styles: [],
 })
 
 
 export class StandupComponent {
-  title = 'StandApp';
-  progresses;
-  selectedProgress = {accomplished: '', working_on: '', blocker: ''};
-  // = [{accomplished: 'test', working_on: 'test', blocker: 'test'}];
+  title: 'Stand Ups';
+  standups;
+  selectedStandup = {date: ''};
 
   constructor(private api: ApiService) {
-    this.getProgresses();
+    this.getStandups();
   }
-  getProgresses = () => {
-    this.api.getAllProgresses().subscribe(
+  getStandups = () => {
+    this.api.getAllStandups().subscribe(
       data => {
-        this.progresses = data;
+        this.standups = data;
       },
       error => {
         console.log(error);
@@ -56,12 +45,12 @@ export class StandupComponent {
     );
   };
 
-  progressClicked = (progress) => {
-    console.log(progress.id);
-    this.api.getOneProgress(progress.id).subscribe(
+  standupClicked = (standup) => {
+    console.log(standup.id);
+    this.api.getOneStandup(standup.id).subscribe(
       data => {
         console.log(data);
-        this.selectedProgress = data;
+        this.selectedStandup = data;
       },
       error => {
         console.log(error);
@@ -69,10 +58,10 @@ export class StandupComponent {
     );
   };
 
-  updateProgress() {
-    this.api.updateProgress(this.selectedProgress).subscribe(
+  updateStandup() {
+    this.api.updateStandup(this.selectedStandup).subscribe(
       data => {
-        this.getProgresses();
+        this.getStandups();
       },
       error => {
         console.log(error);
@@ -80,10 +69,10 @@ export class StandupComponent {
     );
   }
 
-  createProgress() {
-    this.api.createProgress(this.selectedProgress).subscribe(
+  createStandup() {
+    this.api.createStandup(this.selectedStandup).subscribe(
       data => {
-        this.getProgresses();
+        this.getStandups();
       },
       error => {
         console.log(error);
@@ -91,11 +80,11 @@ export class StandupComponent {
     );
   }
 
-  deleteProgress() {
-    if(confirm('Are you sure to delete this progress?')) {
-      this.api.deleteProgress(this.selectedProgress).subscribe(
+  deleteStandup() {
+    if(confirm('Are you sure to delete this Stand Up?')) {
+      this.api.deleteStandup(this.selectedStandup).subscribe(
         data => {
-          this.getProgresses();
+          this.getStandups();
         },
         error => {
           console.log(error);

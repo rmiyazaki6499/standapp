@@ -10,6 +10,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { StandupComponent } from './components/standup/standup.component';
+import { ProgressComponent } from './components/progress/progress.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { StandupComponent } from './components/standup/standup.component';
     HeaderComponent,
     FooterComponent,
     ContactComponent,
-    StandupComponent
+    StandupComponent,
+    ProgressComponent
   ],
   imports: [
     BrowserModule,

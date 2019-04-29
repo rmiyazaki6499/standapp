@@ -22,6 +22,7 @@ from standapp_be.app import views
 router = routers.DefaultRouter()
 # router.register(r'app', views.AppViewSet)
 router.register(r'progress', views.ProgressViewSet)
+router.register(r'standup', views.StandupViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.

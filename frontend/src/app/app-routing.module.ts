@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component'
 import { ContactComponent } from './components/contact/contact.component'
 import { StandupComponent } from './components/standup/standup.component'
-
+import { ProgressComponent } from './components/progress/progress.component'
 
 const routes: Routes = [
   {
@@ -12,8 +12,12 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'standup',
+    path: 'standups',
     component: StandupComponent
+  },
+  {
+    path: 'progress',
+    component: ProgressComponent
   },
   {
     path: 'contact',

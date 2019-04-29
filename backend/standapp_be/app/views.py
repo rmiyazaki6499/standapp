@@ -22,3 +22,12 @@ class ProgressViewSet(viewsets.ModelViewSet):
         progresses = Progress.objects.all()
         serializer = ProgressMiniSerializer(progresses, many=True)
         return Response(serializer.data)
+
+class StandupViewSet(viewsets.ModelViewSet):
+    queryset = Standup.objects.all()
+    serializer_class = StandupSerializer
+
+    def list(self, request, *args, **kwargs):
+        standup = Standup.objects.all()
+        serializer = StandupSerializer(standup, many=True)
+        return Response(serializer.data)
