@@ -4,24 +4,33 @@ import { ApiService } from '../../api.service';
 @Component({
   selector: 'app-progress',
   template: `
-  <div style="text-align:center">
+<div style="text-align:center">
   <h1>{{ title }}!
-</h1>
+  <h2>List of Progress Accomplishments:</h2>
+  </h1>
 </div>
-<h2>List of Progress Accomplishments:</h2>
-<ul>
-  <li *ngFor="let progress of progresses">
-<!--    <h2>id: {{ progress.id }}</h2>-->
-    <div (click)="progressClicked(progress)">
+
+<section class="section">
+<div class="container">
+<div class="columns is-multiline">
+
+  <div class="column is-4" *ngFor="let progress of progresses">
+    <div class="card">
+      <div class="card-content">
+  <!--    <h2>id: {{ progress.id }}</h2>-->
+        <div (click)="progressClicked(progress)">
       <h2>Accomplished: {{ progress.accomplished }}</h2>
       <h2>Working On: {{ progress.working_on }}</h2>
       <h2>Blockers: {{ progress.blocker }}</h2>
   <!--    <h2>User: {{ progress.user }}</h2>-->
   <!--    <h2>Standup: {{ progress.standup }}</h2>-->
+      </div>
     </div>
-  </li>
-</ul>
-
+    </div>
+  </div>
+</div>
+</div>
+</section>
 
 <hr>
 Accomplished <input [(ngModel)]="selectedProgress.accomplished"><br/>
