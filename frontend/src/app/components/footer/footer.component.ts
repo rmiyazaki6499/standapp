@@ -4,13 +4,13 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-footer',
   template: `
     <footer class="footer">
-    <div class="container">
-    <div class="content has-text-centered">
-      <p>
-        Made by Draychee
-      </p>
-    </div>
-    </div>
+      <div class="container">
+        <div class="content has-text-centered">
+          <p>
+           Made by Draychee
+          </p>
+        </div>
+      </div>
     </footer>
   `,
   styles: []
