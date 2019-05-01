@@ -20,7 +20,7 @@ class ProgressViewSet(viewsets.ModelViewSet):
 
     def list(self, request, *args, **kwargs):
         progresses = Progress.objects.all()
-        serializer = ProgressMiniSerializer(progresses, many=True)
+        serializer = ProgressSerializer(progresses, many=True)
         return Response(serializer.data)
 
 class StandupViewSet(viewsets.ModelViewSet):
