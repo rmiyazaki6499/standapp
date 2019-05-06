@@ -8,13 +8,6 @@ class ProgressSerializer(serializers.ModelSerializer):
         model = Progress
         fields = ('id', 'user', 'accomplished', 'working_on', 'blocker', 'standup')
 
-
-class ProgressMiniSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Progress
-        fields = ('id', 'accomplished', 'working_on', 'blocker')
-
-
 class StandupSerializer(serializers.ModelSerializer):
     class Meta:
         model = Standup

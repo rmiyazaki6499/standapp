@@ -36,4 +36,28 @@ export class ApiService {
       return this.http.delete(this.baseurl + '/progress/' + progress.id + '/',
       {headers: this.httpHeaders});
   }
+  getAllStandups(): Observable<any> {
+    return this.http.get(this.baseurl + '/standup/',
+    {headers: this.httpHeaders});
+  }
+
+  getOneStandup(id): Observable<any> {
+    return this.http.get(this.baseurl + '/standup/' + id + '/',
+    {headers: this.httpHeaders});
+  }
+
+  updateStandup(standup) {
+    return this.http.put(this.baseurl + '/standup/' + standup.id + '/', standup,
+      {headers: this.httpHeaders});
+  }
+
+  createStandup(standup) {
+    return this.http.post(this.baseurl + '/standup/', standup,
+      {headers: this.httpHeaders});
+  }
+
+  deleteStandup(standup) {
+      return this.http.delete(this.baseurl + '/standup/' + standup.id + '/',
+      {headers: this.httpHeaders});
+  }
 }

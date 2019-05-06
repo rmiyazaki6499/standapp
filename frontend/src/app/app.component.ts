@@ -4,9 +4,10 @@ import { ApiService } from './api.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  providers: [ApiService]
+  providers: [ApiService],
+styles: []
 })
+
 export class AppComponent {
   title = 'StandApp';
   progresses;
@@ -75,3 +76,5 @@ export class AppComponent {
     }
   }
 }
+
+
