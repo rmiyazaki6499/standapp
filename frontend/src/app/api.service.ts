@@ -17,6 +17,11 @@ export class ApiService {
     {headers: this.httpHeaders});
   }
 
+  getStandupDetail(standupId): Observable<any> {
+    return this.http.get(this.baseurl + '/standup/?standupId=' + standupId,
+    {headers: this.httpHeaders});
+  }
+
   getOneProgress(id): Observable<any> {
     return this.http.get(this.baseurl + '/progress/' + id + '/',
     {headers: this.httpHeaders});
@@ -37,27 +42,27 @@ export class ApiService {
       {headers: this.httpHeaders});
   }
   getAllStandups(): Observable<any> {
-    return this.http.get(this.baseurl + '/standup/',
+    return this.http.get(this.baseurl + '/standups/',
     {headers: this.httpHeaders});
   }
 
   getOneStandup(id): Observable<any> {
-    return this.http.get(this.baseurl + '/standup/' + id + '/',
+    return this.http.get(this.baseurl + '/standups/' + id + '/',
     {headers: this.httpHeaders});
   }
 
   updateStandup(standup) {
-    return this.http.put(this.baseurl + '/standup/' + standup.id + '/', standup,
+    return this.http.put(this.baseurl + '/standups/' + standup.id + '/', standup,
       {headers: this.httpHeaders});
   }
 
   createStandup(standup) {
-    return this.http.post(this.baseurl + '/standup/', standup,
+    return this.http.post(this.baseurl + '/standups/', standup,
       {headers: this.httpHeaders});
   }
 
   deleteStandup(standup) {
-      return this.http.delete(this.baseurl + '/standup/' + standup.id + '/',
+      return this.http.delete(this.baseurl + '/standups/' + standup.id + '/',
       {headers: this.httpHeaders});
   }
 }
