@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../../api.service';
+import { StandupService } from '../../services/standup.service';
 
 @Component({
   selector: 'app-standup',
@@ -13,7 +13,7 @@ export class StandupComponent {
   standups;
   selectedStandup = {date: ''};
 
-  constructor(private api: ApiService) {
+  constructor(private api: StandupService) {
     this.getStandups();
   }
   getStandups = () => {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../../api.service';
+import { ProgressService } from '../../services/progress.service';
 
 @Component({
   selector: 'app-progress',
@@ -11,9 +11,8 @@ import { ApiService } from '../../api.service';
 export class ProgressComponent {
   progresses;
   selectedProgress = {accomplished: '', working_on: '', blocker: ''};
-  // = [{accomplished: 'test', working_on: 'test', blocker: 'test'}];
 
-  constructor(private api: ApiService) {
+  constructor(private api: ProgressService) {
     this.getProgresses();
   }
   getProgresses = () => {

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ApiService } from '../../api.service';
+import { StandupDetailService } from '../../services/standup-detail.service';
+import { ProgressService } from '../../services/progress.service';
+
 
 
 @Component({
@@ -11,10 +13,12 @@ import { ApiService } from '../../api.service';
 export class StandupDetailComponent implements OnInit {
   standupId;
   progresses;
+  selectedProgress;
 
   constructor(
         private readonly route: ActivatedRoute,
-        private api: ApiService
+        private standupDetailService: StandupDetailService,
+        private progressService: ProgressService
   ) { }
 
   ngOnInit() {
@@ -26,7 +30,7 @@ export class StandupDetailComponent implements OnInit {
   }
 
   getStandupDetail = (standupId) => {
-    this.api.getStandupDetail(standupId).subscribe(
+    this.standupDetailService.getStandupDetail(standupId).subscribe(
       data => {
         this.progresses = data;
       },
@@ -35,5 +39,16 @@ export class StandupDetailComponent implements OnInit {
       }
     );
   };
+  getProgress = (progressId) => {
+    this.progressService.getOneProgress(progressId).subscribe(
+      data => {
+        this.selectedProgress = data;
+        console.log(this.selectedProgress);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
 
 }

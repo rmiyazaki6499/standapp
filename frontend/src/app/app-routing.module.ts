@@ -6,6 +6,7 @@ import { StandupComponent } from './components/standup/standup.component';
 import { ProgressComponent } from './components/progress/progress.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { StandupDetailComponent } from './components/standup-detail/standup-detail.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   {
@@ -26,12 +27,12 @@ const routes: Routes = [
     component: StandupDetailComponent
   },
   {
-    path: 'progress',
-    component: ProgressComponent
-  },
-  {
     path: 'contact',
     component: ContactComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
 ];
 
