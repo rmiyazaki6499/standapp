@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ApiService } from '../../api.service';
+import { StandupDetailService } from '../../services/standup-detail.service';
 
 
 @Component({
@@ -14,7 +14,7 @@ export class StandupDetailComponent implements OnInit {
 
   constructor(
         private readonly route: ActivatedRoute,
-        private api: ApiService
+        private api: StandupDetailService
   ) { }
 
   ngOnInit() {

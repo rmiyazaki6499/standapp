@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ApiService {
+export class ProgressService {
 
   baseurl = 'http://127.0.0.1:8000';
   httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
@@ -14,11 +14,6 @@ export class ApiService {
 
   getAllProgresses(): Observable<any> {
     return this.http.get(this.baseurl + '/progress/',
-    {headers: this.httpHeaders});
-  }
-
-  getStandupDetail(standupId): Observable<any> {
-    return this.http.get(this.baseurl + '/standup/?standupId=' + standupId,
     {headers: this.httpHeaders});
   }
 
@@ -39,30 +34,6 @@ export class ApiService {
 
   deleteProgress(progress) {
       return this.http.delete(this.baseurl + '/progress/' + progress.id + '/',
-      {headers: this.httpHeaders});
-  }
-  getAllStandups(): Observable<any> {
-    return this.http.get(this.baseurl + '/standups/',
-    {headers: this.httpHeaders});
-  }
-
-  getOneStandup(id): Observable<any> {
-    return this.http.get(this.baseurl + '/standups/' + id + '/',
-    {headers: this.httpHeaders});
-  }
-
-  updateStandup(standup) {
-    return this.http.put(this.baseurl + '/standups/' + standup.id + '/', standup,
-      {headers: this.httpHeaders});
-  }
-
-  createStandup(standup) {
-    return this.http.post(this.baseurl + '/standups/', standup,
-      {headers: this.httpHeaders});
-  }
-
-  deleteStandup(standup) {
-      return this.http.delete(this.baseurl + '/standups/' + standup.id + '/',
       {headers: this.httpHeaders});
   }
 }
