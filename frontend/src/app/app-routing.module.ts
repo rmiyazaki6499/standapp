@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './components/home/home.component'
-import { AboutComponent } from './components/about/about.component'
-import { StandupComponent } from './components/standup/standup.component'
-import { ProgressComponent } from './components/progress/progress.component'
-import { ContactComponent } from './components/contact/contact.component'
+import { HomeComponent } from './components/home/home.component';
+import { AboutComponent } from './components/about/about.component';
+import { StandupComponent } from './components/standup/standup.component';
+import { ProgressComponent } from './components/progress/progress.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { StandupDetailComponent } from './components/standup-detail/standup-detail.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path: 'standups',
     component: StandupComponent
+  },
+  {
+    path: 'standup/:standupId',
+    component: StandupDetailComponent
   },
   {
     path: 'progress',
