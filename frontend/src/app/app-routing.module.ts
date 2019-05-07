@@ -27,10 +27,6 @@ const routes: Routes = [
     component: StandupDetailComponent
   },
   {
-    path: 'progress',
-    component: ProgressComponent
-  },
-  {
     path: 'contact',
     component: ContactComponent
   },

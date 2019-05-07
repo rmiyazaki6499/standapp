@@ -14,7 +14,7 @@ class Progress(models.Model):
         return self.accomplished
 
 class Standup(models.Model):
-    date = models.DateTimeField('date of standup')
+    date = models.DateTimeField('%Y-%d-%b')
     def __str__(self):
         return self.date.strftime("%Y-%d-%b")
 
