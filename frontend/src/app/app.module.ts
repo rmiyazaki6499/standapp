@@ -14,6 +14,7 @@ import { ProgressComponent } from './components/progress/progress.component';
 import { AboutComponent } from './components/about/about.component';
 import { StandupDetailComponent } from './components/standup-detail/standup-detail.component';
 import { LoginComponent } from './components/login/login.component';
+import { ProgressDetailComponent } from './components/progress-detail/progress-detail.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { LoginComponent } from './components/login/login.component';
     AboutComponent,
     StandupDetailComponent,
     LoginComponent,
+    ProgressDetailComponent,
   ],
   imports: [
     BrowserModule,

@@ -17,7 +17,7 @@ export class ProgressService {
     {headers: this.httpHeaders});
   }
 
-  getOneProgress(id): Observable<any> {
+getOneProgress(id): Observable<any> {
     return this.http.get(this.baseurl + '/progress/' + id + '/',
     {headers: this.httpHeaders});
   }

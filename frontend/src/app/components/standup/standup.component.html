@@ -1,31 +1,30 @@
-
 <section class="hero is-info">
   <div style="text-align:center">
-  <h1>{{ title }}</h1>
-<h2>List of Stand Ups:</h2>
-</div>
+    <h1>{{ title }}</h1>
+    <h2>List of Stand Ups:</h2>
+  </div>
 
-<div class="container">
-<div class="columns is-multiline">
+  <div class="container">
+    <div class="columns is-multiline">
 
-<div class="column is-4" *ngFor="let standup of standups">
-    <a routerLink="../standup/{{ standup.id }}">
-      <div class="card">
-        <div class="card-content">
-          <div (click)="standupClicked(standup)">
-            {{ standup.date }}
+      <div class="column is-4" *ngFor="let standup of standups">
+        <a routerLink="../standup/{{ standup.id }}">
+          <div class="card">
+            <div class="card-content">
+              <div (click)="standupClicked(standup)">
+                {{ standup.date }}
+              </div>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
-    </a>
-</div>
 
-</div>
-</div>
+    </div>
+  </div>
 
-<hr>
-Date <input [(ngModel)]="selectedStandup.date"><br/>
-<button class="button is-danger is-large" *ngIf="selectedStandup.id" (click)="updateStandup()">Update</button>
-<button class="button is-danger is-large" (click)="createStandup()">Create</button>
-<button class="button is-danger is-large" *ngIf="selectedStandup.id" (click)="deleteStandup()">Delete</button>
+  <hr>
+  Date <input [(ngModel)]="selectedStandup.date"><br />
+  <button class="button is-danger is-large" *ngIf="selectedStandup.id" (click)="updateStandup()">Update</button>
+  <button class="button is-danger is-large" (click)="createStandup()">Create</button>
+  <button class="button is-danger is-large" *ngIf="selectedStandup.id" (click)="deleteStandup()">Delete</button>
 </section>
