@@ -10,7 +10,7 @@
         <!-- name -->
         <div class="field">
           <input type="text" name="name" class="input" placeholder="Your Name" [(ngModel)]="name" required minlength="3"
-            #nameInput="ngModel">
+                 #nameInput="ngModel">
 
           <div class="help is-error" *ngIf="nameInput.invalid && nameInput.dirty">
             Name is required and needs to be at least 3 characters long.
@@ -20,7 +20,7 @@
         <!-- email -->
         <div class="field">
           <input type="email" name="email" class="input" placeholder="Your Email" [(ngModel)]="email" required email
-            #emailInput="ngModel">
+                 #emailInput="ngModel">
 
           <div class="help is-error" *ngIf="emailInput.invalid && emailInput.dirty">
             Needs to be a valid email.
@@ -30,7 +30,7 @@
         <!-- message -->
         <div class="field">
           <textarea class="textarea" name="message" placeholder="What's on your mind?" [(ngModel)]="message" required
-            #messageInput="ngModel"></textarea>
+                    #messageInput="ngModel"></textarea>
 
           <div class="help is-error" *ngIf="emailInput.invalid && emailInput.dirty">
             Your message is required!
