@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ProgressService } from '../../services/progress.service';
+import {Component, OnInit} from '@angular/core';
+import {ProgressService} from '../../services/progress.service';
 
 @Component({
   selector: 'app-progress',
@@ -12,11 +12,12 @@ export class ProgressComponent {
   progresses;
   selectedProgress = {accomplished: '', working_on: '', blocker: ''};
 
-  constructor(private api: ProgressService) {
+  constructor(private progressService: ProgressService) {
     this.getProgresses();
   }
+
   getProgresses = () => {
-    this.api.getAllProgresses().subscribe(
+    this.progressService.getAllProgresses().subscribe(
       data => {
         this.progresses = data;
       },
@@ -24,23 +25,21 @@ export class ProgressComponent {
         console.log(error);
       }
     );
-  };
+  }
 
   progressClicked = (progress) => {
-    console.log(progress.id);
-    this.api.getOneProgress(progress.id).subscribe(
+    this.progressService.getOneProgress(progress.id).subscribe(
       data => {
-        console.log(data);
         this.selectedProgress = data;
       },
       error => {
         console.log(error);
       }
     );
-  };
+  }
 
   updateProgress() {
-    this.api.updateProgress(this.selectedProgress).subscribe(
+    this.progressService.updateProgress(this.selectedProgress).subscribe(
       data => {
         this.getProgresses();
       },
@@ -51,7 +50,7 @@ export class ProgressComponent {
   }
 
   createProgress() {
-    this.api.createProgress(this.selectedProgress).subscribe(
+    this.progressService.createProgress(this.selectedProgress).subscribe(
       data => {
         this.getProgresses();
       },
@@ -62,8 +61,8 @@ export class ProgressComponent {
   }
 
   deleteProgress() {
-    if(confirm('Are you sure to delete this progress?')) {
-      this.api.deleteProgress(this.selectedProgress).subscribe(
+    if (confirm('Are you sure to delete this progress?')) {
+      this.progressService.deleteProgress(this.selectedProgress).subscribe(
         data => {
           this.getProgresses();
         },

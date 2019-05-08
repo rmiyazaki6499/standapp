@@ -17,7 +17,7 @@ export class ProgressService {
     {headers: this.httpHeaders});
   }
 
-getOneProgress(id): Observable<any> {
+  getOneProgress(id): Observable<any> {
     return this.http.get(this.baseurl + '/progress/' + id + '/',
     {headers: this.httpHeaders});
   }
@@ -35,5 +35,10 @@ getOneProgress(id): Observable<any> {
   deleteProgress(progress) {
       return this.http.delete(this.baseurl + '/progress/' + progress.id + '/',
       {headers: this.httpHeaders});
+  }
+
+  getProgressesByStandupId(standupId): Observable<any> {
+    return this.http.get(this.baseurl + '/progress/?standupId=' + standupId,
+    {headers: this.httpHeaders});
   }
 }
