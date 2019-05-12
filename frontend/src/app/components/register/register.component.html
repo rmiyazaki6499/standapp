@@ -1,0 +1,31 @@
+<section class="hero is-info">
+    <div style="text-align: center">
+        <h1 class="title">Sign Up!</h1>
+        <input [(ngModel)]="register.username" placeholder="Username" class="field">
+        <br>
+        <input [(ngModel)]="register.password1" type="password" placeholder="Password" class="field">
+        <br>
+        <input [(ngModel)]="register.password2" type="password" placeholder="Confirm Password" class="field">
+        <br>
+        <input [(ngModel)]="register.email" type="email" placeholder="Email Adress" class="field">
+        <br>
+        <button (click)="onRegister()" class="button is-danger is-large">Sign Up!</button>
+    </div>
+</section>
+
+<div class="row">
+    <div class="col s12 m7">
+        <div class="card">
+            <div class="card-image">
+                <img src="">
+                <span class="card-title">Card Title</span>
+            </div>
+            <div class="card-content">
+                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+                <a href="#">This is a link</a>
+            </div>
+        </div>
+    </div>
+</div>
