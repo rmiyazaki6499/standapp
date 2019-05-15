@@ -17,23 +17,24 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.input = {
       username: '',
+      email: '',
       passowrd: '',
     };
   }
-  onRegister() {
-    this.LoginService.registerNewUser(this.input).subscribe(
+  onLogin() {
+    this.LoginService.loginUser(this.input).subscribe(
       response => {
-        alert('User ' + this.input.username + ' created!');
+        alert('User ' + this.input.username + ' logged in!');
       },
       error => {
         console.log('error', error);
       }
     );
   }
-  onLogin() {
-    this.LoginService.loginUser(this.input).subscribe(
+  onLogout() {
+    this.LoginService.logoutUser(this.input).subscribe(
       response => {
-        alert('User ' + this.input.username + ' created!');
+        alert('User ' + this.input.username + ' logged out!');
       },
       error => {
         console.log('error', error);

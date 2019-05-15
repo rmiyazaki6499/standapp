@@ -6,7 +6,7 @@ import { StandupComponent } from './components/standup/standup.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { StandupDetailComponent } from './components/standup-detail/standup-detail.component';
 import { LoginComponent } from './components/login/login.component';
-
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
   {
@@ -33,6 +33,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   },
 ];
 
