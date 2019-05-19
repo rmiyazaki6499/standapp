@@ -1,21 +1,29 @@
-<nav class="navbar is-dark">
-
-  <!-- logo -->
+<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item">
+    <a class="navbar-item" routerLink="">
       <img src="assets/img/standapp_logo.png">
     </a>
   </div>
 
-  <!-- menu -->
   <div className="navbar-menu">
-    <div class="navbar-start">
-      <a class="navbar-item" routerLink="">Home</a>
-      <a class="navbar-item" routerLink="about">About Us</a>
-      <a class="navbar-item" routerLink="standups">Stand Ups</a>
-      <a class="navbar-item" routerLink="contact">Contact</a>
-      <a class="navbar-item" routerLink="login">Log In</a>
-      <a class="navbar-item" routerLink="register">Sign Up</a>
+    <div class="container">
+      <div class="navbar-start">
+        <a class="navbar-item" routerLink="about">About Us</a>
+        <a class="navbar-item" routerLink="standups">Stand Ups</a>
+        <a class="navbar-item" routerLink="contact">Contact</a>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button is-danger" routerLink="register">
+                <strong>Sign Up!</strong>
+              </a>
+              <a class="button is-light" routerLink="login">
+                Log In
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </nav>
