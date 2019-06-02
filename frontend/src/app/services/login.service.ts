@@ -12,10 +12,6 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
-  registerNewUser(userData): Observable<any> {
-    return this.http.post(this.baseurl + '/users/', userData);
-  }
-
   loginUser(userData): Observable<any> {
     return this.http.post(this.baseurl + '/rest-auth/login/', userData);
   }

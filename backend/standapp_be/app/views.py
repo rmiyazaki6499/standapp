@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from rest_framework import viewsets, generics
 from rest_framework.response import Response
 from rest_framework.authentication import TokenAuthentication
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from standapp_be.app.serializers import *
 from .models import Progress, Standup
@@ -10,7 +10,7 @@ from .models import Progress, Standup
 class ProgressViewSet(viewsets.ModelViewSet):
     queryset = Progress.objects.all()
     serializer_class = ProgressSerializer
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticatedOrReadOnly,)
     authentication_classes = (TokenAuthentication,)
 
     def list(self, request, *args, **kwargs):
@@ -29,7 +29,7 @@ class StandupDetailViewSet(viewsets.ModelViewSet):
     queryset = Progress.objects.all()
     serializer_class = ProgressSerializer
     filterset_fields = ('standupId')
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticatedOrReadOnly,)
     authentication_classes = (TokenAuthentication,)
 
     def list(self, request, *args, **kwargs):
@@ -55,7 +55,7 @@ class StandupDetailViewSet(viewsets.ModelViewSet):
 class StandupViewSet(viewsets.ModelViewSet):
     queryset = Standup.objects.all()
     serializer_class = StandupSerializer
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticatedOrReadOnly,)
     authentication_classes = (TokenAuthentication,)
 
     def list(self, request, *args, **kwargs):

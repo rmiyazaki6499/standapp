@@ -18,13 +18,15 @@ export class LoginComponent implements OnInit {
     this.input = {
       username: '',
       email: '',
-      passowrd: '',
+      password: '',
     };
   }
   onLogin() {
     this.LoginService.loginUser(this.input).subscribe(
       response => {
-        alert('User ' + this.input.username + ' logged in!');
+        alert('User ' + this.input.username + ' logged in!'),
+        sessionStorage.setItem('token', response.key)
+        console.log(response)
       },
       error => {
         console.log('error', error);
@@ -34,7 +36,8 @@ export class LoginComponent implements OnInit {
   onLogout() {
     this.LoginService.logoutUser(this.input).subscribe(
       response => {
-        alert('User ' + this.input.username + ' logged out!');
+        alert('User ' + this.input.username + ' logged out!'),
+        sessionStorage.removeItem('token');
       },
       error => {
         console.log('error', error);
