@@ -29,6 +29,9 @@ export class StandupDetailComponent implements OnInit {
 
    this.getStandup(this.standupId);
    this.getStandupDetail(this.standupId);
+   this.selectedProgress = {standup: this.standupId, accomplished: '', working_on: '', blocker: ''};
+
+
   }
 
   getStandup = (standupId) => {
@@ -64,4 +67,43 @@ export class StandupDetailComponent implements OnInit {
     );
   }
 
+  updateProgress() {
+    this.progressService.updateProgress(this.selectedProgress).subscribe(
+      data => {
+        this.getStandupDetail(this.standupId);
+        this.selectedProgress = data;
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  createProgress() {
+    console.log(this.selectedProgress);
+    if (this.selectedProgress.user == null) {
+      this.selectedProgress.user = 1; // TODO should be logged in user
+    }
+    this.progressService.createProgress(this.selectedProgress).subscribe(
+      data => {
+        this.getStandupDetail(this.standupId);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  deleteProgress() {
+    if (confirm('Are you sure to delete this progress?')) {
+      this.progressService.deleteProgress(this.selectedProgress).subscribe(
+        data => {
+          this.getStandupDetail(this.standupId);
+        },
+        error => {
+          console.log(error);
+        }
+      );
+    }
+  }
 }
