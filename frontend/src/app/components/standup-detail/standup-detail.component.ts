@@ -64,4 +64,39 @@ export class StandupDetailComponent implements OnInit {
     );
   }
 
+  updateProgress() {
+    this.progressService.updateProgress(this.selectedProgress).subscribe(
+      data => {
+        this.getStandupDetail(this.standupId);
+        this.selectedProgress = data;
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  createProgress() {
+    this.progressService.createProgress(this.selectedProgress).subscribe(
+      data => {
+        this.getStandupDetail(this.standupId);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  deleteProgress() {
+    if (confirm('Are you sure to delete this progress?')) {
+      this.progressService.deleteProgress(this.selectedProgress).subscribe(
+        data => {
+          this.getStandupDetail(this.standupId);
+        },
+        error => {
+          console.log(error);
+        }
+      );
+    }
+  }
 }
