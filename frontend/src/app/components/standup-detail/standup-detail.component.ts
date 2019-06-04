@@ -29,6 +29,9 @@ export class StandupDetailComponent implements OnInit {
 
    this.getStandup(this.standupId);
    this.getStandupDetail(this.standupId);
+   this.selectedProgress = {standup: this.standupId, accomplished: '', working_on: '', blocker: ''};
+
+
   }
 
   getStandup = (standupId) => {
@@ -77,6 +80,10 @@ export class StandupDetailComponent implements OnInit {
   }
 
   createProgress() {
+    console.log(this.selectedProgress);
+    if (this.selectedProgress.user == null) {
+      this.selectedProgress.user = 1; // TODO should be logged in user
+    }
     this.progressService.createProgress(this.selectedProgress).subscribe(
       data => {
         this.getStandupDetail(this.standupId);
