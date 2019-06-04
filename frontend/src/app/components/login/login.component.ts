@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
       password: '',
     };
   }
+
   onLogin() {
     this.LoginService.loginUser(this.input).subscribe(
       response => {

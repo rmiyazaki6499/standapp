@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { StandupDetailService } from '../../services/standup-detail.service';
 import { ProgressService } from '../../services/progress.service';
+import { StandupService } from '../../services/standup.service';
 
 
 
@@ -12,12 +12,13 @@ import { ProgressService } from '../../services/progress.service';
 })
 export class StandupDetailComponent implements OnInit {
   standupId;
+  standup;
   progresses;
   selectedProgress;
 
   constructor(
         private readonly route: ActivatedRoute,
-        private standupDetailService: StandupDetailService,
+        private standupService: StandupService,
         private progressService: ProgressService
   ) { }
 
@@ -26,11 +27,23 @@ export class StandupDetailComponent implements OnInit {
       this.standupId = params.get('standupId');
     });
 
+   this.getStandup(this.standupId);
    this.getStandupDetail(this.standupId);
   }
 
+  getStandup = (standupId) => {
+    this.standupService.getOneStandup(standupId).subscribe(
+      data => {
+        this.standup = data;
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
   getStandupDetail = (standupId) => {
-    this.standupDetailService.getStandupDetail(standupId).subscribe(
+    this.progressService.getProgressesByStandupId(standupId).subscribe(
       data => {
         this.progresses = data;
       },
@@ -38,12 +51,12 @@ export class StandupDetailComponent implements OnInit {
         console.log(error);
       }
     );
-  };
+  }
+
   getProgress = (progressId) => {
     this.progressService.getOneProgress(progressId).subscribe(
       data => {
         this.selectedProgress = data;
-        console.log(this.selectedProgress);
       },
       error => {
         console.log(error);

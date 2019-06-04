@@ -36,4 +36,9 @@ export class ProgressService {
       return this.http.delete(this.baseurl + '/progress/' + progress.id + '/',
       {headers: this.httpHeaders});
   }
+
+  getProgressesByStandupId(standupId): Observable<any> {
+    return this.http.get(this.baseurl + '/progress/?standupId=' + standupId,
+    {headers: this.httpHeaders});
+  }
 }

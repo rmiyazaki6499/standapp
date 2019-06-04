@@ -6,7 +6,6 @@ from standapp_be.app import views
 router = routers.DefaultRouter()
 router.register(r'progress', views.ProgressViewSet)
 router.register(r'standups', views.StandupViewSet)
-router.register(r'standup', views.StandupDetailViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

@@ -1,6 +1,11 @@
 <section class="hero is-info">
   <div style="text-align:center">
-    <h2>List of Progress Accomplishments:</h2>
+    <h2>
+      <div *ngIf="standup">
+        Standup for: {{ standup.date }}
+      </div>
+      List of Progress Accomplishments:
+    </h2>
   </div>
 
   <div class="container">

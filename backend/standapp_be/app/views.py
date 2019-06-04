@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework import viewsets, generics
+
 from rest_framework.response import Response
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
@@ -31,6 +32,7 @@ class StandupDetailViewSet(viewsets.ModelViewSet):
     filterset_fields = ('standupId')
     permission_classes = (IsAuthenticated,)
     authentication_classes = (TokenAuthentication,)
+
 
     def list(self, request, *args, **kwargs):
         standup_id = request.query_params.get('standupId', None)

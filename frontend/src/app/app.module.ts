@@ -16,6 +16,7 @@ import { StandupDetailComponent } from './components/standup-detail/standup-deta
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

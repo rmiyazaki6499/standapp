@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ApiService } from './services/api.service';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +9,7 @@ import { ApiService } from './services/api.service';
 export class AppComponent {
   title = 'StandApp';
 
-  constructor(private api: ApiService) {}
+  constructor() {
+  }
 
 }

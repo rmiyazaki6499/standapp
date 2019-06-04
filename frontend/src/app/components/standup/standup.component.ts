@@ -13,11 +13,11 @@ export class StandupComponent {
   standups;
   selectedStandup = {date: ''};
 
-  constructor(private api: StandupService) {
+  constructor(private standupService: StandupService) {
     this.getStandups();
   }
   getStandups = () => {
-    this.api.getAllStandups().subscribe(
+    this.standupService.getAllStandups().subscribe(
       data => {
         this.standups = data;
       },
@@ -25,23 +25,21 @@ export class StandupComponent {
         console.log(error);
       }
     );
-  };
+  }
 
   standupClicked = (standup) => {
-    console.log(standup.id);
-    this.api.getOneStandup(standup.id).subscribe(
+    this.standupService.getOneStandup(standup.id).subscribe(
       data => {
-        console.log(data);
         this.selectedStandup = data;
       },
       error => {
         console.log(error);
       }
     );
-  };
+  }
 
   updateStandup() {
-    this.api.updateStandup(this.selectedStandup).subscribe(
+    this.standupService.updateStandup(this.selectedStandup).subscribe(
       data => {
         this.getStandups();
       },
@@ -52,7 +50,7 @@ export class StandupComponent {
   }
 
   createStandup() {
-    this.api.createStandup(this.selectedStandup).subscribe(
+    this.standupService.createStandup(this.selectedStandup).subscribe(
       data => {
         this.getStandups();
       },
@@ -63,8 +61,8 @@ export class StandupComponent {
   }
 
   deleteStandup() {
-    if(confirm('Are you sure to delete this Stand Up?')) {
-      this.api.deleteStandup(this.selectedStandup).subscribe(
+    if (confirm('Are you sure to delete this Stand Up?')) {
+      this.standupService.deleteStandup(this.selectedStandup).subscribe(
         data => {
           this.getStandups();
         },
