@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class StandupDetailService {
 
   baseurl = 'http://127.0.0.1:8000';
-  httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
+  httpHeaders = new HttpHeaders({'Content-Type': 'application/json', "Authorization": "Token " + sessionStorage.getItem("token")});
 
   constructor(private http: HttpClient) { }
 

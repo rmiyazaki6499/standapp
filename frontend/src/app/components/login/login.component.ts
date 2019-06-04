@@ -24,9 +24,8 @@ export class LoginComponent implements OnInit {
   onLogin() {
     this.LoginService.loginUser(this.input).subscribe(
       response => {
-        alert('User ' + this.input.username + ' logged in!'),
+        alert('User ' + this.input.username + ' is logged in!'),
         sessionStorage.setItem('token', response.key)
-        console.log(response)
       },
       error => {
         console.log('error', error);
@@ -36,7 +35,7 @@ export class LoginComponent implements OnInit {
   onLogout() {
     this.LoginService.logoutUser(this.input).subscribe(
       response => {
-        alert('User ' + this.input.username + ' logged out!'),
+        alert('You are logged out!'),
         sessionStorage.removeItem('token');
       },
       error => {
