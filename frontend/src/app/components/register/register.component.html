@@ -1,0 +1,25 @@
+<form (ngSubmit)="processForm()"></form>
+<section class="hero is-info">
+    <div class="container">
+        <div style="text-align: center">
+            <h1 class="title">Sign Up!</h1>
+            <input [(ngModel)]="register.username" placeholder="Username" class="input">
+            <br>
+            <input [(ngModel)]="register.password1" type="password" placeholder="Password" class="input">
+            <br>
+            <input [(ngModel)]="register.password2" type="password" placeholder="Confirm Password" class="input">
+            <br>
+            <!-- <input [(ngModel)]="register.email" type="email" placeholder="Email Address" class="field">
+            <br> -->
+            <div class="field">
+                <input type="email" name="email" class="input" placeholder="Email Address" [(ngModel)]="register.email"
+                    required email #emailInput="ngModel">
+
+                <div class="help is-error" *ngIf="emailInput.invalid && emailInput.dirty">
+                    Needs to be a valid email.
+                </div>
+            </div>
+            <button (click)="onRegister()" class="button is-danger is-large">Sign Up!</button>
+        </div>
+    </div>
+</section>

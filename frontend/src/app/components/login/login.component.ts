@@ -4,39 +4,45 @@ import { LoginService } from '../../services/login.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
-  providers: [LoginService]
+  styleUrls: [],
+  providers: [LoginComponent]
 })
 export class LoginComponent implements OnInit {
   input;
 
-  constructor(private userService: LoginService) {
+  constructor(private LoginService: LoginService) {
 
   }
 
   ngOnInit() {
     this.input = {
       username: '',
-      password: '',
       email: '',
+      password: '',
     };
   }
 
   onLogin() {
-    this.userService.loginUser(this.input).subscribe(
+    this.LoginService.loginUser(this.input).subscribe(
       response => {
-        alert('User ' + this.input.username + ' is logged in!');
+        alert('User ' + this.input.username + ' is logged in!'),
+        sessionStorage.setItem('token', response.key)
       },
-      error => console.log(error)
+      error => {
+        console.log('error', error);
+      }
+    );
+  }
+  onLogout() {
+    this.LoginService.logoutUser(this.input).subscribe(
+      response => {
+        alert('You are logged out!'),
+        sessionStorage.removeItem('token');
+      },
+      error => {
+        console.log('error', error);
+      }
     );
   }
 
-  onRegister() {
-    this.userService.registerNewUser(this.input).subscribe(
-      response => {
-        alert('User ' + this.input.username + ' has been created!');
-      },
-      error => console.log(error)
-    );
-  }
 }
