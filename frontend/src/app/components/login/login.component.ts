@@ -26,7 +26,8 @@ export class LoginComponent implements OnInit {
     this.LoginService.loginUser(this.input).subscribe(
       response => {
         alert('User ' + this.input.username + ' is logged in!'),
-        sessionStorage.setItem('token', response.key)
+        sessionStorage.setItem('token', response.key);
+        window.location.href = "http://localhost:4200/"
       },
       error => {
         console.log('error', error);
@@ -38,6 +39,7 @@ export class LoginComponent implements OnInit {
       response => {
         alert('You are logged out!'),
         sessionStorage.removeItem('token');
+        window.location.href = "http://localhost:4200/login";
       },
       error => {
         console.log('error', error);

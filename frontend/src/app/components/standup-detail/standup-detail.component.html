@@ -1,11 +1,11 @@
 <section class="hero is-info">
   <div style="text-align:center">
-    <h2>
+    <h1>
       <div *ngIf="standup">
-        Standup for: {{ standup.date }}
+        Standup for: {{ standup.date | date: 'mediumDate'}}
       </div>
       List of Progress Accomplishments:
-    </h2>
+    </h1>
   </div>
 
   <div class="container">
@@ -24,17 +24,17 @@
 
     </div>
   </div><br />
-    <hr>
+  <hr>
   <div style='max-width: 75%'>
     <div *ngIf="!selectedProgress">
       test
     </div>
 
     <div *ngIf="selectedProgress">
-      Accomplished <input [(ngModel)]="selectedProgress.accomplished"><br />
-      Working On <input [(ngModel)]="selectedProgress.working_on"><br />
-      Blocker <input [(ngModel)]="selectedProgress.blocker"><br />
-    <button class="button is-danger is-large" (click)="createProgress()">Create New</button>
+      Accomplished <input [(ngModel)]="selectedProgress.accomplished" class="input"><br />
+      Working On <input [(ngModel)]="selectedProgress.working_on" class="input"><br />
+      Blocker <input [(ngModel)]="selectedProgress.blocker" class="input"><br />
+      <button class="button is-danger is-large" (click)="createProgress()">Create New</button>
       <button class="button is-danger is-large" *ngIf="selectedProgress.id" (click)="updateProgress()">Update</button>
       <button class="button is-danger is-large" *ngIf="selectedProgress.id" (click)="deleteProgress()">Delete</button>
     </div>

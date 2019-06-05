@@ -18,12 +18,10 @@
           </div>
         </a>
       </div>
-
     </div>
   </div>
 
   <hr>
-  Date <input [(ngModel)]="selectedStandup.date"><br />
   <button class="button is-danger is-large" *ngIf="selectedStandup.id" (click)="updateStandup()">Update</button>
   <button class="button is-danger is-large" (click)="createStandup()">Create</button>
   <button class="button is-danger is-large" *ngIf="selectedStandup.id" (click)="deleteStandup()">Delete</button>
