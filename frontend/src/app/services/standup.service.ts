@@ -27,8 +27,8 @@ export class StandupService {
       {headers: this.httpHeaders});
   }
 
-  createStandup(standup) {
-    return this.http.post(this.baseurl + '/standups/', standup,
+  createStandup(date) {
+    return this.http.post(this.baseurl + '/standups/', date,
       {headers: this.httpHeaders});
   }
 
