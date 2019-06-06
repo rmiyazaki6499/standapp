@@ -12,7 +12,6 @@ export class StandupComponent {
   title: 'Stand Ups';
   standups;
   selectedStandup = {date: ''};
-  today = new Date().toISOString();
 
   constructor(private standupService: StandupService) {
     this.getStandups();
@@ -51,7 +50,7 @@ export class StandupComponent {
   }
 
   createStandup = () => {
-    this.standupService.createStandup(this.today).subscribe(
+    this.standupService.createStandup(this.selectedStandup).subscribe(
       data => {
         this.getStandups();
       },
