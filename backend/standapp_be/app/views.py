@@ -19,7 +19,6 @@ class ProgressViewSet(viewsets.ModelViewSet):
         standup_id = request.query_params.get('standupId', None)
         progresses = Progress.objects.filter(standup=standup_id)
         serializer = ProgressSerializer(progresses, many=True)
-        print(standup_id)
         return Response(serializer.data)
 
     def get(self, request, format=None):
