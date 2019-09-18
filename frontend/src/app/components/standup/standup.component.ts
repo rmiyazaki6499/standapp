@@ -17,9 +17,11 @@ export class StandupComponent {
     this.getStandups();
   }
   getStandups = () => {
-    this.standupService.getAllStandups().subscribe(
+    const userId = 1; // Front does not have current user reference, so this is a hardcoded userId for now
+    this.standupService.getStandups(userId).subscribe(
       data => {
         this.standups = data;
+        console.log(data);
       },
       error => {
         console.log(error);
