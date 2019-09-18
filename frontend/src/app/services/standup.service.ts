@@ -12,8 +12,8 @@ export class StandupService {
 
   constructor(private http: HttpClient) { }
 
-  getAllStandups(): Observable<any> {
-    return this.http.get(this.baseurl + '/standups/',
+  getStandups(userId): Observable<any> {
+    return this.http.get(this.baseurl + '/standups/?userId=' + userId,
     {headers: this.httpHeaders});
   }
 

@@ -29,13 +29,15 @@ class ProgressViewSet(viewsets.ModelViewSet):
 
 
 class StandupViewSet(viewsets.ModelViewSet):
-    queryset = Standup.objects.all()
+    queryset = Standup.objects.all().values()
     serializer_class = StandupSerializer
+    filterset_fields = ('userId')
     permission_classes = (IsAuthenticated,)
     authentication_classes = (TokenAuthentication,)
 
     def list(self, request, *args, **kwargs):
-        standup = Standup.objects.all()
+        userId = request.query_params.get('userId', None)
+        standup = Standup.objects.filter(user=userId)
         serializer = StandupSerializer(standup, many=True)
         return Response(serializer.data)
 
