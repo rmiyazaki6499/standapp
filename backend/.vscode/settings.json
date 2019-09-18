@@ -1,3 +1,5 @@
 {
-    "python.pythonPath": "/Users/rmiyazaki/.local/share/virtualenvs/backend-Rgx-ijTu/bin/python"
+    "python.pythonPath": "/Users/andreaslorentson/.local/share/virtualenvs/backend-Xd_ivJ9C/bin/python",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
 }
