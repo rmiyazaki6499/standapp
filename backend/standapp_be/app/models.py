@@ -10,7 +10,6 @@ def create_auth_token(sender, instance=None, created=False, **kwargs):
     if created:
         Token.objects.create(user=instance)
 
-# Create your models here.
 class Progress(models.Model):
     accomplished = models.CharField(max_length=255)
     working_on = models.CharField(max_length=255)

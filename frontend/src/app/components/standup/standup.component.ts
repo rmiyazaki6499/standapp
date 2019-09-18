@@ -21,7 +21,6 @@ export class StandupComponent {
     this.standupService.getStandups(userId).subscribe(
       data => {
         this.standups = data;
-        console.log(data);
       },
       error => {
         console.log(error);
