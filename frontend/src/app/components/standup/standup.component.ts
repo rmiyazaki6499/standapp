@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StandupService } from '../../services/standup.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-standup',
@@ -10,15 +11,30 @@ import { StandupService } from '../../services/standup.service';
 
 export class StandupComponent {
   title: 'Stand Ups';
+  user;
+  userId = 1; // Front does not have current user reference, so this is a hardcoded userId for now
   standups;
   selectedStandup = {date: ''};
 
-  constructor(private standupService: StandupService) {
+  constructor(private standupService: StandupService, private userService: UserService) {
+    this.getUser();
     this.getStandups();
   }
+
+  getUser = () => { // This should probably be in a not yet created UserComponent
+    this.userService.getUser(this.userId).subscribe(
+      data => {
+        this.user = data;
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
   getStandups = () => {
-    const userId = 1; // Front does not have current user reference, so this is a hardcoded userId for now
-    this.standupService.getStandups(userId).subscribe(
+    this.standupService.getStandups(this.userId).subscribe(
       data => {
         this.standups = data;
       },
