@@ -25,7 +25,6 @@ export class StandupComponent {
     this.userService.getUser(this.userId).subscribe(
       data => {
         this.user = data;
-        console.log(data);
       },
       error => {
         console.log(error);
@@ -67,7 +66,11 @@ export class StandupComponent {
   }
 
   createStandup = () => {
-    this.standupService.createStandup(this.selectedStandup).subscribe(
+    const newStandup = {
+      user: [this.userId]
+    };
+    console.log(newStandup);
+    this.standupService.createStandup(newStandup).subscribe(
       data => {
         this.getStandups();
       },
