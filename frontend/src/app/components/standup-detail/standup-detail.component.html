@@ -30,6 +30,11 @@
       test
     </div>
 
+    <div>
+      Add User (by id) <input [(ngModel)]="newUserId" class="input"><br />
+      <button class="button is-danger is-large" (click)="addUserToStandup()">Add User</button>
+    </div>
+
     <div *ngIf="selectedProgress">
       Accomplished <input [(ngModel)]="selectedProgress.accomplished" class="input"><br />
       Working On <input [(ngModel)]="selectedProgress.working_on" class="input"><br />
