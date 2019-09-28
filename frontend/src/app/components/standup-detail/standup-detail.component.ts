@@ -15,6 +15,7 @@ export class StandupDetailComponent implements OnInit {
   standup;
   progresses;
   selectedProgress;
+  newUserId;
 
   constructor(
         private readonly route: ActivatedRoute,
@@ -54,6 +55,19 @@ export class StandupDetailComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  addUserToStandup = (newUserId) => {
+    this.standup.user.push(this.newUserId);
+    this.standupService.updateStandup(this.standup).subscribe(
+      data => {
+        this.standup = data;
+      },
+      error => {
+        console.log(error);
+      }
+    );
+    this.newUserId = null;
   }
 
   getProgress = (progressId) => {
