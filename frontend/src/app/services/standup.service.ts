@@ -12,8 +12,8 @@ export class StandupService {
 
   constructor(private http: HttpClient) { }
 
-  getStandups(userId): Observable<any> {
-    return this.http.get(this.baseurl + '/standups/?userId=' + userId,
+  getStandups(): Observable<any> {
+    return this.http.get(this.baseurl + '/standups/',
     {headers: this.httpHeaders});
   }
 
@@ -27,8 +27,8 @@ export class StandupService {
       {headers: this.httpHeaders});
   }
 
-  createStandup(date) {
-    return this.http.post(this.baseurl + '/standups/', date,
+  createStandup(standup) {
+    return this.http.post(this.baseurl + '/standups/', standup,
       {headers: this.httpHeaders});
   }
 

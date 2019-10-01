@@ -13,7 +13,6 @@ import { UserService } from '../../services/user.service';
 export class StandupComponent {
   title: 'Stand Ups';
   username;
-  userId = {id: ''};
   standups;
   selectedStandup = {date: ''};
 
@@ -23,7 +22,7 @@ export class StandupComponent {
   }
 
   getStandups = () => {
-    this.standupService.getStandups(this.userId).subscribe(
+    this.standupService.getStandups().subscribe(
       data => {
         this.standups = data;
       },
@@ -56,11 +55,7 @@ export class StandupComponent {
   }
 
   createStandup = () => {
-    const newStandup = {
-      user: [this.userId]
-    };
-    console.log(newStandup);
-    this.standupService.createStandup(newStandup).subscribe(
+    this.standupService.createStandup({}).subscribe(
       data => {
         this.getStandups();
       },
@@ -84,7 +79,7 @@ export class StandupComponent {
   }
 
   getUsername() {
-    this.username = this.userService.getUsername()
+    this.username = this.userService.getUsername();
   }
 
 }
