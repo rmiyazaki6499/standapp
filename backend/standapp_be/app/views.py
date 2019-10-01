@@ -56,10 +56,8 @@ class UserViewSet(viewsets.ModelViewSet):
 
     def list(self, request, *args, **kwargs):
         userId = request.query_params.get('userId', None)
-        # if userId is None:
-        #     userId = 1
-        user = User.objects.filter(id=userId)
-        serializer = UserSerializer(user, many=True)
+        user = request.user
+        serializer = UserSerializer(user, many=False)
         return Response(serializer.data)
 
     def get(self, request, format=None):

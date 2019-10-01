@@ -29,7 +29,7 @@ import { RegisterComponent } from './components/register/register.component';
     AboutComponent,
     StandupDetailComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

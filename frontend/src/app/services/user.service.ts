@@ -12,9 +12,7 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  getUser(userId): Observable<any> {
-    return this.http.get(this.baseurl + '/user/' + userId,
-    {headers: this.httpHeaders});
-
+  getUsername(): string {
+    return sessionStorage.getItem('username');
   }
 }
