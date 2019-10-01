@@ -57,7 +57,7 @@ export class StandupDetailComponent implements OnInit {
     );
   }
 
-  addUserToStandup = (newUserId) => {
+  addUserToStandup = () => {
     this.standup.user.push(this.newUserId);
     this.standupService.updateStandup(this.standup).subscribe(
       data => {

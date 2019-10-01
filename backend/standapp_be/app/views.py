@@ -35,7 +35,7 @@ class StandupViewSet(viewsets.ModelViewSet):
     authentication_classes = (TokenAuthentication,)
 
     def list(self, request, *args, **kwargs):
-        userId = request.query_params.get('userId', None)
+        userId = request.user.id
         standup = Standup.objects.filter(user=userId)
         serializer = StandupSerializer(standup, many=True)
         return Response(serializer.data)
@@ -46,6 +46,12 @@ class StandupViewSet(viewsets.ModelViewSet):
         }
         return Response(content)
 
+    def create(self, request):
+        standup = Standup()
+        standup.save()
+        standup.user.add(request.user)
+        serializer = StandupSerializer(standup)
+        return Response(serializer.data)
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
@@ -55,8 +61,8 @@ class UserViewSet(viewsets.ModelViewSet):
     authentication_classes = (TokenAuthentication,)
 
     def list(self, request, *args, **kwargs):
-        userId = request.query_params.get('userId', None)
-        user = request.user
+        # userId = request.query_params.get('userId', None)
+        userId = request.user.id
         serializer = UserSerializer(user, many=False)
         return Response(serializer.data)
 
