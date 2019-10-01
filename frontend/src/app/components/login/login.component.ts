@@ -9,6 +9,7 @@ import { LoginService } from '../../services/login.service';
 })
 export class LoginComponent implements OnInit {
   input;
+  user;
 
   constructor(private LoginService: LoginService) {
 
@@ -27,6 +28,7 @@ export class LoginComponent implements OnInit {
       response => {
         alert('User ' + this.input.username + ' is logged in!'),
         sessionStorage.setItem('token', response.key);
+        sessionStorage.setItem('username', this.input.username);
         console.log(response);
         window.location.href = '/';
       },
@@ -35,6 +37,7 @@ export class LoginComponent implements OnInit {
       }
     );
   }
+
   onLogout() {
     this.LoginService.logoutUser(this.input).subscribe(
       response => {
@@ -47,5 +50,4 @@ export class LoginComponent implements OnInit {
       }
     );
   }
-
 }
