@@ -15,7 +15,6 @@ import { AboutComponent } from './components/about/about.component';
 import { StandupDetailComponent } from './components/standup-detail/standup-detail.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { UserComponent } from './components/user/user.component';
 
 
 @NgModule({
@@ -31,7 +30,6 @@ import { UserComponent } from './components/user/user.component';
     StandupDetailComponent,
     LoginComponent,
     RegisterComponent,
-    UserComponent
   ],
   imports: [
     BrowserModule,

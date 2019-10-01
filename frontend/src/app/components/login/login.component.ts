@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
       response => {
         alert('You are logged out!'),
         sessionStorage.removeItem('token');
+        sessionStorage.removeItem('username');
         window.location.href = '/login';
       },
       error => {
