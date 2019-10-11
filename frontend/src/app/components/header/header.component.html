@@ -11,9 +11,11 @@
         <a class="navbar-item" routerLink="about">About Us</a>
         <a class="navbar-item" routerLink="standups">Stand Ups</a>
         <a class="navbar-item" routerLink="contact">Contact</a>
+
         <div class="navbar-end">
+
           <div class="navbar-item">
-            <div class="buttons">
+            <div *ngIf="!loggedIn">
               <a class="button is-danger" routerLink="register">
                 <strong>Sign Up!</strong>
               </a>
@@ -21,7 +23,16 @@
                 Sign In!
               </a>
             </div>
+
+            <div *ngIf="loggedIn">
+                <span>
+                  Welcome {{userService.getUsername()}}!
+                </span>
+              <button id="logoutButton" (click)="loginService.logoutUser()" class="button is-danger">Log Out!</button>
+            </div>
+
           </div>
+
         </div>
       </div>
     </div>
