@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../services/login.service';
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -31,20 +30,6 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem('username', this.input.username);
         console.log(response);
         window.location.href = '/';
-      },
-      error => {
-        console.log('error', error);
-      }
-    );
-  }
-
-  onLogout() {
-    this.LoginService.logoutUser(this.input).subscribe(
-      response => {
-        alert('You are logged out!'),
-        sessionStorage.removeItem('token');
-        sessionStorage.removeItem('username');
-        window.location.href = '/login';
       },
       error => {
         console.log('error', error);

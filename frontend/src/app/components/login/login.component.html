@@ -1,17 +1,18 @@
 <section class="hero is-info">
   <div class="container">
     <div style="text-align: center">
-
       <h1 class="title">Log In!</h1>
-      <input [(ngModel)]="input.username" placeholder="Username" class="input">
+      <form>
+        <div style="padding: 0% 25%;">
+          <input [(ngModel)]="input.username" name="username" placeholder="Username" class="input">
+          <br>
+          <input [(ngModel)]="input.password" name="password" type="password" placeholder="Password" class="input">
+          <br>
+        </div>
+        <br>
+        <button id="login" (click)="onLogin()" class="button is-danger is-large">Log In!</button>
+      </form>
       <br>
-      <input [(ngModel)]="input.password" type="password" placeholder="Password" class="input">
-      <br>
-    </div>
-    <br>
-    <div style="text-align: center">
-      <button id="login" (click)="onLogin()" class="button is-danger is-large">Log In!</button>
-      <button (click)="onLogout()" class="button is-danger is-large">Log Out!</button>
     </div>
   </div>
 </section>
