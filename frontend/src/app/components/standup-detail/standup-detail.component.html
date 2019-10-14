@@ -34,17 +34,23 @@
     </div>
 
     <div>
-      Add User (by Username) <input [(ngModel)]="newUsername" class="input"><br />
-      <button class="button is-danger is-large" (click)="addUserToStandup()">Add User</button>
+      <form>
+        Add User (by Username) <input [(ngModel)]="newUsername" name="addUserTitle" class="input"><br />
+        <button class="button is-danger is-large" name="addUser" (click)="addUserToStandup()">Add User</button>
+      </form>
     </div>
 
     <div *ngIf="selectedProgress">
-      Accomplished <input [(ngModel)]="selectedProgress.accomplished" class="input"><br />
-      Working On <input [(ngModel)]="selectedProgress.working_on" class="input"><br />
-      Blocker <input [(ngModel)]="selectedProgress.blocker" class="input"><br />
-      <button class="button is-danger is-large" (click)="createProgress()">Create New</button>
-      <button class="button is-danger is-large" *ngIf="selectedProgress.id" (click)="updateProgress()">Update</button>
-      <button class="button is-danger is-large" *ngIf="selectedProgress.id" (click)="deleteProgress()">Delete</button>
+      <form>
+        Accomplished <input [(ngModel)]="selectedProgress.accomplished" name="accomplised" class="input"><br />
+        Working On <input [(ngModel)]="selectedProgress.working_on" name="workingOn" class="input"><br />
+        Blocker <input [(ngModel)]="selectedProgress.blocker" name="blocker" class="input"><br />
+        <button class="button is-danger is-large" name="createNew" (click)="createProgress()">Create New</button>
+        <button class="button is-danger is-large" name="update" *ngIf="selectedProgress.id"
+          (click)="updateProgress()">Update</button>
+        <button class="button is-danger is-large" name="delete" *ngIf="selectedProgress.id"
+          (click)="deleteProgress()">Delete</button>
+      </form>
     </div>
   </div>
 </section>
