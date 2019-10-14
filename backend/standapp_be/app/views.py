@@ -56,13 +56,12 @@ class StandupViewSet(viewsets.ModelViewSet):
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    filterset_fields = ('userId')
     permission_classes = (IsAuthenticated,)
     authentication_classes = (TokenAuthentication,)
 
     def list(self, request, *args, **kwargs):
-        # userId = request.query_params.get('userId', None)
-        userId = request.user.id
+        username = request.query_params.get('username', None)
+        user = User.objects.get(username=username)
         serializer = UserSerializer(user, many=False)
         return Response(serializer.data)
 

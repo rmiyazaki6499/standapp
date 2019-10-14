@@ -1,5 +1,8 @@
 <section class="hero is-info">
   <div style="text-align:center">
+    <div *ngIf="message" class="hero is-danger">
+      {{ message }}
+    </div>
     <h1>
       <div *ngIf="standup">
         Standup for: {{ standup.date | date: 'mediumDate'}}
@@ -31,7 +34,7 @@
     </div>
 
     <div>
-      Add User (by id) <input [(ngModel)]="newUserId" class="input"><br />
+      Add User (by Username) <input [(ngModel)]="newUsername" class="input"><br />
       <button class="button is-danger is-large" (click)="addUserToStandup()">Add User</button>
     </div>
 

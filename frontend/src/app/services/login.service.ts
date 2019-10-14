@@ -12,8 +12,7 @@ export class LoginService {
 
   baseurl = 'http://127.0.0.1:8000';
 
-  isLogedin(): boolean {
-    console.log(sessionStorage.getItem('token'));
+  isLoggedin(): boolean {
     return sessionStorage.getItem('token') !== null;
   }
 

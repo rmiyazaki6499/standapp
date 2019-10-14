@@ -13,12 +13,13 @@ import { UserService } from '../../services/user.service';
 export class StandupComponent {
   title: 'Stand Ups';
   username;
+  currentUsername;
   standups;
   selectedStandup = {date: ''};
 
   constructor(private standupService: StandupService, private userService: UserService) {
     this.getStandups();
-    this.getUsername();
+    this.getCurrentUsername();
   }
 
   getStandups = () => {
@@ -78,8 +79,7 @@ export class StandupComponent {
     }
   }
 
-  getUsername() {
-    this.username = this.userService.getUsername();
+  getCurrentUsername() {
+    this.currentUsername = this.userService.getUsername();
   }
-
 }
