@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
         alert('User ' + this.input.username + ' is logged in!'),
         sessionStorage.setItem('token', response.key);
         sessionStorage.setItem('username', this.input.username);
-        console.log(response);
         window.location.href = '/';
       },
       error => {

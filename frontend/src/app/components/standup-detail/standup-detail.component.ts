@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProgressService } from '../../services/progress.service';
 import { StandupService } from '../../services/standup.service';
-
+import { UserService } from '../../services/user.service';
 
 
 @Component({
@@ -15,22 +15,25 @@ export class StandupDetailComponent implements OnInit {
   standup;
   progresses;
   selectedProgress;
-  newUserId;
+  newUsername;
+  newUser;
+  message;
 
   constructor(
-        private readonly route: ActivatedRoute,
-        private standupService: StandupService,
-        private progressService: ProgressService
+    private readonly route: ActivatedRoute,
+    private standupService: StandupService,
+    private progressService: ProgressService,
+    private userService: UserService
   ) { }
 
   ngOnInit() {
-   this.route.paramMap.subscribe(params => {
+    this.route.paramMap.subscribe(params => {
       this.standupId = params.get('standupId');
     });
 
-   this.getStandup(this.standupId);
-   this.getStandupDetail(this.standupId);
-   this.selectedProgress = {standup: this.standupId, accomplished: '', working_on: '', blocker: ''};
+    this.getStandup(this.standupId);
+    this.getStandupDetail(this.standupId);
+    this.selectedProgress = { standup: this.standupId, accomplished: '', working_on: '', blocker: '' };
 
 
   }
@@ -58,16 +61,26 @@ export class StandupDetailComponent implements OnInit {
   }
 
   addUserToStandup = () => {
-    this.standup.user.push(this.newUserId);
-    this.standupService.updateStandup(this.standup).subscribe(
+    this.message = null;
+    this.userService.getUserByUsername(this.newUsername).subscribe(
       data => {
-        this.standup = data;
+        this.newUser = data;
+        this.standup.user.push(this.newUser.id);
+        this.standupService.updateStandup(this.standup).subscribe(
+          data => {
+            this.standup = data;
+          },
+          error => {
+            this.message = 'Unexpected error';
+          }
+        );
+        this.message = 'Username ' + this.newUsername + ' has been added Successfully!';
+        this.newUsername = null;
       },
       error => {
-        console.log(error);
+        this.message = 'Username ' + this.newUsername + ' does not exist';
       }
     );
-    this.newUserId = null;
   }
 
   getProgress = (progressId) => {
