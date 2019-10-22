@@ -19,6 +19,12 @@ class Progress(models.Model):
     def __str__(self):
         return self.accomplished
 
+class Team(models.Model):
+    date = models.DateTimeField(auto_now_add=True)
+    team_name = models.CharField(max_length=50)
+    user = models.ManyToManyField(User)
+
 class Standup(models.Model):
     date = models.DateTimeField(auto_now_add=True)
+    team = models.ForeignKey(Team, on_delete=models.CASCADE)
     user = models.ManyToManyField(User)
