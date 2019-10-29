@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
-from .models import Progress, Standup, User
+from .models import Progress, Standup, User, Team
 
 
 class ProgressSerializer(serializers.ModelSerializer):
@@ -13,6 +13,10 @@ class StandupSerializer(serializers.ModelSerializer):
         model = Standup
         fields = ('id', 'date', 'user')
 
+class TeamSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Team
+        fields = ('id', 'date', 'team_name', 'user')
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:

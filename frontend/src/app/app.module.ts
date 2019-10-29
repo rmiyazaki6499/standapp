@@ -15,6 +15,7 @@ import { AboutComponent } from './components/about/about.component';
 import { StandupDetailComponent } from './components/standup-detail/standup-detail.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { TeamComponent } from './components/team/team.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { RegisterComponent } from './components/register/register.component';
     StandupDetailComponent,
     LoginComponent,
     RegisterComponent,
+    TeamComponent,
   ],
   imports: [
     BrowserModule,
