@@ -25,7 +25,7 @@ class Progress(models.Model):
 class Team(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     team_name = models.CharField(max_length=50)
-    user = models.ManyToManyField(User)
+    user = models.ManyToManyField(settings.AUTH_USER_MODEL)
 
 class Standup(models.Model):
     date = models.DateTimeField(auto_now_add=True)
