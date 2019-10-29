@@ -4,7 +4,7 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 
 from standapp_be.app.serializers import *
-from .models import Progress, Standup
+from .models import Progress, Standup, User
 
 
 class ProgressViewSet(viewsets.ModelViewSet):
