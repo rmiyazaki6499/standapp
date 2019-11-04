@@ -23,6 +23,5 @@ export class LoginService {
   logoutUser() {
     alert('You are logged out!');
     sessionStorage.clear();
-    window.location.href = '/login';
   }
 }
