@@ -1,14 +1,15 @@
 import { TestBed } from '@angular/core/testing';
-import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './login.service';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 describe('LoginService', () => {
   let service: LoginService;
+  let httpTestingController: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientModule],
-      providers: [LoginService]
+      providers: [LoginService],
+      imports: [HttpClientTestingModule]
     });
     service = TestBed.get(LoginService);
   });
@@ -47,13 +48,41 @@ describe('LoginService', () => {
     });
   });
 
+  describe('loginUser', () => {
+    beforeEach(() => {
+      httpTestingController = TestBed.get(HttpTestingController);
+    });
+    it('should post userDate to backend and get a token response', () => {
+      const userData = {
+        username: 'username',
+        password: 'password'
+      };
+      const response = {
+        key: 'token'
+      };
+      service.loginUser(userData).subscribe(
+        response => {
+          console.log(response.key);
+          expect(response.key).toEqual('token');
+        });
+      const req = httpTestingController.expectOne(service.baseurl + '/rest-auth/login/');
+      expect(req.request.method).toEqual('POST');
+
+      req.flush(response);
+    });
+  });
+
   describe('logoutUser', () => {
     beforeEach(() => {
       spyOn(window, 'alert');
     });
     it('should clear sessionStorage', () => {
-      // service.logoutUser();
       expect(sessionStorage.length).toBe(0);
     });
+    it('should alert the user they are logged out', () => {
+      service.logoutUser();
+      expect(window.alert).toHaveBeenCalledWith('You are logged out!');
+    });
   });
-});
+})
+;
