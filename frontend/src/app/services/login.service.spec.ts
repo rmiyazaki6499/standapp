@@ -62,7 +62,6 @@ describe('LoginService', () => {
       };
       service.loginUser(userData).subscribe(
         response => {
-          console.log(response.key);
           expect(response.key).toEqual('token');
         });
       const req = httpTestingController.expectOne(service.baseurl + '/rest-auth/login/');
