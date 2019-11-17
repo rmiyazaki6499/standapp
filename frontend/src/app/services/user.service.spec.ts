@@ -49,4 +49,25 @@ describe('UserService', () => {
     });
   });
 
+  describe('getUserByUsername', () => {
+    beforeEach(() => {
+      httpTestingController = TestBed.get(HttpTestingController);
+    });
+    it('should get User object from backend', () => {
+      const newUsername = 'Test User'
+      const user1 = {
+        id: 2,
+      };
+      const response = user1;
+      service.getUserByUsername(newUsername).subscribe(
+        response => {
+          expect(response).toEqual(user1);
+        });
+      const req = httpTestingController.expectOne(service.baseurl + '/user/?username=' + newUsername);
+      expect(req.request.method).toEqual('GET');
+
+      req.flush(response);
+    });
+  });
+
 });
