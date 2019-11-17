@@ -27,6 +27,7 @@ export class RegisterComponent implements OnInit {
       response => {
         alert('User ' + this.register.username + ' created!');
         sessionStorage.setItem('token', response.key);
+        sessionStorage.setItem('username', this.register.username);
         window.location.href = "/"
       },
       error => {
