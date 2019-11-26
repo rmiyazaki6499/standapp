@@ -57,6 +57,8 @@ describe('UserService', () => {
       const newUsername = 'Test User'
       const user1 = {
         id: 2,
+        username: 'Test User',
+        email: 'test@draychee.com'
       };
       const response = user1;
       service.getUserByUsername(newUsername).subscribe(
