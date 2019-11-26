@@ -111,7 +111,7 @@ describe('StandupService', () => {
     beforeEach(() => {
       httpTestingController = TestBed.get(HttpTestingController);
     });
-    it('should delete one progress from backend', () => {
+    it('should delete one standup from backend', () => {
       const standupToBeDeleted = {
         date: '2019-11-16 18:17:06.226091',
         id: 2
