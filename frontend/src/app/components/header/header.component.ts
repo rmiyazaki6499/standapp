@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../services/login.service';
 import { UserService } from '../../services/user.service';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-header',
@@ -14,8 +13,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private loginService: LoginService,
-    private userService: UserService,
-    private toastr: ToastrService
+    private userService: UserService
   ) {
   }
 
@@ -24,9 +22,10 @@ export class HeaderComponent implements OnInit {
     this.username = sessionStorage.getItem('username');
   }
 
-  onLogout() {
-    sessionStorage.clear();
-    this.toastr.success('You are logged out!');
+  logoutUser() {
+    this.loginService.logoutUser();
+    this.loggedIn = this.loginService.isLoggedin();
+    this.username = sessionStorage.getItem('username');
   }
 
 }
