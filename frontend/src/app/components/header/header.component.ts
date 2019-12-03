@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../services/login.service';
 import { UserService } from '../../services/user.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -19,4 +20,10 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.loggedIn = this.loginService.isLoggedin();
   }
+
+  logoutUser() {
+    this.loginService.logoutUser();
+    this.loggedIn = this.loginService.isLoggedin();
+  }
+
 }

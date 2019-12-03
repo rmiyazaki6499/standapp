@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../services/login.service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,8 +11,10 @@ export class LoginComponent implements OnInit {
   input;
   user;
 
-  constructor(private LoginService: LoginService) {
-
+  constructor(
+    private LoginService: LoginService,
+    private toastr: ToastrService
+  ) {
   }
 
   ngOnInit() {
@@ -25,14 +28,16 @@ export class LoginComponent implements OnInit {
   onLogin() {
     this.LoginService.loginUser(this.input).subscribe(
       response => {
-        alert('User ' + this.input.username + ' is logged in!'),
         sessionStorage.setItem('token', response.key);
         sessionStorage.setItem('username', this.input.username);
         window.location.href = '/';
+        this.toastr.success('User ' + this.input.username + ' is logged in!');
       },
       error => {
         console.log('error', error);
+        this.toastr.error('User ' + this.input.username + ' does not have an account yet!');
       }
     );
   }
+
 }

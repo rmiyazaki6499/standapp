@@ -27,9 +27,9 @@
 
             <div *ngIf="loggedIn">
                 <span>
-                  Welcome {{userService.getUsername()}}!
+                  Welcome {{ userService.getUsername() }}!
                 </span>
-              <button id="logoutButton" (click)="loginService.logoutUser()" routerLink="login" class="button is-danger">
+              <button id="logoutButton" (click)="logoutUser()" class="button is-danger">
                 Log Out!
               </button>
             </div>
