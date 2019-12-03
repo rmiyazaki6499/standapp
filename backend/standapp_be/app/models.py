@@ -25,7 +25,7 @@ class Progress(models.Model):
 class Team(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     team_name = models.CharField(max_length=50)
-    user = models.ManyToManyField(settings.AUTH_USER_MODEL)
+    users = models.ManyToManyField(settings.AUTH_USER_MODEL)
 
 class Standup(models.Model):
     date = models.DateTimeField(auto_now_add=True)
@@ -96,9 +96,6 @@ class User(AbstractBaseUser):
     def get_full_name(self):
         # The user is identified by their email address
         return self.username
-
-    def __str__(self):              # __unicode__ on Python 2
-        return self
 
     def has_perm(self, perm, obj=None):
         "Does the user have a specific permission?"

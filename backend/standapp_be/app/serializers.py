@@ -10,7 +10,7 @@ class ProgressSerializer(serializers.ModelSerializer):
 class StandupSerializer(serializers.ModelSerializer):
     class Meta:
         model = Standup
-        fields = ('id', 'date', 'user')
+        fields = ('id', 'date', 'user', 'team')
 
 class TeamSerializer(serializers.ModelSerializer):
     class Meta:
