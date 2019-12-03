@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../services/login.service';
 import { UserService } from '../../services/user.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,6 @@ import { UserService } from '../../services/user.service';
 })
 export class HeaderComponent implements OnInit {
   loggedIn = false;
-  username;
 
   constructor(
     private loginService: LoginService,
@@ -19,13 +19,11 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.loggedIn = this.loginService.isLoggedin();
-    this.username = sessionStorage.getItem('username');
   }
 
   logoutUser() {
     this.loginService.logoutUser();
     this.loggedIn = this.loginService.isLoggedin();
-    this.username = sessionStorage.getItem('username');
   }
 
 }
