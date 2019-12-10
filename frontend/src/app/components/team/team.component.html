@@ -3,7 +3,7 @@
     <div *ngIf="team">
       <h2>Team Name: {{ team.team_name }}</h2>
       Users:
-      <app-user *ngFor="let userId of team.user"
+      <app-user *ngFor="let userId of team.users"
       [userId]="userId">
       </app-user>
     </div>

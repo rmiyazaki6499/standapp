@@ -22,11 +22,11 @@ export class TeamComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.teamId = params.get('teamId');
     });
-    this.getTeam(this.team);
+    this.getTeam(this.teamId);
   }
 
   getTeam = (teamId) => {
-    this.teamService.getOneTeam(1).subscribe(
+    this.teamService.getOneTeam(teamId).subscribe(
       data => {
         console.log(data)
         this.team = data;

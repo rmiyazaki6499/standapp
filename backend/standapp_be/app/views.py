@@ -11,8 +11,8 @@ class ProgressViewSet(viewsets.ModelViewSet):
     queryset = Progress.objects.all()
     serializer_class = ProgressSerializer
     filterset_fields = ('standupId')
-    # permission_classes = (IsAuthenticated,)
-    # authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+    authentication_classes = (TokenAuthentication,)
 
     def list(self, request, *args, **kwargs):
         standup_id = request.query_params.get('standupId', None)
@@ -30,8 +30,8 @@ class TeamViewSet(viewsets.ModelViewSet):
     queryset = Team.objects.all()
     serializer_class = TeamSerializer
     filterset_fields = ('teamId')
-    # permission_classes = (IsAuthenticated,)
-    # authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+    authentication_classes = (TokenAuthentication,)
 
     def list(self, request, *args, **kwargs):
         userId = request.user.id
@@ -57,8 +57,8 @@ class StandupViewSet(viewsets.ModelViewSet):
     queryset = Standup.objects.all()
     serializer_class = StandupSerializer
     filterset_fields = ('teamId')
-    # permission_classes = (IsAuthenticated,)
-    # authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+    authentication_classes = (TokenAuthentication,)
 
     def list(self, request, *args, **kwargs):
         team_id = request.query_params.get('teamId', None)
@@ -82,8 +82,8 @@ class StandupViewSet(viewsets.ModelViewSet):
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    # permission_classes = (IsAuthenticated,)
-    # authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+    authentication_classes = (TokenAuthentication,)
 
     def list(self, request, *args, **kwargs):
         username = request.query_params.get('username', None)
