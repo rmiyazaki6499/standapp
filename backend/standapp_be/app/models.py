@@ -26,11 +26,13 @@ class Team(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     team_name = models.CharField(max_length=50)
     users = models.ManyToManyField(settings.AUTH_USER_MODEL)
+    def __str__(self):
+        return self.team_name
 
 class Standup(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     team = models.ForeignKey(Team, on_delete=models.CASCADE)
-    user = models.ManyToManyField(settings.AUTH_USER_MODEL)
+    users = models.ManyToManyField(settings.AUTH_USER_MODEL)
 
 class UserManager(BaseUserManager):
     def create_user(self, username, email, password=None):
