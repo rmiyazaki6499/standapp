@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { TeamService } from '../../services/team.service';
 
 @Component({
@@ -8,29 +9,28 @@ import { TeamService } from '../../services/team.service';
 })
 
 
-export class TeamComponent {
-  teams;
-  selectedTeam = {team_name: ''};
+export class TeamComponent implements OnInit {
+  team;
+  teamId;
 
-  constructor(private teamService: TeamService) {
-    this.getTeams();
+  constructor(
+    private teamService: TeamService,
+    private readonly route: ActivatedRoute,
+    ) { }
+
+  ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+      this.teamId = params.get('teamId');
+    });
+    this.getTeam(this.teamId);
   }
 
-  getTeams = () => {
-    this.teamService.getAllTeams().subscribe(
+  getTeam = (teamId) => {
+    this.teamService.getOneTeam(teamId).subscribe(
       data => {
-        this.teams = data;
-      },
-      error => {
-        console.log(error);
-      }
-    );
-  };
-
-  teamClicked = (team) => {
-    this.teamService.getOneTeam(team.id).subscribe(
-      data => {
-        this.selectedTeam = data;
+        console.log(data)
+        this.team = data;
+        console.log(this.team)
       },
       error => {
         console.log(error);
@@ -39,20 +39,9 @@ export class TeamComponent {
   };
 
   updateTeam() {
-    this.teamService.updateTeam(this.selectedTeam).subscribe(
+    this.teamService.updateTeam(this.team).subscribe(
       data => {
-        this.getTeams();
-      },
-      error => {
-        console.log(error);
-      }
-    );
-  }
-
-  createTeam() {
-    this.teamService.createTeam(this.selectedTeam).subscribe(
-      data => {
-        this.getTeams();
+        this.getTeam(this.teamId);
       },
       error => {
         console.log(error);
@@ -62,9 +51,9 @@ export class TeamComponent {
 
   deleteTeam() {
     if (confirm('Are you sure to delete this team?')) {
-      this.teamService.deleteTeam(this.selectedTeam).subscribe(
+      this.teamService.deleteTeam(this.team).subscribe(
         data => {
-          this.getTeams();
+          this.getTeam(this.teamId);
         },
         error => {
           console.log(error);

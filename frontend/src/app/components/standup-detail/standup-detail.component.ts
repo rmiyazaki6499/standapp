@@ -33,9 +33,12 @@ export class StandupDetailComponent implements OnInit {
 
     this.getStandup(this.standupId);
     this.getStandupDetail(this.standupId);
-    this.selectedProgress = { standup: this.standupId, accomplished: '', working_on: '', blocker: '' };
-
-
+    this.selectedProgress = {
+      standup: this.standupId,
+      accomplished: '',
+      working_on: '',
+      blocker: ''
+    };
   }
 
   getStandup = (standupId) => {

@@ -16,7 +16,7 @@ class ProgressViewSet(viewsets.ModelViewSet):
 
     def list(self, request, *args, **kwargs):
         standup_id = request.query_params.get('standupId', None)
-        progresses = Progress.objects.filter(team=standup_id)
+        progresses = Progress.objects.filter(standup=standup_id)
         serializer = ProgressSerializer(progresses, many=True)
         return Response(serializer.data)
 
@@ -29,34 +29,14 @@ class ProgressViewSet(viewsets.ModelViewSet):
 class TeamViewSet(viewsets.ModelViewSet):
     queryset = Team.objects.all()
     serializer_class = TeamSerializer
+    filterset_fields = ('teamId')
     permission_classes = (IsAuthenticated,)
     authentication_classes = (TokenAuthentication,)
 
     def list(self, request, *args, **kwargs):
         userId = request.user.id
-        team = Team.objects.filter(user=userId)
+        team = Team.objects.filter(users=userId)
         serializer = TeamSerializer(team, many=True)
-        return Response(serializer.data)
-
-    def create(self, request):
-        team = Team()
-        team.team_name = request.data['team_name']
-        team.save()
-        team.user.add(request.user)
-        serializer = TeamSerializer(team)
-        return Response(serializer.data)
-
-class StandupViewSet(viewsets.ModelViewSet):
-    queryset = Standup.objects.all()
-    serializer_class = StandupSerializer
-    filterset_fields = ('userId')
-    permission_classes = (IsAuthenticated,)
-    authentication_classes = (TokenAuthentication,)
-
-    def list(self, request, *args, **kwargs):
-        userId = request.user.id
-        team = Standup.objects.filter(user=userId)
-        serializer = StandupSerializer(team, many=True)
         return Response(serializer.data)
 
     def get(self, request, format=None):
@@ -66,10 +46,37 @@ class StandupViewSet(viewsets.ModelViewSet):
         return Response(content)
 
     def create(self, request):
-        team = Standup()
+        team = Team()
+        team.team_name = request.data['team_name']
         team.save()
-        team.user.add(request.user)
-        serializer = StandupSerializer(team)
+        team.users.add(request.user)
+        serializer = TeamSerializer(team)
+        return Response(serializer.data)
+
+class StandupViewSet(viewsets.ModelViewSet):
+    queryset = Standup.objects.all()
+    serializer_class = StandupSerializer
+    filterset_fields = ('teamId')
+    permission_classes = (IsAuthenticated,)
+    authentication_classes = (TokenAuthentication,)
+
+    def list(self, request, *args, **kwargs):
+        team_id = request.query_params.get('teamId', None)
+        standups = Standup.objects.filter(team_id=team_id)
+        serializer = StandupSerializer(standups, many=True)
+        return Response(serializer.data)
+
+    def get(self, request, format=None):
+        content = {
+            'status': 'request was permitted'
+        }
+        return Response(content)
+
+    def create(self, request):
+        standup = Standup()
+        standup.save()
+        standup.user.add(request.user)
+        serializer = StandupSerializer(standup)
         return Response(serializer.data)
 
 class UserViewSet(viewsets.ModelViewSet):

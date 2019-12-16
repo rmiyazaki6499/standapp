@@ -23,4 +23,9 @@ export class UserService {
     return this.http.get(this.baseurl + '/user/?username=' + newUsername,
     {headers: this.httpHeaders});
   }
+
+  getUserById(userId): Observable<any> {
+    return this.http.get(this.baseurl + '/user/' + userId,
+    {headers: this.httpHeaders});
+  }
 }

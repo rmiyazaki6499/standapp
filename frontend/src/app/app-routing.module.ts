@@ -8,6 +8,7 @@ import { StandupDetailComponent } from './components/standup-detail/standup-deta
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { TeamComponent } from './components/team/team.component';
+import { TeamListComponent } from './components/team-list/team-list.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
   },
   {
     path: 'teams',
+    component: TeamListComponent
+  },
+  {
+    path: 'team/:teamId',
     component: TeamComponent
   },
   {
