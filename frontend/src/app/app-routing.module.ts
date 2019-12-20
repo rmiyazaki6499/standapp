@@ -3,8 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { StandupComponent } from './components/standup/standup.component';
+import { StandupListComponent } from './components/standup-list/standup-list.component';
 import { ContactComponent } from './components/contact/contact.component';
-import { StandupDetailComponent } from './components/standup-detail/standup-detail.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { TeamComponent } from './components/team/team.component';
@@ -21,12 +21,12 @@ const routes: Routes = [
     component: AboutComponent
   },
   {
-    path: 'standups',
-    component: StandupComponent
+    path: 'standup/:standupId',
+    component: StandupListComponent
   },
   {
-    path: 'standup/:standupId',
-    component: StandupDetailComponent
+    path: 'standups',
+    component: StandupComponent
   },
   {
     path: 'teams',

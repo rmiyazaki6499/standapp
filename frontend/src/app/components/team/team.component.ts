@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TeamService } from '../../services/team.service';
 
@@ -10,8 +10,8 @@ import { TeamService } from '../../services/team.service';
 
 
 export class TeamComponent implements OnInit {
+  @Input() teamId: string;
   team;
-  teamId;
 
   constructor(
     private teamService: TeamService,

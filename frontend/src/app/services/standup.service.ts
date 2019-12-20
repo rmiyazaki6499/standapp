@@ -17,6 +17,11 @@ export class StandupService {
     {headers: this.httpHeaders});
   }
 
+  getStandupsByTeamId(teamId): Observable<any> {
+    return this.http.get(this.baseurl + '/standups/' + teamId,
+    {headers: this.httpHeaders});
+  }
+
   getOneStandup(id): Observable<any> {
     return this.http.get(this.baseurl + '/standups/' + id + '/',
     {headers: this.httpHeaders});
