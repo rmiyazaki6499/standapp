@@ -18,7 +18,7 @@ export class StandupService {
   }
 
   getStandupsByTeamId(teamId): Observable<any> {
-    return this.http.get(this.baseurl + '/standups/' + teamId,
+    return this.http.get(this.baseurl + '/standups?teamId=' + teamId,
     {headers: this.httpHeaders});
   }
 

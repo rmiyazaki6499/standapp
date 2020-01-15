@@ -28,9 +28,7 @@ export class TeamComponent implements OnInit {
   getTeam = (teamId) => {
     this.teamService.getOneTeam(teamId).subscribe(
       data => {
-        console.log(data)
         this.team = data;
-        console.log(this.team)
       },
       error => {
         console.log(error);

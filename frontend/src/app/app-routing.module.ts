@@ -22,7 +22,7 @@ const routes: Routes = [
   },
   {
     path: 'standup/:standupId',
-    component: StandupListComponent
+    component: StandupComponent
   },
   {
     path: 'standups',

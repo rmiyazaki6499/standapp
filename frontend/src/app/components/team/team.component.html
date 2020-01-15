@@ -7,7 +7,8 @@
       [userId]="userId">
       </app-user>
     </div>
-    <app-standup-list *ngFor="let standup of standups">
+    <app-standup-list
+    [teamId]="teamId">
     </app-standup-list>
   </div>
 </section>

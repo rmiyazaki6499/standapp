@@ -20,6 +20,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { TeamComponent } from './components/team/team.component';
 import { TeamListComponent } from './components/team-list/team-list.component';
 import { UserComponent } from './components/user/user.component';
+import { ProgressListComponent } from './components/progress-list/progress-list.component';
 
 
 
@@ -39,6 +40,7 @@ import { UserComponent } from './components/user/user.component';
     TeamComponent,
     TeamListComponent,
     UserComponent,
+    ProgressListComponent,
   ],
   imports: [
     BrowserModule,
