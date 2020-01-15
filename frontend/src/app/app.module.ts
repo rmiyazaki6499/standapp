@@ -12,14 +12,15 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { StandupComponent } from './components/standup/standup.component';
+import { StandupListComponent } from './components/standup-list/standup-list.component';
 import { ProgressComponent } from './components/progress/progress.component';
 import { AboutComponent } from './components/about/about.component';
-import { StandupDetailComponent } from './components/standup-detail/standup-detail.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { TeamComponent } from './components/team/team.component';
 import { TeamListComponent } from './components/team-list/team-list.component';
 import { UserComponent } from './components/user/user.component';
+
 
 
 @NgModule({
@@ -30,9 +31,9 @@ import { UserComponent } from './components/user/user.component';
     FooterComponent,
     ContactComponent,
     StandupComponent,
+    StandupListComponent,
     ProgressComponent,
     AboutComponent,
-    StandupDetailComponent,
     LoginComponent,
     RegisterComponent,
     TeamComponent,

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { TeamService } from '../../services/team.service';
 
 @Component({
-  selector: 'app-team',
+  selector: 'app-team-list',
   templateUrl: './team-list.component.html',
   styleUrls: ['./team-list.component.scss']
 })
