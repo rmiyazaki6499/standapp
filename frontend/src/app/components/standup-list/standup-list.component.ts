@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { StandupService } from '../../services/standup.service';
 import { UserService } from '../../services/user.service';
 
@@ -10,16 +10,23 @@ import { UserService } from '../../services/user.service';
 })
 
 
-export class StandupListComponent {
+export class StandupListComponent implements OnInit {
+  @Input() teamId: number;
   title: 'Stand Ups';
   username;
   currentUsername;
   standups;
   selectedStandup = {date: ''};
 
-  constructor(private standupService: StandupService, private userService: UserService) {
+  constructor(
+    private standupService: StandupService,
+    private userService: UserService) {
     this.getStandups();
     this.getCurrentUsername();
+  }
+
+  ngOnInit() {
+    this.getStandupsByTeamId(this.teamId);
   }
 
   getStandups = () => {
@@ -32,6 +39,18 @@ export class StandupListComponent {
       }
     );
   }
+
+  getStandupsByTeamId = (teamId) => {
+    this.standupService.getStandupsByTeamId(teamId).subscribe(
+      data => {
+        this.standups = data;
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
 
   standupClicked = (standup) => {
     this.standupService.getOneStandup(standup.id).subscribe(
