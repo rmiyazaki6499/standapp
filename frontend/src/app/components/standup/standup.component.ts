@@ -14,7 +14,7 @@ export class StandupComponent implements OnInit {
   standupId;
   standup;
   progresses;
-  selectedProgress;
+
   newUsername;
   newUser;
   message;
@@ -32,30 +32,13 @@ export class StandupComponent implements OnInit {
     });
 
     this.getStandup(this.standupId);
-    this.getStandupDetail(this.standupId);
-    this.selectedProgress = {
-      standup: this.standupId,
-      accomplished: '',
-      working_on: '',
-      blocker: ''
-    };
+
   }
 
   getStandup = (standupId) => {
     this.standupService.getOneStandup(standupId).subscribe(
       data => {
         this.standup = data;
-      },
-      error => {
-        console.log(error);
-      }
-    );
-  }
-
-  getStandupDetail = (standupId) => {
-    this.progressService.getProgressesByStandupId(standupId).subscribe(
-      data => {
-        this.progresses = data;
       },
       error => {
         console.log(error);
@@ -84,56 +67,5 @@ export class StandupComponent implements OnInit {
         this.message = 'Username ' + this.newUsername + ' does not exist';
       }
     );
-  }
-
-  getProgress = (progressId) => {
-    this.progressService.getOneProgress(progressId).subscribe(
-      data => {
-        this.selectedProgress = data;
-      },
-      error => {
-        console.log(error);
-      }
-    );
-  }
-
-  updateProgress() {
-    this.progressService.updateProgress(this.selectedProgress).subscribe(
-      data => {
-        this.getStandupDetail(this.standupId);
-        this.selectedProgress = data;
-      },
-      error => {
-        console.log(error);
-      }
-    );
-  }
-
-  createProgress() {
-    console.log(this.selectedProgress);
-    if (this.selectedProgress.user == null) {
-      this.selectedProgress.user = 1; // TODO should be logged in user
-    }
-    this.progressService.createProgress(this.selectedProgress).subscribe(
-      data => {
-        this.getStandupDetail(this.standupId);
-      },
-      error => {
-        console.log(error);
-      }
-    );
-  }
-
-  deleteProgress() {
-    if (confirm('Are you sure to delete this progress?')) {
-      this.progressService.deleteProgress(this.selectedProgress).subscribe(
-        data => {
-          this.getStandupDetail(this.standupId);
-        },
-        error => {
-          console.log(error);
-        }
-      );
-    }
   }
 }
