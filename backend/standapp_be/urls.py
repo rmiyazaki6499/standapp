@@ -1,13 +1,17 @@
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
-from standapp_be.app import views
+
+from progress.views import ProgressViewSet
+from standup.views import StandupViewSet
+from team.views import TeamViewSet
+from user.views import UserViewSet
 
 router = routers.DefaultRouter()
-router.register(r'progress', views.ProgressViewSet)
-router.register(r'standups', views.StandupViewSet)
-router.register(r'teams', views.TeamViewSet)
-router.register(r'user', views.UserViewSet)
+router.register(r'progress', ProgressViewSet)
+router.register(r'standups', StandupViewSet)
+router.register(r'teams', TeamViewSet)
+router.register(r'user', UserViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
