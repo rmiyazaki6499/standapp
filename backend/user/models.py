@@ -1,5 +1,5 @@
 from django.db import models
-# from django.contrib.auth.models import User
+
 from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser
 )
@@ -8,31 +8,12 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from rest_framework.authtoken.models import Token
 
-@receiver(post_save, sender=settings.AUTH_USER_MODEL)
+
+""" @receiver(post_save, sender=settings.AUTH_USER_MODEL)
 def create_auth_token(sender, instance=None, created=False, **kwargs):
     if created:
-        Token.objects.create(user=instance)
+        Token.objects.create(user=instance) """
 
-class Progress(models.Model):
-    accomplished = models.CharField(max_length=255)
-    working_on = models.CharField(max_length=255)
-    blocker = models.CharField(max_length=255)
-    standup = models.ForeignKey('Standup', on_delete=models.CASCADE)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    def __str__(self):
-        return self.accomplished
-
-class Team(models.Model):
-    date = models.DateTimeField(auto_now_add=True)
-    team_name = models.CharField(max_length=50)
-    users = models.ManyToManyField(settings.AUTH_USER_MODEL)
-    def __str__(self):
-        return self.team_name
-
-class Standup(models.Model):
-    date = models.DateTimeField(auto_now_add=True)
-    team = models.ForeignKey(Team, on_delete=models.CASCADE)
-    users = models.ManyToManyField(settings.AUTH_USER_MODEL)
 
 class UserManager(BaseUserManager):
     def create_user(self, username, email, password=None):
@@ -45,7 +26,7 @@ class UserManager(BaseUserManager):
             raise ValueError('Users must have an email address')
 
         user = self.model(
-            username = username,
+            username=username,
             email=self.normalize_email(email),
         )
 
@@ -79,7 +60,7 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-# hook in the New Manager to our Model
+
 class User(AbstractBaseUser):
     username = models.CharField(max_length=40, unique=True)
     email = models.EmailField(
@@ -88,12 +69,12 @@ class User(AbstractBaseUser):
         unique=True,
     )
     active = models.BooleanField(default=True)
-    staff = models.BooleanField(default=False) # a admin user; non super-user
-    admin = models.BooleanField(default=False) # a superuser
+    staff = models.BooleanField(default=False)  # a admin user; non super-user
+    admin = models.BooleanField(default=False)  # a superuser
     # notice the absence of a "Password field", that's built in.
 
     USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = ['email'] # Email & Password are required by default.
+    REQUIRED_FIELDS = ['email']  # Email & Password are required by default.
 
     def get_full_name(self):
         # The user is identified by their email address
