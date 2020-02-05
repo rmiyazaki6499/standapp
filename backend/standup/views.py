@@ -25,10 +25,3 @@ class StandupViewSet(viewsets.ModelViewSet):
             'status': 'request was permitted'
         }
         return Response(content)
-
-    def create(self, request):
-        standup = Standup()
-        standup.save()
-        standup.user.add(request.user)
-        serializer = StandupSerializer(standup)
-        return Response(serializer.data)
