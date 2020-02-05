@@ -12,6 +12,7 @@ import { UserService } from '../../services/user.service';
 
 export class StandupListComponent implements OnInit {
   @Input() teamId: number;
+  @Input() teamUsers: number[];
   title: 'Stand Ups';
   username;
   currentUsername;
@@ -21,23 +22,11 @@ export class StandupListComponent implements OnInit {
   constructor(
     private standupService: StandupService,
     private userService: UserService) {
-    this.getStandups();
     this.getCurrentUsername();
   }
 
   ngOnInit() {
     this.getStandupsByTeamId(this.teamId);
-  }
-
-  getStandups = () => {
-    this.standupService.getStandups().subscribe(
-      data => {
-        this.standups = data;
-      },
-      error => {
-        console.log(error);
-      }
-    );
   }
 
   getStandupsByTeamId = (teamId) => {
@@ -66,7 +55,7 @@ export class StandupListComponent implements OnInit {
   updateStandup() {
     this.standupService.updateStandup(this.selectedStandup).subscribe(
       data => {
-        this.getStandups();
+        this.getStandupsByTeamId(this.teamId);
       },
       error => {
         console.log(error);
@@ -75,9 +64,9 @@ export class StandupListComponent implements OnInit {
   }
 
   createStandup = () => {
-    this.standupService.createStandup({}).subscribe(
+    this.standupService.createStandup({"users":this.teamUsers, 'team': this.teamId}).subscribe(
       data => {
-        this.getStandups();
+        this.getStandupsByTeamId(this.teamId);
       },
       error => {
         console.log(error);
@@ -89,7 +78,7 @@ export class StandupListComponent implements OnInit {
     if (confirm('Are you sure to delete this Stand Up?')) {
       this.standupService.deleteStandup(this.selectedStandup).subscribe(
         data => {
-          this.getStandups();
+          this.getStandupsByTeamId(this.teamId);
         },
         error => {
           console.log(error);
