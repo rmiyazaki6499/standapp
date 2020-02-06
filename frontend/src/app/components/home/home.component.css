@@ -1,6 +1,22 @@
-
     .home-cover {
-      background-image: url('/assets/img/standup-meeting.jpg') !important;
+      background-image: url('/assets/img/background1.jpg');
       background-size: cover;
       background-position: center center;
+      position: relative;
+      overflow: hidden;
+      background-repeat: no-repeat;
+      height: 100vh;
+      animation: slide 10s infinite
     }
+
+@keyframes slide {
+    0% {
+        background-image: url('/assets/img/background1.jpg')
+    }
+    33% {
+        background-image: url('/assets/img/background2.jpg')
+    }
+    67% {
+        background-image: url('/assets/img/background3.jpg')
+    }
+}

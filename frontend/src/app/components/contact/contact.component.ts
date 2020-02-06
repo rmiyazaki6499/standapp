@@ -15,7 +15,7 @@ export class ContactComponent implements OnInit {
   ngOnInit() {
   }
 
-  processForm() {
+  processForm = () => {
     const allInfo = `My name is ${this.name}. My email is ${this.email}. My message is ${this.message}`;
     alert(allInfo);
   }
