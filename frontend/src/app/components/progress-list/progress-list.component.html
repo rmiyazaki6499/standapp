@@ -1,4 +1,4 @@
-<section style='background: green' class="hero is-info">
+<section style='background: green' class="">
 <div class="container">
   <div class="columns is-multiline">
     <div class="column is-4" *ngFor="let progress of progresses">
@@ -8,7 +8,7 @@
           <h2>Working On: {{ progress.working_on }}</h2>
           <h2>Blockers: {{ progress.blocker }}</h2>
         </div>
-        <button class="button is-danger is-large" (click)="getProgress(progress.id)">Edit</button>
+        <button class="" (click)="getProgress(progress.id)">Edit</button>
       </div>
     </div>
 
@@ -17,10 +17,10 @@
         Accomplished <input [(ngModel)]="selectedProgress.accomplished" name="accomplised" class="input"><br />
         Working On <input [(ngModel)]="selectedProgress.working_on" name="workingOn" class="input"><br />
         Blocker <input [(ngModel)]="selectedProgress.blocker" name="blocker" class="input"><br />
-        <button class="button is-danger is-large" name="createNew" (click)="createProgress()">Create New</button>
-        <button class="button is-danger is-large" name="update" *ngIf="selectedProgress.id"
+        <button class="" name="createNew" (click)="createProgress()">Create New</button>
+        <button class="" name="update" *ngIf="selectedProgress.id"
           (click)="updateProgress()">Update</button>
-        <button class="button is-danger is-large" name="delete" *ngIf="selectedProgress.id"
+        <button class="" name="delete" *ngIf="selectedProgress.id"
           (click)="deleteProgress()">Delete</button>
       </form>
     </div>

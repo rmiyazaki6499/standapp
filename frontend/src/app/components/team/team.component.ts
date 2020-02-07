@@ -42,7 +42,7 @@ export class TeamComponent implements OnInit {
     );
   };
 
-  updateTeam() {
+  updateTeam = () => {
     this.teamService.updateTeam(this.team).subscribe(
       data => {
         this.getTeam(this.teamId);
@@ -53,7 +53,7 @@ export class TeamComponent implements OnInit {
     );
   }
 
-  deleteTeam() {
+  deleteTeam = () => {
     if (confirm('Are you sure to delete this team?')) {
       this.teamService.deleteTeam(this.team).subscribe(
         data => {

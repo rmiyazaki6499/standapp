@@ -1,5 +1,5 @@
-<section class="hero is-info">
-  <div class="hero-body">
+<section class="">
+  <div class="">
     <div class="container">
 
       <h1 class="title">Contact Us!</h1>
@@ -12,7 +12,7 @@
           <input type="text" name="name" class="input" placeholder="Your Name" [(ngModel)]="name" required minlength="3"
                  #nameInput="ngModel">
 
-          <div class="help is-error" *ngIf="nameInput.invalid && nameInput.dirty">
+          <div class="" *ngIf="nameInput.invalid && nameInput.dirty">
             Name is required and needs to be at least 3 characters long.
           </div>
         </div>
@@ -22,7 +22,7 @@
           <input type="email" name="email" class="input" placeholder="Your Email" [(ngModel)]="email" required email
                  #emailInput="ngModel">
 
-          <div class="help is-error" *ngIf="emailInput.invalid && emailInput.dirty">
+          <div class="" *ngIf="emailInput.invalid && emailInput.dirty">
             Needs to be a valid email.
           </div>
         </div>
@@ -32,12 +32,12 @@
           <textarea class="textarea" name="message" placeholder="What's on your mind?" [(ngModel)]="message" required
                     #messageInput="ngModel"></textarea>
 
-          <div class="help is-error" *ngIf="emailInput.invalid && emailInput.dirty">
+          <div class="" *ngIf="emailInput.invalid && emailInput.dirty">
             Your message is required!
           </div>
         </div>
 
-        <button type="submit" class="button is-danger is-large">Submit</button>
+        <button type="submit" class="">Submit</button>
 
       </form>
     </div>

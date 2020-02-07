@@ -1,4 +1,4 @@
-<section class="hero is-info">
+<section class="">
   <div style="text-align:center">
       <h2>List of Progress Accomplishments:</h2>
   </div>
@@ -27,8 +27,8 @@
   Accomplished <input [(ngModel)]="selectedProgress.accomplished"><br />
   Working On <input [(ngModel)]="selectedProgress.working_on"><br />
   Blocker <input [(ngModel)]="selectedProgress.blocker"><br />
-  <button class="button is-danger is-large" *ngIf="selectedProgress.id" (click)="updateProgress()">Update</button>
-  <button class="button is-danger is-large" (click)="createProgress()">Create</button>
-  <button class="button is-danger is-large" *ngIf="selectedProgress.id" (click)="deleteProgress()">Delete</button>
+  <button class="" *ngIf="selectedProgress.id" (click)="updateProgress()">Update</button>
+  <button class="" (click)="createProgress()">Create</button>
+  <button class="" *ngIf="selectedProgress.id" (click)="deleteProgress()">Delete</button>
 
 </section>

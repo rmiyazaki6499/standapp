@@ -1,4 +1,4 @@
-<section class="hero is-info">
+<section class="">
   <div class="container">
     <div class="columns is-multiline">
       <div class="column is-4" *ngFor="let team of teams">
@@ -15,8 +15,8 @@
 
   <hr>
   Team Name <input [(ngModel)]="selectedTeam.team_name"><br/>
-  <button class="button is-danger is-large" *ngIf="selectedTeam.id" (click)="updateTeam()">Update</button>
-  <button class="button is-danger is-large" (click)="createTeam()">Create</button>
-  <button class="button is-danger is-large" *ngIf="selectedTeam.id" (click)="deleteTeam()">Delete</button>
+  <button class="" *ngIf="selectedTeam.id" (click)="updateTeam()">Update</button>
+  <button class="" (click)="createTeam()">Create</button>
+  <button class="" *ngIf="selectedTeam.id" (click)="deleteTeam()">Delete</button>
 
 </section>
