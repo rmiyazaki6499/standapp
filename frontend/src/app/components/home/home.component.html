@@ -1,3 +1,7 @@
-<section class="home-cover">
-  <div class="home-body"></div>
+<section class="home-static" *ngIf="loggedIn">
+  <div class="home-body" ></div>
 </section>
+<section class="home-keyframe" *ngIf="!(loggedIn)">
+  <div class="home-body" ></div>
+</section>
+

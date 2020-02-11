@@ -5,7 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: [],
+  styleUrls: ['./register.component.scss'],
   providers: [RegisterService]
 })
 export class RegisterComponent implements OnInit {

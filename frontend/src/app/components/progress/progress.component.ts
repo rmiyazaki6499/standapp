@@ -4,7 +4,7 @@ import {ProgressService} from '../../services/progress.service';
 @Component({
   selector: 'app-progress',
   templateUrl: 'progress.component.html',
-  styleUrls: [],
+  styleUrls: ['progress.component.scss'],
 })
 
 
