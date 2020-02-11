@@ -1,4 +1,4 @@
-    .home-cover {
+.home-cover {
       background-image: url('/assets/img/background1.jpg');
       background-size: cover;
       background-position: center center;
@@ -11,11 +11,12 @@
 
 @keyframes slide {
     0% {
-        background-image: url('/assets/img/background1.jpg')
+        background-image: url('/assets/img/background1.jpg');
     }
     33% {
-        background-image: url('/assets/img/background2.jpg')
+        background-image: url('/assets/img/background2.jpg');
     }
     67% {
+        background-image: url('/assets/img/background3.jpg');
     }
 }
