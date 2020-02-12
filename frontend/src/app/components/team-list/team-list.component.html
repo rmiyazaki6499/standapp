@@ -2,8 +2,8 @@
   <div class="container">
     <div class="columns is-multiline">
       <div class="column is-4" *ngFor="let team of teams">
-        <div class="card">
-          <div class="card-content">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
             <div (click)="teamClicked(team)">
               <a style="color: blue; text-decoration: underline" routerLink="../team/{{ team.id }}">Team Name: {{ team.team_name }}</a>
             </div>
