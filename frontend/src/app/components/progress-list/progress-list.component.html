@@ -2,11 +2,14 @@
 <div class="container">
   <div class="columns is-multiline">
     <div class="column is-4" *ngFor="let progress of progresses">
-      <div class="card">
+      <div class="card px-2" style="width: 20rem;">
         <div class="card-body">
-          <h2>Accomplished: {{ progress.accomplished }}</h2>
-          <h2>Working On: {{ progress.working_on }}</h2>
-          <h2>Blockers: {{ progress.blocker }}</h2>
+          <button class="btn btn-secondary float-right">
+            {{ userService.getUserById(progress.user) }}
+          </button>
+          <h4>Accomplished: {{ progress.accomplished }}</h4>
+          <h4>Working On: {{ progress.working_on }}</h4>
+          <h4>Blockers: {{ progress.blocker }}</h4>
         </div>
         <button class="" (click)="getProgress(progress.id)">Edit</button>
       </div>
