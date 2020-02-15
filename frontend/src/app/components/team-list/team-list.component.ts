@@ -16,7 +16,7 @@ export class TeamListComponent {
     this.getTeams();
   }
 
-  getTeams = () => {
+  getTeams() {
     this.teamService.getAllTeams().subscribe(
       data => {
         this.teams = data;
@@ -27,7 +27,7 @@ export class TeamListComponent {
     );
   };
 
-  teamClicked = (team) => {
+  teamClicked(team) {
     this.teamService.getOneTeam(team.id).subscribe(
       data => {
         this.selectedTeam = data;

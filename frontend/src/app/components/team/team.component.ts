@@ -31,7 +31,7 @@ export class TeamComponent implements OnInit {
     this.getTeam(this.teamId);
   }
 
-  getTeam = (teamId) => {
+  getTeam(teamId) {
     this.teamService.getOneTeam(teamId).subscribe(
       data => {
         this.team = data;
@@ -42,7 +42,7 @@ export class TeamComponent implements OnInit {
     );
   };
 
-  updateTeam = () => {
+  updateTeam() {
     this.teamService.updateTeam(this.team).subscribe(
       data => {
         this.getTeam(this.teamId);
@@ -53,7 +53,7 @@ export class TeamComponent implements OnInit {
     );
   }
 
-  deleteTeam = () => {
+  deleteTeam() {
     if (confirm('Are you sure to delete this team?')) {
       this.teamService.deleteTeam(this.team).subscribe(
         data => {
@@ -66,7 +66,7 @@ export class TeamComponent implements OnInit {
     }
   }
 
-  addUserToTeam = () => {
+  addUserToTeam() {
     this.message = null;
     this.userService.getUserByUsername(this.newUsername).subscribe(
       data => {

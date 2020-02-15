@@ -17,7 +17,7 @@ export class ProgressComponent {
     this.getProgresses();
   }
 
-  getProgresses = () => {
+  getProgresses() {
     this.progressService.getAllProgresses().subscribe(
       data => {
         this.progresses = data;
@@ -28,7 +28,7 @@ export class ProgressComponent {
     );
   }
 
-  progressClicked = (progress) => {
+  progressClicked(progress) {
     this.progressService.getOneProgress(progress.id).subscribe(
       data => {
         this.selectedProgress = data;

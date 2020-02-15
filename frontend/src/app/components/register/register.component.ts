@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
       password2: '',
     };
   }
-  onRegister = () => {
+  onRegister() {
     this.RegisterService.registerNewUser(this.register).subscribe(
       response => {
         sessionStorage.setItem('token', response.key);
