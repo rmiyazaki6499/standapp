@@ -10,34 +10,8 @@
         <img style="height: 3em;" src="assets/img/standapp_logo.png">
       </a>
     </li>
-    <ol class="breadcrumb" *ngIf="routerUrl.url == '/teams' || routerUrl.url == '/' && loggedIn" >
-      <li class="breadcrumb-item active" aria-current="page">
-        <a routerLink="teams">My Teams</a>
-      </li>
-    </ol>
 
-    <ol class="breadcrumb" *ngIf="routerUrl.url == '/team/11'">
-      <li class="breadcrumb-item">
-        <a routerLink="teams">My Teams</a>
-      </li>
-      <li class="breadcrumb-item active" aria-current="page">
-        <a routerLink="team/11">My Standups</a>
-      </li>
-    </ol>
-
-    <ol class="breadcrumb" *ngIf="routerUrl.url == '/standup/18'">
-      <li class="breadcrumb-item">
-        <a routerLink="teams">My Teams</a>
-      </li>
-      <li class="breadcrumb-item">
-        <a routerLink="team/11">My Standups</a>
-      </li>
-      <li class="breadcrumb-item active" aria-current="page">
-        <a routerLink="standup/18">Progresses</a></li>
-    </ol>
-    <ol class="navbar-nav mr-auto">
-
-    </ol>
+    <app-breadcrumbs></app-breadcrumbs>
 
     <!-- Right Grouping -->
     <ol class="navbar-nav">
