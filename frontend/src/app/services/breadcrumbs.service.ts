@@ -4,12 +4,16 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable()
 export class BreadcrumbsService {
 
-  private breadcrumbsSource = new BehaviorSubject('default message');
+  private breadcrumbsSource = new BehaviorSubject(
+    {
+      "currentPath": "Home"
+    }
+  );
   currentBreadcrumbs = this.breadcrumbsSource.asObservable();
 
   constructor() { }
 
-  changeBreadcrumbs(breadcrumbs: string) {
+  changeBreadcrumbs(breadcrumbs: any) {
     this.breadcrumbsSource.next(breadcrumbs)
   }
 

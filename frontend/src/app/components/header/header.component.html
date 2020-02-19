@@ -5,13 +5,20 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <!-- Left Grouping -->
-    <li>
-      <a class="navbar-link" routerLink="">
-        <img style="height: 3em;" src="assets/img/standapp_logo.png">
-      </a>
-    </li>
+    <ol class="navbar-nav mr-auto">
+      <li>
+        <a class="navbar-link" routerLink="">
+          <img style="height: 3em ;" src="assets/img/standapp_logo.png">
+        </a>
+      </li>
+      <li class="nav-item">
+        <a *ngIf="loggedIn" class="nav-link" routerLink="teams">My Teams</a>
+      </li>
+      <li class="nav-item">
+        <app-breadcrumbs></app-breadcrumbs>
+      </li>
+    </ol>
 
-    <app-breadcrumbs></app-breadcrumbs>
 
     <!-- Right Grouping -->
     <ol class="navbar-nav">

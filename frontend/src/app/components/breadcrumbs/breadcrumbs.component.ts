@@ -8,7 +8,7 @@ import { BreadcrumbsService } from '../../services/breadcrumbs.service';
 })
 export class BreadcrumbsComponent implements OnInit {
 
-  breadcrumbs:string;
+  breadcrumbs: Object;
 
   constructor(private breadcrumbsService: BreadcrumbsService) { }
 

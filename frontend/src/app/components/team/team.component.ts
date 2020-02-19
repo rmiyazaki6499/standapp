@@ -1,7 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TeamService } from '../../services/team.service';
 import { UserService } from '../../services/user.service';
+import { BreadcrumbsService } from '../../services/breadcrumbs.service';
+
 
 @Component({
   selector: 'app-team',
@@ -10,10 +12,10 @@ import { UserService } from '../../services/user.service';
 })
 
 
-export class TeamComponent implements OnInit {
+export class TeamComponent implements OnInit, AfterViewInit {
   @Input() teamId: string;
   team;
-
+  breadcrumbs: Object;
   newUsername;
   newUser;
   message;
@@ -22,6 +24,7 @@ export class TeamComponent implements OnInit {
     private teamService: TeamService,
     private userService: UserService,
     private readonly route: ActivatedRoute,
+    private breadcrumbsService: BreadcrumbsService
     ) { }
 
   ngOnInit() {
@@ -29,6 +32,14 @@ export class TeamComponent implements OnInit {
       this.teamId = params.get('teamId');
     });
     this.getTeam(this.teamId);
+  }
+
+  ngAfterViewInit() {
+    this.breadcrumbsService.currentBreadcrumbs.subscribe(breadcrumbs => this.breadcrumbs = breadcrumbs)
+    this.breadcrumbs['currentPath'] = 'team'
+    this.breadcrumbs['teamId'] = this.teamId
+    this.breadcrumbs['teamName'] = this.team.team_name
+    console.log(this.team)
   }
 
   getTeam(teamId) {

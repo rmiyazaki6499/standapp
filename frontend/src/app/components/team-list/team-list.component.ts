@@ -12,7 +12,7 @@ import { BreadcrumbsService } from '../../services/breadcrumbs.service';
 export class TeamListComponent implements OnInit {
   teams;
   selectedTeam = {team_name: ''};
-  breadcrumbs:string;
+  breadcrumbs: Object;
 
   constructor(
     private teamService: TeamService,
@@ -27,7 +27,8 @@ export class TeamListComponent implements OnInit {
   }
 
   updateBreadcrumbs() {
-    this.breadcrumbsService.changeBreadcrumbs("Team-List Component")
+    this.breadcrumbs["currentPath"] = "Teams";
+    this.breadcrumbsService.changeBreadcrumbs(this.breadcrumbs)
   }
 
   getTeams() {
