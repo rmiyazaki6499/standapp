@@ -1,11 +1,13 @@
 <section class="background">
-<div class="container">
-  <div class="columns is-multiline">
-    <div class="column is-4" *ngFor="let progress of progresses">
-      <div class="card px-2" style="width: 20rem;">
-        <div class="card-body">
-          <button class="btn btn-secondary float-right">
-            {{ userService.getUserById(progress.user) }}
+  <div class="container">
+    <div class="columns is-multiline">
+      <div class="column is-4" *ngFor="let progress of progresses">
+        <div class="card px-2" style="width: 20rem;">
+          <div class="card-body">
+            <button class="btn btn-secondary float-right">
+              <app-user 
+              [userId]="progress.user">
+            </app-user>
           </button>
           <h4>Accomplished: {{ progress.accomplished }}</h4>
           <h4>Working On: {{ progress.working_on }}</h4>
@@ -14,7 +16,6 @@
         <button class="" (click)="getProgress(progress.id)">Edit</button>
       </div>
     </div>
-
     <div *ngIf="selectedProgress">
       <form>
         Accomplished <input [(ngModel)]="selectedProgress.accomplished" name="accomplised" class="input"><br />
@@ -22,12 +23,12 @@
         Blocker <input [(ngModel)]="selectedProgress.blocker" name="blocker" class="input"><br />
         <button class="" name="createNew" (click)="createProgress()">Create New</button>
         <button class="" name="update" *ngIf="selectedProgress.id"
-          (click)="updateProgress()">Update</button>
+        (click)="updateProgress()">Update</button>
         <button class="" name="delete" *ngIf="selectedProgress.id"
-          (click)="deleteProgress()">Delete</button>
+        (click)="deleteProgress()">Delete</button>
       </form>
     </div>
-
+    
   </div>
 </div><br/>
 </section>

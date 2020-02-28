@@ -10,6 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   loggedIn = false;
+  username: string;
 
   constructor(
     private loginService: LoginService,
@@ -20,6 +21,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.loggedIn = this.loginService.isLoggedin();
+    this.username = this.userService.getUsername();
   }
 
   logoutUser() {
