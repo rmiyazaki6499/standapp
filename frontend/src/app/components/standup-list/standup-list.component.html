@@ -1,4 +1,4 @@
-<section class="hero is-info">
+<section class="background">
     <div style="text-align:center">
         <h1>{{ title }}</h1>
         <h2>List of Stand Ups for {{ username }}:</h2>
@@ -9,8 +9,8 @@
             <div *ngIf="standups">
                 <div class="column is-4" *ngFor="let standup of standups">
                     <a routerLink="../../standup/{{ standup.id }}">
-                        <div class="card">
-                            <div class="card-content">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
                                 <div (click)="standupClicked(standup)">
                                     {{ standup.date | date: 'mediumDate'}}
                                 </div>
@@ -23,7 +23,7 @@
     </div>
 
     <hr>
-    <button class="button is-danger is-large" *ngIf="selectedStandup.id" (click)="updateStandup()">Update</button>
-    <button class="button is-danger is-large" (click)="createStandup()">Create</button>
-    <button class="button is-danger is-large" *ngIf="selectedStandup.id" (click)="deleteStandup()">Delete</button>
+    <button class="" *ngIf="selectedStandup.id" (click)="updateStandup()">Update</button>
+    <button class="" (click)="createStandup()">Create</button>
+    <button class="" *ngIf="selectedStandup.id" (click)="deleteStandup()">Delete</button>
 </section>

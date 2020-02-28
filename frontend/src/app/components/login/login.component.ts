@@ -4,7 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: [],
+  styleUrls: ['login.component.scss'],
   providers: [LoginComponent]
 })
 export class LoginComponent implements OnInit {
@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit {
         this.toastr.success('User ' + this.input.username + ' is logged in!');
       },
       error => {
-        console.log('error', error);
         this.toastr.error('User ' + this.input.username + ' does not have an account yet!');
       }
     );

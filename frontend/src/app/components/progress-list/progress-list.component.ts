@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ProgressService } from '../../services/progress.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
     selector: 'app-progress-list',
@@ -12,6 +13,7 @@ export class ProgressListComponent implements OnInit {
     selectedProgress;
     constructor(
         private progressService: ProgressService,
+        private userService: UserService,
     ) {}
 
     ngOnInit() {
@@ -24,7 +26,7 @@ export class ProgressListComponent implements OnInit {
           };
     }
 
-    getProgressesByStandupId = (standupId) => {
+    getProgressesByStandupId(standupId) {
         this.progressService.getProgressesByStandupId(standupId).subscribe(
           data => {
             this.progresses = data;
@@ -35,7 +37,7 @@ export class ProgressListComponent implements OnInit {
         );
       }
 
-      getProgress = (progressId) => {
+      getProgress(progressId) {
         this.progressService.getOneProgress(progressId).subscribe(
           data => {
             this.selectedProgress = data;

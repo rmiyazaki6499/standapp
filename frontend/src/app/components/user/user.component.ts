@@ -20,7 +20,7 @@ export class UserComponent implements OnInit {
     this.getUserById(this.userId);
   }
 
-  getUserById = (userId) => {
+  getUserById(userId) {
     this.userService.getUserById(userId).subscribe(
       data => {
         this.user = data

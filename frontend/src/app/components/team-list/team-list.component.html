@@ -1,9 +1,9 @@
-<section class="hero is-info">
+<section class="background">
   <div class="container">
     <div class="columns is-multiline">
       <div class="column is-4" *ngFor="let team of teams">
-        <div class="card">
-          <div class="card-content">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
             <div (click)="teamClicked(team)">
               <a style="color: blue; text-decoration: underline" routerLink="../team/{{ team.id }}">Team Name: {{ team.team_name }}</a>
             </div>
@@ -15,8 +15,8 @@
 
   <hr>
   Team Name <input [(ngModel)]="selectedTeam.team_name"><br/>
-  <button class="button is-danger is-large" *ngIf="selectedTeam.id" (click)="updateTeam()">Update</button>
-  <button class="button is-danger is-large" (click)="createTeam()">Create</button>
-  <button class="button is-danger is-large" *ngIf="selectedTeam.id" (click)="deleteTeam()">Delete</button>
+  <button class="" *ngIf="selectedTeam.id" (click)="updateTeam()">Update</button>
+  <button class="" (click)="createTeam()">Create</button>
+  <button class="" *ngIf="selectedTeam.id" (click)="deleteTeam()">Delete</button>
 
 </section>
