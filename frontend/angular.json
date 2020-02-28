@@ -25,7 +25,6 @@
             "styles": [
               "node_modules/ngx-toastr/toastr.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "styles.scss"
             ],
             "scripts": [],
             "es5BrowserSupport": true

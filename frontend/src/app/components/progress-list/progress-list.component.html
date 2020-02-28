@@ -1,30 +1,34 @@
-<section style='background: green' class="hero is-info">
-<div class="container">
-  <div class="columns is-multiline">
-    <div class="column is-4" *ngFor="let progress of progresses">
-      <div class="card">
-        <div class="card-content">
-          <h2>Accomplished: {{ progress.accomplished }}</h2>
-          <h2>Working On: {{ progress.working_on }}</h2>
-          <h2>Blockers: {{ progress.blocker }}</h2>
+<section class="background">
+  <div class="container">
+    <div class="columns is-multiline">
+      <div class="column is-4" *ngFor="let progress of progresses">
+        <div class="card px-2" style="width: 20rem;">
+          <div class="card-body">
+            <button class="btn btn-secondary float-right">
+              <app-user 
+              [userId]="progress.user">
+            </app-user>
+          </button>
+          <h4>Accomplished: {{ progress.accomplished }}</h4>
+          <h4>Working On: {{ progress.working_on }}</h4>
+          <h4>Blockers: {{ progress.blocker }}</h4>
         </div>
-        <button class="button is-danger is-large" (click)="getProgress(progress.id)">Edit</button>
+        <button class="" (click)="getProgress(progress.id)">Edit</button>
       </div>
     </div>
-
     <div *ngIf="selectedProgress">
       <form>
         Accomplished <input [(ngModel)]="selectedProgress.accomplished" name="accomplised" class="input"><br />
         Working On <input [(ngModel)]="selectedProgress.working_on" name="workingOn" class="input"><br />
         Blocker <input [(ngModel)]="selectedProgress.blocker" name="blocker" class="input"><br />
-        <button class="button is-danger is-large" name="createNew" (click)="createProgress()">Create New</button>
-        <button class="button is-danger is-large" name="update" *ngIf="selectedProgress.id"
-          (click)="updateProgress()">Update</button>
-        <button class="button is-danger is-large" name="delete" *ngIf="selectedProgress.id"
-          (click)="deleteProgress()">Delete</button>
+        <button class="" name="createNew" (click)="createProgress()">Create New</button>
+        <button class="" name="update" *ngIf="selectedProgress.id"
+        (click)="updateProgress()">Update</button>
+        <button class="" name="delete" *ngIf="selectedProgress.id"
+        (click)="deleteProgress()">Delete</button>
       </form>
     </div>
-
+    
   </div>
 </div><br/>
 </section>

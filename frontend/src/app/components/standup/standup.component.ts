@@ -30,7 +30,7 @@ export class StandupComponent implements OnInit {
 
   }
 
-  getStandup = (standupId) => {
+  getStandup(standupId) {
     this.standupService.getOneStandup(standupId).subscribe(
       data => {
         this.standup = data;

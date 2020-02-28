@@ -29,7 +29,7 @@ export class StandupListComponent implements OnInit {
     this.getStandupsByTeamId(this.teamId);
   }
 
-  getStandupsByTeamId = (teamId) => {
+  getStandupsByTeamId(teamId) {
     this.standupService.getStandupsByTeamId(teamId).subscribe(
       data => {
         this.standups = data;
@@ -41,7 +41,7 @@ export class StandupListComponent implements OnInit {
   }
 
 
-  standupClicked = (standup) => {
+  standupClicked(standup) {
     this.standupService.getOneStandup(standup.id).subscribe(
       data => {
         this.selectedStandup = data;
@@ -63,7 +63,7 @@ export class StandupListComponent implements OnInit {
     );
   }
 
-  createStandup = () => {
+  createStandup() {
     this.standupService.createStandup({"users":this.teamUsers, 'team': this.teamId}).subscribe(
       data => {
         this.getStandupsByTeamId(this.teamId);

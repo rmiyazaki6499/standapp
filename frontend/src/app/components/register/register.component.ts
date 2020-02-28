@@ -5,7 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: [],
+  styleUrls: ['./register.component.scss'],
   providers: [RegisterService]
 })
 export class RegisterComponent implements OnInit {
@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
       password2: '',
     };
   }
-  onRegister = () => {
+  onRegister() {
     this.RegisterService.registerNewUser(this.register).subscribe(
       response => {
         sessionStorage.setItem('token', response.key);
