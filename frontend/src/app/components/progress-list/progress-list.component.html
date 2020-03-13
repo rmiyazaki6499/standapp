@@ -1,36 +1,63 @@
-<section class="">
-  <div style="text-align:center">
-    <h2>List of Progress Accomplishments:</h2>
-  </div>
-  <div class="container">
-    <div class="columns is-multiline">
-      <div class="column is-4" *ngFor="let progress of progresses">
-        <div class="card px-2" style="width: 20rem;">
-          <div class="card-body">
-            <button class="btn btn-secondary float-right">
-              <app-user 
-              [userId]="progress.user">
-            </app-user>
+<!-- <section id=progress-list class=""> -->
+<div style="text-align:center">
+  <h2>List of Progress Accomplishments:</h2>
+</div>
+<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#progressModal"
+  (click)="clearSelectedProgress()">
+  Create New
+</button>
+<div class="container">
+
+  <!-- Modal -->
+  <div class="modal fade" id="progressModal" tabindex="-1" role="dialog" aria-labelledby="progressModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="progressModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
           </button>
-          <h4>Accomplished: {{ progress.accomplished }}</h4>
-          <h4>Working On: {{ progress.working_on }}</h4>
-          <h4>Blockers: {{ progress.blocker }}</h4>
         </div>
-        <button class="" (click)="getProgress(progress.id)">Edit</button>
+        <div class="modal-body">
+          <div *ngIf="selectedProgress">
+            <form>
+              Accomplished <input [(ngModel)]="selectedProgress.accomplished" name="accomplised" class="input"><br />
+              Working On <input [(ngModel)]="selectedProgress.working_on" name="workingOn" class="input"><br />
+              Blocker <input [(ngModel)]="selectedProgress.blocker" name="blocker" class="input"><br />
+              <button class="btn btn-secondary" name="createNew" *ngIf="!selectedProgress.id" (click)="createProgress()"
+                data-dismiss="modal">Create New</button>
+              <button class="btn btn-secondary" name="update" *ngIf="selectedProgress.id" (click)="updateProgress()"
+                data-dismiss="modal">Update</button>
+              <button class="btn btn-secondary" name="delete" *ngIf="selectedProgress.id" (click)="deleteProgress()"
+                data-dismiss="modal">Delete</button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
-    <div *ngIf="selectedProgress">
-      <form>
-        Accomplished <input [(ngModel)]="selectedProgress.accomplished" name="accomplised" class="input"><br />
-        Working On <input [(ngModel)]="selectedProgress.working_on" name="workingOn" class="input"><br />
-        Blocker <input [(ngModel)]="selectedProgress.blocker" name="blocker" class="input"><br />
-        <button class="" name="createNew" (click)="createProgress()">Create New</button>
-        <button class="" name="update" *ngIf="selectedProgress.id"
-        (click)="updateProgress()">Update</button>
-        <button class="" name="delete" *ngIf="selectedProgress.id"
-        (click)="deleteProgress()">Delete</button>
-      </form>
+  </div>
+  <!-- End Modal -->
+  <div class="test">
+    <div class="row card-group">
+      <div class="column is-4" *ngFor="let progress of progresses">
+        <div class="card p-2 progress-card">
+          <div class="card-body">
+            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#progressModal"
+              (click)="getProgress(progress.id)">Edit</button>
+            <button class="badge badge-pill badge-info float-right">
+              <app-user [userId]="progress.user">
+              </app-user>
+            </button>
+            <h4>Accomplished: {{ progress.accomplished }}</h4>
+            <h4>Working On: {{ progress.working_on }}</h4>
+            <h4>Blockers: {{ progress.blocker }}</h4>
+          </div>
+
+        </div>
+      </div>
     </div>
   </div>
-</div><br/>
-</section>
+
+</div><br />
+<!-- </section> -->

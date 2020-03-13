@@ -11,6 +11,7 @@ export class ProgressListComponent implements OnInit {
     @Input() standupId: number;
     progresses;
     selectedProgress;
+    user;
     constructor(
         private progressService: ProgressService,
         private userService: UserService,
@@ -18,8 +19,18 @@ export class ProgressListComponent implements OnInit {
 
     ngOnInit() {
         this.getProgressesByStandupId(this.standupId)
+        this.userService.getUserByUsername(sessionStorage.getItem('username')).subscribe(
+          data => {
+            this.user = data;
+          },
+          error => {
+            console.log(error);
+          }
+        );
+
         this.selectedProgress = {
             standup: this.standupId,
+            user: null,
             accomplished: '',
             working_on: '',
             blocker: ''
@@ -62,9 +73,7 @@ export class ProgressListComponent implements OnInit {
 
       createProgress() {
         console.log(this.selectedProgress);
-        if (this.selectedProgress.user == null) {
-          this.selectedProgress.user = 1; // TODO should be logged in user
-        }
+        this.selectedProgress.user =  this.user.id;
         this.progressService.createProgress(this.selectedProgress).subscribe(
           data => {
             this.getProgressesByStandupId(this.standupId);
@@ -86,6 +95,13 @@ export class ProgressListComponent implements OnInit {
             }
           );
         }
+      }
+
+      clearSelectedProgress() {
+        this.selectedProgress.id = '';
+        this.selectedProgress.accomplished = '';
+        this.selectedProgress.working_on = '';
+        this.selectedProgress.blocker = '';
       }
 }
 
