@@ -14,6 +14,7 @@ export class StandupComponent implements OnInit {
   standupId;
   standup;
   progresses;
+  teamId: string;
 
   constructor(
     private readonly route: ActivatedRoute,
@@ -22,12 +23,12 @@ export class StandupComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.teamId = sessionStorage.getItem('teamId');
     this.route.paramMap.subscribe(params => {
       this.standupId = params.get('standupId');
     });
 
     this.getStandup(this.standupId);
-
   }
 
   getStandup(standupId) {

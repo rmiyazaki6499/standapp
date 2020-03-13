@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { TeamService } from '../../services/team.service';
-import { BreadcrumbsService } from '../../services/breadcrumbs.service';
 
 @Component({
   selector: 'app-team-list',
@@ -9,26 +8,14 @@ import { BreadcrumbsService } from '../../services/breadcrumbs.service';
 })
 
 
-export class TeamListComponent implements OnInit {
+export class TeamListComponent {
   teams;
   selectedTeam = {team_name: ''};
-  breadcrumbs: Object;
 
   constructor(
     private teamService: TeamService,
-    private breadcrumbsService: BreadcrumbsService
     ) {
     this.getTeams();
-  }
-
-  ngOnInit() {
-    this.breadcrumbsService.currentBreadcrumbs.subscribe(breadcrumbs => this.breadcrumbs = breadcrumbs)
-    this.updateBreadcrumbs()
-  }
-
-  updateBreadcrumbs() {
-    this.breadcrumbs["currentPath"] = "Teams";
-    this.breadcrumbsService.changeBreadcrumbs(this.breadcrumbs)
   }
 
   getTeams() {

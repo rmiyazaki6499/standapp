@@ -21,8 +21,6 @@ import { TeamComponent } from './components/team/team.component';
 import { TeamListComponent } from './components/team-list/team-list.component';
 import { UserComponent } from './components/user/user.component';
 import { ProgressListComponent } from './components/progress-list/progress-list.component';
-import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
-import { BreadcrumbsService } from './services/breadcrumbs.service';
 
 
 @NgModule({
@@ -42,7 +40,6 @@ import { BreadcrumbsService } from './services/breadcrumbs.service';
     TeamListComponent,
     UserComponent,
     ProgressListComponent,
-    BreadcrumbsComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +49,6 @@ import { BreadcrumbsService } from './services/breadcrumbs.service';
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
-  providers: [BreadcrumbsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
