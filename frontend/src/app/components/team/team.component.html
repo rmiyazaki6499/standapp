@@ -1,4 +1,7 @@
 <section class="background">
+  <div>
+    <button class="btn btn-secondary" routerLink="/teams">Back to My Teams</button>
+  </div>
   <div class="container">
     <div *ngIf="team">
       <h2>Team Name: {{ team.team_name }}</h2>
@@ -15,6 +18,7 @@
     </div>
     <app-standup-list
     [teamId]="teamId"
+    [teamName]="team.team_name"
     [teamUsers]="team.users">
     </app-standup-list>
   </div>

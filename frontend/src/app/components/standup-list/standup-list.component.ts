@@ -12,6 +12,7 @@ import { UserService } from '../../services/user.service';
 
 export class StandupListComponent implements OnInit {
   @Input() teamId: number;
+  @Input() teamName: string;
   @Input() teamUsers: number[];
   title: 'Stand Ups';
   username;
