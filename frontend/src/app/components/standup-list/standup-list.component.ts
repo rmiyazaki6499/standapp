@@ -75,9 +75,9 @@ export class StandupListComponent implements OnInit {
     );
   }
 
-  deleteStandup() {
+  deleteStandup(standup) {
     if (confirm('Are you sure to delete this Stand Up?')) {
-      this.standupService.deleteStandup(this.selectedStandup).subscribe(
+      this.standupService.deleteStandup(standup).subscribe(
         data => {
           this.getStandupsByTeamId(this.teamId);
         },

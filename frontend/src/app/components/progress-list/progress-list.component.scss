@@ -16,3 +16,12 @@
 .test {
     overflow: scroll
 }
+
+.noHover{
+    pointer-events: none;
+}
+
+.imageSelector
+{
+  cursor: pointer
+}
