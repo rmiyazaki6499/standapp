@@ -10,7 +10,7 @@
               <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-6a.5.5 0 00-1 0v6a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-11a.5.5 0 01.5-.5H9a.5.5 0 000-1H2.5A1.5 1.5 0 001 2.5v11z" clip-rule="evenodd"/>
             </svg>
             <div (click)="teamClicked(team)">
-              <a style="color: blue; text-decoration: underline" routerLink="../team/{{ team.id }}">Team Name: {{ team.team_name }}</a>
+              <a style="color: blue; text-decoration: underline" routerLink="../team/{{ team.id }}">{{ team.team_name }}</a>
             </div>
           </div>
         </div>
@@ -34,11 +34,11 @@
           <div *ngIf="selectedTeam">
             <form>
               Team Name <input [(ngModel)]="selectedTeam.team_name" name="teamName" class="input"><br>
-              <button class="btn btn-secondary" name="createNew" *ngIf="!selectedTeam.id" (click)="createTeam()"
+              <button class="btn btn-secondary" name="createNew" *ngIf="!selectedTeam.team_name" (click)="createTeam()"
                 data-dismiss="modal">Create Team</button>
-                <button class="btn btn-secondary" name="update" *ngIf="selectedTeam.id" (click)="updateTeam()"
+                <button class="btn btn-secondary" name="update" *ngIf="selectedTeam.team_name" (click)="updateTeam()"
                 data-dismiss="modal">Update</button>
-              <button class="btn btn-secondary" name="delete" *ngIf="selectedTeam.id" (click)="deleteTeam()"
+              <button class="btn btn-secondary" name="delete" *ngIf="selectedTeam.team_name" (click)="deleteTeam()"
                 data-dismiss="modal">Delete</button>
             </form>
           </div>
