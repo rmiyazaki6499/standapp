@@ -14,9 +14,34 @@
   </div>
 
   <hr>
-  Team Name <input [(ngModel)]="selectedTeam.team_name"><br/>
-  <button class="" *ngIf="selectedTeam.id" (click)="updateTeam()">Update</button>
-  <button class="" (click)="createTeam()">Create</button>
-  <button class="" *ngIf="selectedTeam.id" (click)="deleteTeam()">Delete</button>
+  <!-- Team Name <input [(ngModel)]="selectedTeam.team_name"><br/> -->
+  <!-- <button class="" *ngIf="selectedTeam.id" (click)="updateTeam()">Update</button> -->
+  <button class="" class="btn btn-secondary" data-toggle="modal" data-target="#teamModal" (click)="clearSelectedTeam()">Create</button>
+  <!-- <button class="" *ngIf="selectedTeam.id" (click)="deleteTeam()">Delete</button> -->
+
+  <div class="modal fade" id="teamModal" tabindex="-1" role="dialog" aria-labelledby="teamModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="teamModalLabel">New Team</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div *ngIf="selectedTeam">
+            <form>
+              Team Name <input [(ngModel)]="selectedTeam.team_name" name="teamName" class="input"><br>
+              <button class="btn btn-secondary" name="createNew" (click)="createTeam()"
+                data-dismiss="modal">Create Team</button>
+              <!-- <button class="btn btn-secondary" name="delete" (click)="deleteTeam()"
+                data-dismiss="modal">Delete</button> -->
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </section>

@@ -74,4 +74,8 @@ export class TeamListComponent {
       );
     }
   }
+
+  clearSelectedTeam() {
+    this.selectedTeam.team_name = '';
+  }
 }
