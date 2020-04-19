@@ -7,7 +7,40 @@
     height: 100vh;
 }
 
+#title > h2 {
+  text-align: center;
+}
+
+#body > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .imageSelector
 {
   cursor: pointer
+}
+
+div.card {
+  width: 15rem;
+  height: 12rem;
+  text-decoration: none;
+  color: #000;
+  background: #ffc;
+  height: 10rem;
+  width: 10rem;
+  padding: 1rem;
+  margin: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 10px 10px 5px grey;
+}
+
+#edit-icon {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  margin-left: auto;
 }

@@ -6,7 +6,7 @@ import { UserService } from '../../services/user.service';
 @Component({
   selector: 'app-standup-list',
   templateUrl: './standup-list.component.html',
-  styles: ['./standup-list.component.scss'],
+  styleUrls: ['./standup-list.component.scss'],
 })
 
 

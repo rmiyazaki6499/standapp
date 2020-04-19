@@ -1,8 +1,32 @@
-.background {
-    background-image: url('/assets/img/backgroundApp.jpg');
-    background-size: cover;
-    background-position: center center;
-    position: relative;
-    overflow: hidden;
+#body > div > div > div {
+    display: flex;
+    justify-content: center;
+}
+
+#page > div:nth-child(2) {
+    justify-content: center;
+    margin-bottom: 4rem;
+}
+
+#page {
     height: 100vh;
+    overflow: auto;
+}
+
+div.card {
+    text-decoration: none;
+    color: #000;
+    background: #ffc;
+    height: 10rem;
+    width: 10rem;
+    padding: 1rem;
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+    box-shadow: 10px 10px 5px grey;
+}
+
+#trash-icon {
+    float: right;
+    margin-left: auto;
 }

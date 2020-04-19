@@ -6,3 +6,13 @@
     overflow: hidden;
     height: 100vh;
 }
+
+#team-component {
+    background: red($color: #000000);
+}
+
+body > app-root > app-team > section {
+    height: 100vh;
+    overflow: auto;
+}
+

@@ -3,12 +3,13 @@
     <button class="badge badge-dark" routerLink="/teams">Back to My Teams</button>
   </div>
   <div class="container">
+    <div id="team-component" class="container">
     <div *ngIf="team">
-      <h2>Team Name: {{ team.team_name }}</h2>
+      <h2>{{ team.team_name }}</h2>
       Users:
-      <app-user *ngFor="let userId of team.users"
-      [userId]="userId">
-      </app-user>
+      <div id="username" class="row is-4 px-auto">
+        <span><app-user *ngFor="let userId of team.users" [userId]="userId"></app-user></span>
+      </div>
     </div>
     <div>
       <form>
@@ -16,10 +17,8 @@
         <button class="" name="addUser" (click)="addUserToTeam()">Add User</button>
       </form>
     </div>
-    <app-standup-list
-    [teamId]="teamId"
-    [teamName]="team.team_name"
-    [teamUsers]="team.users">
+    </div>
+    <app-standup-list [teamId]="teamId" [teamName]="team.team_name" [teamUsers]="team.users">
     </app-standup-list>
   </div>
 
