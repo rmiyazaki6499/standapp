@@ -1,8 +1,11 @@
 <section class="background">
-  <button class="" class="btn btn-secondary float-left" data-toggle="modal" data-target="#teamModal"
-    (click)="clearSelectedTeam()">Create</button>
-  <div id="title">
+
+  <div id="title" class="my-5">
     <h2>My Teams</h2>
+  </div>
+  <div>
+    <button id="create" class="btn btn-secondary float-left" data-toggle="modal" data-target="#teamModal"
+      (click)="clearSelectedTeam()">Create</button>
   </div>
   <div id="body" class="container">
     <div class="row is-4">
@@ -18,7 +21,7 @@
               clip-rule="evenodd" />
           </svg>
           <h3>
-            <a (click)="teamClicked(team)" style="color: blue; text-decoration: underline"
+            <a (click)="teamClicked(team)" style="color: blue"
               routerLink="../team/{{ team.id }}">{{ team.team_name }}</a>
           </h3>
         </div>
@@ -33,7 +36,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="teamModalLabel">Team</h5>
+          <h5 class="modal-title" id="teamModalLabel">Team name</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -41,13 +44,15 @@
         <div class="modal-body">
           <div *ngIf="selectedTeam">
             <form>
-              Team Name <input [(ngModel)]="selectedTeam.team_name" name="teamName" class="input"><br>
-              <button class="btn btn-secondary" name="createNew" *ngIf="!selectedTeam.team_name" (click)="createTeam()"
+              <input [(ngModel)]="selectedTeam.team_name" name="teamName" class="input">
+              <br>
+              <button class="btn btn-secondary" name="createNew" *ngIf="!selectedTeam.id" (click)="createTeam()"
                 data-dismiss="modal">Create Team</button>
-              <button class="btn btn-secondary" name="update" *ngIf="selectedTeam.team_name" (click)="updateTeam()"
-                data-dismiss="modal">Update</button>
-              <button class="btn btn-secondary" name="delete" *ngIf="selectedTeam.team_name" (click)="deleteTeam()"
+              <button class="btn btn-danger" name="delete" *ngIf="selectedTeam.id" (click)="deleteTeam()"
                 data-dismiss="modal">Delete</button>
+              <button class="btn btn-secondary" name="update" *ngIf="selectedTeam.id" (click)="updateTeam()"
+                data-dismiss="modal">Update</button>
+
             </form>
           </div>
         </div>

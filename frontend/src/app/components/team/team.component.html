@@ -1,7 +1,4 @@
 <section class="background">
-  <div>
-    <button class="badge badge-dark" routerLink="/teams">Back to My Teams</button>
-  </div>
   <div class="container">
     <div id="team-component" class="container">
     <div *ngIf="team">
@@ -18,8 +15,11 @@
       </form>
     </div>
     </div>
-    <app-standup-list [teamId]="teamId" [teamName]="team.team_name" [teamUsers]="team.users">
-    </app-standup-list>
   </div>
+  <div>
+    <button id="back" class="btn" routerLink="/teams">Back</button>
+  </div>
+  <app-standup-list [teamId]="teamId" [teamName]="team.team_name" [teamUsers]="team.users">
+  </app-standup-list>
 
 </section>

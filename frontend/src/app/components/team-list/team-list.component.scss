@@ -11,6 +11,13 @@
   text-align: center;
 }
 
+#create {
+  width: 7rem;
+  background-color: #5bc0de;
+  border-color: #46b8da;
+  margin-left: 3em;
+}
+
 #body > div {
   display: flex;
   justify-content: center;
@@ -43,4 +50,17 @@ div.card {
   top: 1em;
   right: 1em;
   margin-left: auto;
+}
+
+#teamModal > div > div {
+  width: 20rem;
+}
+
+#teamModal > div > div > div.modal-body > div > form > input {
+  margin-bottom: 1em;
+  width: 15rem;
+}
+
+#teamModal > div > div > div.modal-body > div > form > button {
+  float: right;
 }
