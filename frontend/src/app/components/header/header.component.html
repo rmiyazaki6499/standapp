@@ -11,7 +11,7 @@
           <img style="height: 3em ;" src="assets/img/standapp_logo.png">
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item ml-3">
         <a *ngIf="loggedIn" class="nav-link" routerLink="teams">My Teams</a>
       </li>
     </ol>
@@ -31,8 +31,8 @@
         </button>
       </li>
 
-      <li class="nav-item px-1" *ngIf="loggedIn">
-        <button class="btn btn-primary">
+      <li class="nav-item px-1 " *ngIf="loggedIn">
+        <button class="noHover btn btn-primary ">
           {{ username }}
         </button>
       </li>

@@ -1,5 +1,5 @@
 .background {
-    background-image: url(/assets/img/wood_background.jpg);
+    background-image: url('/assets/img/backgroundApp.jpg');
     background-size: cover;
     background-position: center center;
     position: relative;
@@ -13,8 +13,6 @@
 
 #back {
     width: 7rem;
-    background-color: #5bc0de;
-    border-color: #46b8da;
     color: white;
     margin-top: 3em;
     margin-left: 3em;

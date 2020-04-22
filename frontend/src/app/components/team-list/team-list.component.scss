@@ -1,15 +1,13 @@
 .background {
-    background-image: url('/assets/img/wood_background.jpg');
-    background-size: cover;
-    background-position: center center;
-    position: relative;
-    overflow: hidden;
-    height: 100vh;
+  background-image: url("/assets/img/backgroundApp.jpg");
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
 }
 
-#title > h2 {
-  text-align: center;
-}
+
 
 #create {
   width: 7rem;
@@ -22,9 +20,22 @@
   align-items: center;
 }
 
-.imageSelector
-{
-  cursor: pointer
+#title {
+  text-align: center;
+}
+
+#title > h2 > span {
+  color: #f8f9fa;
+  padding: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  border: 1px solid #9c9c9c;
+  background-color: #007bff;
+  border-radius: 10px;
+}
+
+.imageSelector {
+  cursor: pointer;
 }
 
 div.card {

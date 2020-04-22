@@ -17,14 +17,13 @@ div.card {
 }
 
 .test {
-    overflow: scroll
+    overflow: scroll;
 }
 
-.noHover{
+.noHover {
     pointer-events: none;
 }
 
-.imageSelector
-{
-  cursor: pointer
+.imageSelector {
+    cursor: pointer;
 }
