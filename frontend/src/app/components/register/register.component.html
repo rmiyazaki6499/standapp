@@ -1,26 +1,42 @@
 <section class="background">
-    <div class="container">
-        <div style="text-align: center">
-            <h1 class="title">Sign Up!</h1>
-            <form>
-            <input [(ngModel)]="register.username" name="username" placeholder="Username" class="input">
-            <br>
-            <input [(ngModel)]="register.password1" name="password1" type="password" placeholder="Password" class="input">
-            <br>
-            <input [(ngModel)]="register.password2" name="password2" type="password" placeholder="Confirm Password" class="input">
-            <br>
-            <!-- <input [(ngModel)]="register.email" type="email" placeholder="Email Address" class="field">
-            <br> -->
-            <div class="field">
-                <input type="email" name="email" class="input" placeholder="Email Address" [(ngModel)]="register.email"
-                    required email #emailInput="ngModel">
-
-                <div class="help is-error" *ngIf="emailInput.invalid && emailInput.dirty">
-                    Needs to be a valid email.
+    <div id="register">
+        <div class="container">
+            <div id="register-row" class="row justify-content-center align-items-center">
+                <div id="register-column" class="col-md-6">
+                    <div id="register-box" class="col-md-12 rounded">
+                        <form id="register-form" class="form" action="" method="post">
+                            <h3 class="text-center text-dark">Sign Up</h3>
+                            <div class="form-group">
+                                <label for="username" class="text-dark">Username:</label><br>
+                                <input [(ngModel)]="register.username" name="username" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="password1" class="text-dark">Password:</label><br>
+                                <input [(ngModel)]="register.password1" name="password1" type="password"
+                                    class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="password2" class="text-dark">Confirm Password:</label><br>
+                                <input [(ngModel)]="register.password2" name="password2" type="password"
+                                    class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="text-dark">Email:</label><br>
+                                <input type="email" name="email" class="form-control" [(ngModel)]="register.email"
+                                    required email #emailInput="ngModel">
+                                <div class="help is-error" *ngIf="emailInput.invalid && emailInput.dirty">
+                                    Needs to be a valid email.
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input id="register-button" (click)="onRegister()" name="submit"
+                                    class="btn btn-primary btn-md" value="Submit">
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-            <button id="register" (click)="onRegister()" class="">Sign Up!</button>
-        </form>
         </div>
     </div>
+
 </section>
