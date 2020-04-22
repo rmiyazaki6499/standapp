@@ -7,8 +7,6 @@
   height: 100vh;
 }
 
-
-
 #create {
   width: 7rem;
   margin-left: 3em;
@@ -20,7 +18,9 @@
   align-items: center;
 }
 
-#title {
+
+
+#title > h2 {
   text-align: center;
 }
 

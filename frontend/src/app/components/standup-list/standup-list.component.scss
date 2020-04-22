@@ -1,3 +1,17 @@
+#title > h2 {
+    text-align: center;
+}
+
+#title > h2 > span {
+    color: #f8f9fa;
+    padding: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border: 1px solid #9c9c9c;
+    background-color: #007bff;
+    border-radius: 10px;
+  }
+
 #body > div > div > div {
     display: flex;
     justify-content: center;
@@ -27,6 +41,8 @@ div.card {
 }
 
 #trash-icon {
-    float: right;
+    position: absolute;
+    top: 1em;
+    right: 1em;
     margin-left: auto;
 }

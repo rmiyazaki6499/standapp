@@ -1,12 +1,10 @@
 <section class="background">
-
-  <div id="title" class="my-5">
-    <h2><span>Teams</span></h2>
-  </div>
-  <div>
+  <div id="title" class="row my-5">
     <button id="create" class="btn btn-primary float-left" data-toggle="modal" data-target="#teamModal"
       (click)="clearSelectedTeam()">Create</button>
+    <h2><span>Teams</span></h2>
   </div>
+
   <div id="body" class="container">
     <div class="row is-4">
       <div class="column is-4" *ngFor="let team of teams">
@@ -21,8 +19,7 @@
               clip-rule="evenodd" />
           </svg>
           <h3>
-            <a (click)="teamClicked(team)" style="color: blue"
-              routerLink="../team/{{ team.id }}">{{ team.team_name }}</a>
+            <a (click)="teamClicked(team)" routerLink="../team/{{ team.id }}">{{ team.team_name }}</a>
           </h3>
         </div>
       </div>

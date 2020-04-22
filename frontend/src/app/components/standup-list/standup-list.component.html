@@ -2,33 +2,51 @@
     <div class="row">
         <button (click)="createStandup()">Create Standup</button>
     </div>
-    <div class="row" style="text-align:center">
-        <h2>Stand Ups for {{ teamName }}:</h2>
+    <div id="title" class="row" style="text-align:center">
+        <h2><span>{{ teamName }} Stand Ups</span></h2>
     </div>
     <div id="body" class="container">
         <div class="columns is-multiline">
             <div *ngIf="standups">
                 <div class="row is-4 mx-auto">
                     <div class="column is-4" *ngFor="let standup of standups">
-                        <a routerLink="../../standup/{{ standup.id }}">
-                            <div class="card" style="width: 18rem; height: 15rem">
-                                <svg id="trash-icon" class="bi bi-trash" (click)="deleteStandup(standup)" width="1.5em"
-                                    height="1.5em" viewBox="0 0 16 16" fill="currentColor"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M5.5 5.5A.5.5 0 016 6v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm3 .5a.5.5 0 00-1 0v6a.5.5 0 001 0V6z" />
-                                    <path fill-rule="evenodd"
-                                        d="M14.5 3a1 1 0 01-1 1H13v9a2 2 0 01-2 2H5a2 2 0 01-2-2V4h-.5a1 1 0 01-1-1V2a1 1 0 011-1H6a1 1 0 011-1h2a1 1 0 011 1h3.5a1 1 0 011 1v1zM4.118 4L4 4.059V13a1 1 0 001 1h6a1 1 0 001-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
-                                        clip-rule="evenodd" />
-                                </svg>
+                        <div class="card" style="width: 18rem; height: 15rem">
+                            <svg id="trash-icon" (click)="standupClicked(standup)" class="bi bi-trash" data-toggle="modal" data-target="#standupModal"
+                                width="1.5em" height="1.5em" viewBox="0 0 16 16" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M5.5 5.5A.5.5 0 016 6v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm3 .5a.5.5 0 00-1 0v6a.5.5 0 001 0V6z" />
+                                <path fill-rule="evenodd"
+                                    d="M14.5 3a1 1 0 01-1 1H13v9a2 2 0 01-2 2H5a2 2 0 01-2-2V4h-.5a1 1 0 01-1-1V2a1 1 0 011-1H6a1 1 0 011-1h2a1 1 0 011 1h3.5a1 1 0 011 1v1zM4.118 4L4 4.059V13a1 1 0 001 1h6a1 1 0 001-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <a routerLink="../../standup/{{ standup.id }}">
                                 <h4 class="text-center my-auto" (click)="standupClicked(standup)">
                                     {{ standup.date | date: 'mediumDate'}}</h4>
-                            </div>
-                        </a>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <hr>
+    <!-- Modal -->
+    <div class="modal fade" id="standupModal" tabindex="-1" role="dialog" aria-labelledby="standupModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="standupModalLabel">Are you sure?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <button class="btn btn-danger" name="delete" (click)="deleteStandup()"
+                        data-dismiss="modal">Yes</button>
+                    <button class="btn btn-secondary" name="close" data-dismiss="modal">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
