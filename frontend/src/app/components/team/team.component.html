@@ -1,12 +1,12 @@
 <section class="background">
   <div>
-    <button id="back" class="btn btn-secondary" routerLink="/teams">Back</button>
-  </div>
-  <div class="container">
-    <div class="d-flex justify-content-center" *ngIf="team">
-      <h2><span id="teamName">The {{ team.team_name }} Team</span></h2>
+    <div class="d-flex justify-content-center mt-5">
+      <button id="back" class="btn btn-secondary" routerLink="/teams">Back</button>
+      <div *ngIf="team">
+        <h2><span id="teamName">The {{ team.team_name }} Team</span></h2>
+      </div>
     </div>
-    <div class="d-flex justify-content-center my-2">
+    <div class="d-flex justify-content-center my-4">
       <a>
         <svg class="bi bi-plus-square-fill imageSelector" width="3em" height="3em" data-toggle="modal"
           data-target="#userModel" viewBox="0 0 16 16" fill="#6c757d" xmlns="http://www.w3.org/2000/svg">
