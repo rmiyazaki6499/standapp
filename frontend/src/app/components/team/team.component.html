@@ -4,7 +4,7 @@
   </div>
   <div class="container">
     <div class="d-flex justify-content-center" *ngIf="team">
-      <h2><span id="teamName">{{ team.team_name }}</span></h2>
+      <h2><span id="teamName">The {{ team.team_name }} Team</span></h2>
     </div>
     <div class="d-flex justify-content-center my-2">
       <a>
@@ -16,7 +16,7 @@
         </svg>
       </a>
     </div>
-    <div id="username" class="row is-4 px-auto">
+    <div id="username" class="d-flex justify-content-center row is-4 px-auto m-4">
       <app-user class="column is-4" *ngFor="let userId of team.users" [userId]="userId"></app-user>
     </div>
     <!-- <div>
@@ -26,7 +26,6 @@
       </form>
     </div> -->
   </div>
-
   <app-standup-list [teamId]="teamId" [teamName]="team.team_name" [teamUsers]="team.users">
   </app-standup-list>
 
@@ -43,12 +42,12 @@
         </div>
         <div class="modal-body">
           <form id="addUser">
-            <input [(ngModel)]="newUsername" name="addUserTitle" class="input"><br/>
-            <button class="btn btn-secondary" name="addUser" (click)="addUserToTeam()" data-dismiss="modal">Add User</button>
+            <input [(ngModel)]="newUsername" name="addUserTitle" class="input"><br />
+            <button class="btn btn-secondary" name="addUser" (click)="addUserToTeam()" data-dismiss="modal">Add
+              User</button>
           </form>
         </div>
       </div>
     </div>
   </div>
-
 </section>

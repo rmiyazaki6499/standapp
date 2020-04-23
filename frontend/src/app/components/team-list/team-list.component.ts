@@ -49,6 +49,7 @@ export class TeamListComponent {
         console.log(error);
       }
     );
+    this.clearSelectedTeam()
   }
 
   createTeam() {
@@ -60,6 +61,7 @@ export class TeamListComponent {
         console.log(error);
       }
     );
+    this.clearSelectedTeam()
   }
 
   deleteTeam() {
@@ -71,6 +73,7 @@ export class TeamListComponent {
           console.log(error);
         }
       );
+      this.clearSelectedTeam()
     }
 
   clearSelectedTeam() {
