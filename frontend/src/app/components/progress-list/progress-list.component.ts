@@ -72,7 +72,6 @@ export class ProgressListComponent implements OnInit {
       }
 
       createProgress() {
-        console.log(this.selectedProgress);
         this.selectedProgress.user =  this.user.id;
         this.progressService.createProgress(this.selectedProgress).subscribe(
           data => {

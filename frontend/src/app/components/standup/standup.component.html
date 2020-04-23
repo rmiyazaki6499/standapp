@@ -1,18 +1,15 @@
 <section class="background">
-  <div>
-    <button class="badge badge-dark" routerLink="/team/{{ teamId }}">Back to Team {{ teamId }}</button>
-  </div>
-  <div style="text-align:center">
-    <div *ngIf="message" class="">
-      {{ message }}
+  <div id="header" class="my-4">
+    <div>
+      <button id="back" class="btn btn-primary" routerLink="/team/{{ teamId }}">Back to Team {{ teamId }}</button>
     </div>
-    <h1>
-      <div *ngIf="standup">
-        Standup for: {{ standup.date | date: 'mediumDate'}}
-      </div>
-    </h1>
+    <div *ngIf="standup">
+      <h1>
+        <span id="standup">Standup for {{ standup.date | date: 'mediumDate'}}</span>
+      </h1>
+    </div>
+
   </div>
-  <app-progress-list
-    [standupId]="standupId">
+  <app-progress-list [standupId]="standupId">
   </app-progress-list>
 </section>

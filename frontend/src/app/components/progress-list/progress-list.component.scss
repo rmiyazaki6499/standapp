@@ -3,12 +3,23 @@ body > app-root > app-standup > section {
     overflow: auto;
 }
 
+#header {
+    color: #f8f9fa;
+    margin-top: auto;
+    padding: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border: 1px solid #9c9c9c;
+    background-color: #007bff;
+    border-radius: 10px;
+}
+
 div.card {
     text-decoration: none;
     color: #000;
     background: #ffc;
-    height: 20rem;
-    width: 20rem;
+    height: 25rem;
+    width: 25rem;
     padding: 1rem;
     margin: 1rem;
     display: flex;
@@ -26,4 +37,8 @@ div.card {
 
 .imageSelector {
     cursor: pointer;
+}
+
+#progressModal > div > div > div.modal-body > div > form > textarea {
+    width: 100%;
 }
