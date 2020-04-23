@@ -63,7 +63,6 @@ export class TeamListComponent {
   }
 
   deleteTeam() {
-    if (confirm('Are you sure to delete this team?')) {
       this.teamService.deleteTeam(this.selectedTeam).subscribe(
         data => {
           this.getTeams();
@@ -73,7 +72,6 @@ export class TeamListComponent {
         }
       );
     }
-  }
 
   clearSelectedTeam() {
     this.selectedTeam.team_name = '';

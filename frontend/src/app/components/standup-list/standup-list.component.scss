@@ -1,8 +1,10 @@
-#title > h2 {
-    text-align: center;
+#standupTitle {
+    display: flex; /* make container a flexbox */
+    justify-content: center; /* center child elements ("flex items") */
+    position: relative;
 }
 
-#title > h2 > span {
+#standupTitle > h2 > span {
     color: #f8f9fa;
     padding: 1rem;
     padding-left: 2rem;
@@ -10,7 +12,7 @@
     border: 1px solid #9c9c9c;
     background-color: #007bff;
     border-radius: 10px;
-  }
+}
 
 #body > div > div > div {
     display: flex;
@@ -40,9 +42,22 @@ div.card {
     box-shadow: 10px 10px 5px grey;
 }
 
+.imageSelector {
+    cursor: pointer;
+  }
+
 #trash-icon {
     position: absolute;
     top: 1em;
     right: 1em;
     margin-left: auto;
+}
+
+#standupModal > div > div {
+    width: 20rem;
+}
+
+#standupModal > div > div > div.modal-body > div > form > input {
+    margin-bottom: 1em;
+    width: 15rem;
 }

@@ -1,19 +1,29 @@
 <section id="page" class="container">
-    <div class="row">
-        <button (click)="createStandup()">Create Standup</button>
+    <div id="standupTitle" class="mt-5">
+        <h2><span>Stand Ups</span></h2>
     </div>
-    <div id="title" class="row" style="text-align:center">
-        <h2><span>{{ teamName }} Stand Ups</span></h2>
+    <div class="d-flex justify-content-center my-2">
+        <a>
+            <svg class="bi bi-plus-square-fill imageSelector" width="3em" height="3em" (click)="createStandup()"
+                viewBox="0 0 16 16" fill="#007bff" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm6.5 4a.5.5 0 00-1 0v3.5H4a.5.5 0 000 1h3.5V12a.5.5 0 001 0V8.5H12a.5.5 0 000-1H8.5V4z"
+                    clip-rule="evenodd" />
+            </svg>
+        </a>
     </div>
+    <!-- <div class="d-flex justify-content-center">
+        <button id="create" class="btn btn-primary my-2" (click)="createStandup()">Create Standup</button>
+    </div> -->
     <div id="body" class="container">
         <div class="columns is-multiline">
             <div *ngIf="standups">
                 <div class="row is-4 mx-auto">
                     <div class="column is-4" *ngFor="let standup of standups">
                         <div class="card" style="width: 18rem; height: 15rem">
-                            <svg id="trash-icon" (click)="standupClicked(standup)" class="bi bi-trash" data-toggle="modal" data-target="#standupModal"
-                                width="1.5em" height="1.5em" viewBox="0 0 16 16" fill="currentColor"
-                                xmlns="http://www.w3.org/2000/svg">
+                            <svg id="trash-icon" (click)="standupClicked(standup)" class="bi bi-trash imageSelector"
+                                data-toggle="modal" data-target="#standupModal" width="1.5em" height="1.5em"
+                                viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M5.5 5.5A.5.5 0 016 6v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V6a.5.5 0 01.5-.5zm3 .5a.5.5 0 00-1 0v6a.5.5 0 001 0V6z" />
                                 <path fill-rule="evenodd"

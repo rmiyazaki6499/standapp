@@ -7,21 +7,16 @@
   height: 100vh;
 }
 
-#create {
-  width: 7rem;
-  margin-left: 3em;
+#title {
+  display: flex; /* make container a flexbox */
+  justify-content: center; /* center child elements ("flex items") */
+  position: relative;
 }
 
 #body > div {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-
-
-#title > h2 {
-  text-align: center;
 }
 
 #title > h2 > span {
@@ -68,8 +63,4 @@ div.card {
 #teamModal > div > div > div.modal-body > div > form > input {
   margin-bottom: 1em;
   width: 15rem;
-}
-
-#teamModal > div > div > div.modal-body > div > form > button {
-  float: right;
 }

@@ -1,10 +1,19 @@
 <section class="background">
-  <div id="title" class="row my-5">
-    <button id="create" class="btn btn-primary float-left" data-toggle="modal" data-target="#teamModal"
-      (click)="clearSelectedTeam()">Create</button>
+  <div id="title" class="mt-5">
     <h2><span>Teams</span></h2>
   </div>
-
+  <div class="d-flex justify-content-center my-2">
+    <a>
+      <svg class="bi bi-plus-square-fill imageSelector" width="3em" height="3em" data-toggle="modal"
+        data-target="#teamModal" viewBox="0 0 16 16" fill="#007bff" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd"
+          d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm6.5 4a.5.5 0 00-1 0v3.5H4a.5.5 0 000 1h3.5V12a.5.5 0 001 0V8.5H12a.5.5 0 000-1H8.5V4z"
+          clip-rule="evenodd" />
+      </svg>
+    </a>
+  </div>
+  <!-- <button id="create" class="btn btn-primary float-left" data-toggle="modal" data-target="#teamModal"
+    (click)="clearSelectedTeam()">Create</button> -->
   <div id="body" class="container">
     <div class="row is-4">
       <div class="column is-4" *ngFor="let team of teams">
@@ -38,16 +47,15 @@
         </div>
         <div class="modal-body">
           <div *ngIf="selectedTeam">
-            <form>
+            <form id="from">
               <input [(ngModel)]="selectedTeam.team_name" name="teamName" class="input">
               <br>
               <button class="btn btn-secondary" name="createNew" *ngIf="!selectedTeam.id" (click)="createTeam()"
                 data-dismiss="modal">Create Team</button>
-              <button class="btn btn-danger" name="delete" *ngIf="selectedTeam.id" (click)="deleteTeam()"
-                data-dismiss="modal">Delete</button>
               <button class="btn btn-secondary" name="update" *ngIf="selectedTeam.id" (click)="updateTeam()"
                 data-dismiss="modal">Update</button>
-
+              <button class="btn btn-danger" name="delete" *ngIf="selectedTeam.id" (click)="deleteTeam()"
+                data-dismiss="modal">Delete</button>
             </form>
           </div>
         </div>
