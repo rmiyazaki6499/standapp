@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
       response => {
         sessionStorage.setItem('token', response.key);
         sessionStorage.setItem('username', this.input.username);
-        window.location.href = '/';
+        window.location.href = '/teams';
         this.toastr.success('User ' + this.input.username + ' is logged in!');
       },
       error => {

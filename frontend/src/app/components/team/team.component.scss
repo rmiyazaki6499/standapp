@@ -1,8 +1,32 @@
 .background {
-    background-image: url('/assets/img/backgroundApp.jpg');
+    background-color: #d3d3d3;
     background-size: cover;
     background-position: center center;
     position: relative;
     overflow: hidden;
     height: 100vh;
+}
+
+#team-component {
+    background: red($color: #000000);
+}
+
+#back {
+    width: 7rem;
+    position: absolute;
+    left: 2%;
+}
+
+body > app-root > app-team > section {
+    height: 100vh;
+    overflow: auto;
+}
+
+.imageSelector {
+    cursor: pointer;
+}
+
+#addUser > input {
+    margin-bottom: 1em;
+    width: 15rem;
 }

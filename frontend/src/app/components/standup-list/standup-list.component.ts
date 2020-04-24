@@ -6,7 +6,7 @@ import { UserService } from '../../services/user.service';
 @Component({
   selector: 'app-standup-list',
   templateUrl: './standup-list.component.html',
-  styles: ['./standup-list.component.scss'],
+  styleUrls: ['./standup-list.component.scss'],
 })
 
 
@@ -18,7 +18,7 @@ export class StandupListComponent implements OnInit {
   username;
   currentUsername;
   standups;
-  selectedStandup = {date: ''};
+  selectedStandup = { date: '' };
 
   constructor(
     private standupService: StandupService,
@@ -65,7 +65,7 @@ export class StandupListComponent implements OnInit {
   }
 
   createStandup() {
-    this.standupService.createStandup({"users":this.teamUsers, 'team': this.teamId}).subscribe(
+    this.standupService.createStandup({ "users": this.teamUsers, 'team': this.teamId }).subscribe(
       data => {
         this.getStandupsByTeamId(this.teamId);
       },
@@ -76,16 +76,14 @@ export class StandupListComponent implements OnInit {
   }
 
   deleteStandup() {
-    if (confirm('Are you sure to delete this Stand Up?')) {
-      this.standupService.deleteStandup(this.selectedStandup).subscribe(
-        data => {
-          this.getStandupsByTeamId(this.teamId);
-        },
-        error => {
-          console.log(error);
-        }
-      );
-    }
+    this.standupService.deleteStandup(this.selectedStandup).subscribe(
+      data => {
+        this.getStandupsByTeamId(this.teamId);
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
   getCurrentUsername() {

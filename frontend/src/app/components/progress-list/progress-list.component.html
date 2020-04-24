@@ -1,63 +1,82 @@
 <!-- <section id=progress-list class=""> -->
-<div style="text-align:center">
-  <h2>List of Progress Accomplishments:</h2>
+<div class="d-flex justify-content-center">
+  <h2 id="header">List of Progress Accomplishments</h2>
 </div>
-<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#progressModal"
+<div class="d-flex justify-content-center">
+  <a>
+    <svg class="bi bi-plus-square-fill imageSelector" width="3em" height="3em" data-toggle="modal"
+      data-target="#progressModal" (click)="clearSelectedProgress()" viewBox="0 0 16 16" fill="#6c757d"
+      xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd"
+        d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm6.5 4a.5.5 0 00-1 0v3.5H4a.5.5 0 000 1h3.5V12a.5.5 0 001 0V8.5H12a.5.5 0 000-1H8.5V4z"
+        clip-rule="evenodd" />
+    </svg>
+  </a>
+</div>
+<!-- <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#progressModal"
   (click)="clearSelectedProgress()">
   Create New
-</button>
+</button> -->
 <div class="container">
-
-  <!-- Modal -->
-  <div class="modal fade" id="progressModal" tabindex="-1" role="dialog" aria-labelledby="progressModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="progressModalLabel">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div *ngIf="selectedProgress">
-            <form>
-              Accomplished <input [(ngModel)]="selectedProgress.accomplished" name="accomplised" class="input"><br />
-              Working On <input [(ngModel)]="selectedProgress.working_on" name="workingOn" class="input"><br />
-              Blocker <input [(ngModel)]="selectedProgress.blocker" name="blocker" class="input"><br />
-              <button class="btn btn-secondary" name="createNew" *ngIf="!selectedProgress.id" (click)="createProgress()"
-                data-dismiss="modal">Create New</button>
-              <button class="btn btn-secondary" name="update" *ngIf="selectedProgress.id" (click)="updateProgress()"
-                data-dismiss="modal">Update</button>
-              <button class="btn btn-secondary" name="delete" *ngIf="selectedProgress.id" (click)="deleteProgress()"
-                data-dismiss="modal">Delete</button>
-            </form>
-          </div>
+  <div class="columns is-multiline">
+  <div class="row is-4 card-group d-flex justify-content-center">
+    <div class="column" *ngFor="let progress of progresses">
+      <div class="card p-2 progress-card">
+        <div class="card-body">
+          <svg class="bi bi-pencil-square rounded imageSelector float-right" data-toggle="modal"
+            data-target="#progressModal" (click)="getProgress(progress.id)" width="1.5em" height="1.5em"
+            viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M15.502 1.94a.5.5 0 010 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 01.707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 00-.121.196l-.805 2.414a.25.25 0 00.316.316l2.414-.805a.5.5 0 00.196-.12l6.813-6.814z" />
+            <path fill-rule="evenodd"
+              d="M1 13.5A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-6a.5.5 0 00-1 0v6a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-11a.5.5 0 01.5-.5H9a.5.5 0 000-1H2.5A1.5 1.5 0 001 2.5v11z"
+              clip-rule="evenodd" />
+          </svg>
+          <app-user [userId]="progress.user">
+          </app-user>
+          <br />
+          <br />
+          <h4><b>Accomplished:</b>
+            {{ progress.accomplished }}</h4>
+          <h4><b>Working On:</b>
+          {{ progress.working_on }}</h4>
+          <h4><b>Blockers:</b>
+            {{ progress.blocker }}</h4>
         </div>
       </div>
     </div>
-  </div>
-  <!-- End Modal -->
-  <div class="test">
-    <div class="row card-group">
-      <div class="column is-4" *ngFor="let progress of progresses">
-        <div class="card p-2 progress-card">
-          <div class="card-body">
-            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#progressModal"
-              (click)="getProgress(progress.id)">Edit</button>
-            <button class="badge badge-pill badge-info float-right">
-              <app-user [userId]="progress.user">
-              </app-user>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="progressModal" tabindex="-1" role="dialog" aria-labelledby="progressModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="progressModalLabel">Progress since last Standup</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
             </button>
-            <h4>Accomplished: {{ progress.accomplished }}</h4>
-            <h4>Working On: {{ progress.working_on }}</h4>
-            <h4>Blockers: {{ progress.blocker }}</h4>
           </div>
-
+          <div class="modal-body">
+            <div *ngIf="selectedProgress">
+              <form>
+                Accomplished <br><textarea [(ngModel)]="selectedProgress.accomplished"
+                  name="accomplised"></textarea><br />
+                Working On <br><textarea [(ngModel)]="selectedProgress.working_on" name="workingOn"></textarea><br />
+                Blockers <br><textarea [(ngModel)]="selectedProgress.blocker" name="blocker"></textarea><br />
+                <button class="btn btn-secondary" name="createNew" *ngIf="!selectedProgress.id"
+                  (click)="createProgress()" data-dismiss="modal">Create New</button>
+                <button class="btn btn-secondary" name="update" *ngIf="selectedProgress.id" (click)="updateProgress()"
+                  data-dismiss="modal">Update</button>
+                <button class="btn btn-danger" name="delete" *ngIf="selectedProgress.id" (click)="deleteProgress()"
+                  data-dismiss="modal">Delete</button>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-</div><br />
-<!-- </section> -->
+  </div><br />
+  <!-- </section> -->

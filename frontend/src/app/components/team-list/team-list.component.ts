@@ -10,11 +10,16 @@ import { TeamService } from '../../services/team.service';
 
 export class TeamListComponent {
   teams;
-  selectedTeam = {team_name: ''};
+  selectedTeam = {
+    id: '',
+    date: '',
+    team_name: '',
+    users: []
+  };
 
   constructor(
     private teamService: TeamService,
-    ) {
+  ) {
     this.getTeams();
   }
 
@@ -49,6 +54,7 @@ export class TeamListComponent {
         console.log(error);
       }
     );
+    this.clearSelectedTeam()
   }
 
   createTeam() {
@@ -60,22 +66,27 @@ export class TeamListComponent {
         console.log(error);
       }
     );
+    this.clearSelectedTeam()
   }
 
   deleteTeam() {
-    if (confirm('Are you sure to delete this team?')) {
-      this.teamService.deleteTeam(this.selectedTeam).subscribe(
-        data => {
-          this.getTeams();
-        },
-        error => {
-          console.log(error);
-        }
-      );
-    }
+    this.teamService.deleteTeam(this.selectedTeam).subscribe(
+      data => {
+        this.getTeams();
+      },
+      error => {
+        console.log(error);
+      }
+    );
+    this.clearSelectedTeam()
   }
 
   clearSelectedTeam() {
-    this.selectedTeam.team_name = '';
+    this.selectedTeam = {
+      id: '',
+      date: '',
+      team_name: '',
+      users: []
+    };
   }
 }

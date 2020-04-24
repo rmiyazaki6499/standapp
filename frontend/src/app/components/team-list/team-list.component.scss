@@ -1,8 +1,56 @@
 .background {
-    background-image: url('/assets/img/backgroundApp.jpg');
-    background-size: cover;
-    background-position: center center;
-    position: relative;
-    overflow: hidden;
-    height: 100vh;
+  background-color: #d3d3d3;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+}
+
+#title {
+  display: flex; /* make container a flexbox */
+  justify-content: center; /* center child elements ("flex items") */
+  position: relative;
+}
+
+#body > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageSelector {
+  cursor: pointer;
+}
+
+div.card {
+  width: 15rem;
+  height: 12rem;
+  text-decoration: none;
+  color: #000;
+  background: #ffc;
+  height: 10rem;
+  width: 10rem;
+  padding: 1rem;
+  margin: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 10px 10px 5px grey;
+}
+
+#edit-icon {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  margin-left: auto;
+}
+
+#teamModal > div > div {
+  width: 20rem;
+}
+
+#teamModal > div > div > div.modal-body > div > form > input {
+  margin-bottom: 1em;
+  width: 15rem;
 }

@@ -1,30 +1,47 @@
 <section class="background">
-  <div class="container">
-    <div class="columns is-multiline">
+  <div id="title" class="mt-5">
+    <h2><span>Teams</span></h2>
+  </div>
+  <div class="d-flex justify-content-center my-4">
+    <a>
+      <svg class="bi bi-plus-square-fill imageSelector" (click)=clearSelectedTeam() width="3em" height="3em"
+        data-toggle="modal" data-target="#teamModal" viewBox="0 0 16 16" fill="#6c757d"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd"
+          d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm6.5 4a.5.5 0 00-1 0v3.5H4a.5.5 0 000 1h3.5V12a.5.5 0 001 0V8.5H12a.5.5 0 000-1H8.5V4z"
+          clip-rule="evenodd" />
+      </svg>
+    </a>
+  </div>
+  <!-- <button id="create" class="btn btn-primary float-left" data-toggle="modal" data-target="#teamModal"
+    (click)="clearSelectedTeam()">Create</button> -->
+  <div id="body" class="container">
+    <div class="row is-4">
       <div class="column is-4" *ngFor="let team of teams">
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <div (click)="teamClicked(team)">
-              <a style="color: blue; text-decoration: underline" routerLink="../team/{{ team.id }}">Team Name: {{ team.team_name }}</a>
-            </div>
-          </div>
+        <div class="card" style="width: 18rem; height: 15rem">
+          <svg id="edit-icon" class="bi bi-pencil-square rounded imageSelector float-right" data-toggle="modal"
+            data-target="#teamModal" (click)="teamClicked(team)" width="1.5em" height="1.5em" viewBox="0 0 16 16"
+            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M15.502 1.94a.5.5 0 010 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 01.707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 00-.121.196l-.805 2.414a.25.25 0 00.316.316l2.414-.805a.5.5 0 00.196-.12l6.813-6.814z" />
+            <path fill-rule="evenodd"
+              d="M1 13.5A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-6a.5.5 0 00-1 0v6a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-11a.5.5 0 01.5-.5H9a.5.5 0 000-1H2.5A1.5 1.5 0 001 2.5v11z"
+              clip-rule="evenodd" />
+          </svg>
+          <h3>
+            <a (click)="teamClicked(team)" routerLink="../team/{{ team.id }}">{{ team.team_name }}</a>
+          </h3>
         </div>
       </div>
     </div>
   </div>
-
-  <hr>
-  <!-- Team Name <input [(ngModel)]="selectedTeam.team_name"><br/> -->
-  <!-- <button class="" *ngIf="selectedTeam.id" (click)="updateTeam()">Update</button> -->
-  <button class="" class="btn btn-secondary" data-toggle="modal" data-target="#teamModal" (click)="clearSelectedTeam()">Create</button>
-  <!-- <button class="" *ngIf="selectedTeam.id" (click)="deleteTeam()">Delete</button> -->
-
+  <!-- Modal -->
   <div class="modal fade" id="teamModal" tabindex="-1" role="dialog" aria-labelledby="teamModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="teamModalLabel">New Team</h5>
+          <h5 class="modal-title" id="teamModalLabel">Team name</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -32,11 +49,14 @@
         <div class="modal-body">
           <div *ngIf="selectedTeam">
             <form>
-              Team Name <input [(ngModel)]="selectedTeam.team_name" name="teamName" class="input"><br>
-              <button class="btn btn-secondary" name="createNew" (click)="createTeam()"
+              <input [(ngModel)]="selectedTeam.team_name" name="teamName" class="input">
+              <br>
+              <button class="btn btn-secondary" name="createNew" *ngIf="!selectedTeam.id" (click)="createTeam()"
                 data-dismiss="modal">Create Team</button>
-              <!-- <button class="btn btn-secondary" name="delete" (click)="deleteTeam()"
-                data-dismiss="modal">Delete</button> -->
+              <button class="btn btn-secondary" name="update" *ngIf="selectedTeam.id" (click)="updateTeam()"
+                data-dismiss="modal">Update</button>
+              <button class="btn btn-danger" name="delete" *ngIf="selectedTeam.id" (click)="deleteTeam()"
+                data-dismiss="modal">Delete</button>
             </form>
           </div>
         </div>

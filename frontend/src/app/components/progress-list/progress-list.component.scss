@@ -1,18 +1,29 @@
-.background {
-    background-image: url('/assets/img/backgroundApp.jpg');
-    background-size: cover;
-    background-position: center center;
-    position: relative;
-    overflow: hidden;
+body > app-root > app-standup > section {
     height: 100vh;
+    overflow: auto;
 }
 
-.progress-card {
-    height: 15rem;
-    width: 20rem;
-    overflow-y: scroll;
+div.card {
+    text-decoration: none;
+    color: #000;
+    background: #ffc;
+    height: 25rem;
+    width: 25rem;
+    padding: 1rem;
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+    box-shadow: 10px 10px 5px grey;
 }
 
-.test {
-    overflow: scroll
+.noHover {
+    pointer-events: none;
+}
+
+.imageSelector {
+    cursor: pointer;
+}
+
+#progressModal > div > div > div.modal-body > div > form > textarea {
+    width: 100%;
 }
