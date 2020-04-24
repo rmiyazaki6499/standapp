@@ -15,32 +15,32 @@ export class ProgressService {
   constructor(private http: HttpClient) { }
 
   getAllProgresses(): Observable<any> {
-    return this.http.get(this.baseurl + '/progress/',
+    return this.http.get(this.baseurl + 'progress/',
     {headers: this.httpHeaders});
   }
 
   getOneProgress(id): Observable<any> {
-    return this.http.get(this.baseurl + '/progress/' + id + '/',
+    return this.http.get(this.baseurl + 'progress/' + id + '/',
     {headers: this.httpHeaders});
   }
 
   updateProgress(progress) {
-    return this.http.put(this.baseurl + '/progress/' + progress.id + '/', progress,
+    return this.http.put(this.baseurl + 'progress/' + progress.id + '/', progress,
       {headers: this.httpHeaders});
   }
 
   createProgress(progress) {
-    return this.http.post(this.baseurl + '/progress/', progress,
+    return this.http.post(this.baseurl + 'progress/', progress,
       {headers: this.httpHeaders});
   }
 
   deleteProgress(progress) {
-      return this.http.delete(this.baseurl + '/progress/' + progress.id + '/',
+      return this.http.delete(this.baseurl + 'progress/' + progress.id + '/',
       {headers: this.httpHeaders});
   }
 
   getProgressesByStandupId(standupId): Observable<any> {
-    return this.http.get(this.baseurl + '/progress/?standupId=' + standupId,
+    return this.http.get(this.baseurl + 'progress/?standupId=' + standupId,
     {headers: this.httpHeaders});
   }
 }

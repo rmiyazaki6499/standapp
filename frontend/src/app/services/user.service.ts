@@ -21,12 +21,12 @@ export class UserService {
   }
 
   getUserByUsername(newUsername): Observable<any> {
-    return this.http.get(this.baseurl + '/user/?username=' + newUsername,
+    return this.http.get(this.baseurl + 'user/?username=' + newUsername,
     {headers: this.httpHeaders});
   }
 
   getUserById(userId): Observable<any> {
-    return this.http.get(this.baseurl + '/user/' + userId,
+    return this.http.get(this.baseurl + 'user/' + userId,
     {headers: this.httpHeaders});
   }
 }

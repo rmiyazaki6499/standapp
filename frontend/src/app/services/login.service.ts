@@ -22,7 +22,7 @@ export class LoginService {
   }
 
   loginUser(userData): Observable<any> {
-    return this.http.post(this.baseurl + '/rest-auth/login/', userData);
+    return this.http.post(this.baseurl + 'rest-auth/login/', userData);
   }
 
   logoutUser() {

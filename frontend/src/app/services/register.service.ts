@@ -14,6 +14,6 @@ export class RegisterService {
   constructor(private http: HttpClient) { }
 
   registerNewUser(userData): Observable<any> {
-    return this.http.post(this.baseurl + '/rest-auth/registration/', userData);
+    return this.http.post(this.baseurl + 'rest-auth/registration/', userData);
   }
 }
