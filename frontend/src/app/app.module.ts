@@ -13,7 +13,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { StandupComponent } from './components/standup/standup.component';
 import { StandupListComponent } from './components/standup-list/standup-list.component';
-import { ProgressComponent } from './components/progress/progress.component';
 import { AboutComponent } from './components/about/about.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -32,7 +31,6 @@ import { ProgressListComponent } from './components/progress-list/progress-list.
     ContactComponent,
     StandupComponent,
     StandupListComponent,
-    ProgressComponent,
     AboutComponent,
     LoginComponent,
     RegisterComponent,
