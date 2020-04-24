@@ -36,12 +36,12 @@
           </app-user>
           <br />
           <br />
-          <h4>Accomplished: <br>
-            {{ progress.accomplished }}</h4>
-          <h4>Working On: <br>
-            {{ progress.working_on }}</h4>
-          <h4>Blockers: <br>
-            {{ progress.blocker }}</h4>
+          <h4>Accomplished:</h4>
+          <p>{{ progress.accomplished }}</p>
+          <h4>Working On:</h4>
+          <p>{{ progress.working_on }}</p>
+          <h4>Blockers:</h4>
+          <p>{{ progress.blocker }}</p>
         </div>
       </div>
     </div>
@@ -53,7 +53,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="progressModalLabel">Progress</h5>
+            <h5 class="modal-title" id="progressModalLabel">Progress since last Standup</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -64,7 +64,7 @@
                 Accomplished <br><textarea [(ngModel)]="selectedProgress.accomplished"
                   name="accomplised"></textarea><br />
                 Working On <br><textarea [(ngModel)]="selectedProgress.working_on" name="workingOn"></textarea><br />
-                Blocker <br><textarea [(ngModel)]="selectedProgress.blocker" name="blocker"></textarea><br />
+                Blockers <br><textarea [(ngModel)]="selectedProgress.blocker" name="blocker"></textarea><br />
                 <button class="btn btn-secondary" name="createNew" *ngIf="!selectedProgress.id"
                   (click)="createProgress()" data-dismiss="modal">Create New</button>
                 <button class="btn btn-secondary" name="update" *ngIf="selectedProgress.id" (click)="updateProgress()"

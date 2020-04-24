@@ -19,7 +19,7 @@
         <div class="columns is-multiline">
             <div *ngIf="standups">
                 <div class="row is-4 mx-auto">
-                    <div class="column is-4" *ngFor="let standup of standups">
+                    <div class="column is-4" *ngFor="let standup of standups.reverse()">
                         <div class="card" style="width: 18rem; height: 15rem">
                             <svg id="trash-icon" (click)="standupClicked(standup)" class="bi bi-trash imageSelector"
                                 data-toggle="modal" data-target="#standupModal" width="1.5em" height="1.5em"
