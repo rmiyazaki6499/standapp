@@ -1,17 +1,11 @@
 #standupTitle {
-    display: flex; /* make container a flexbox */
-    justify-content: center; /* center child elements ("flex items") */
+    display: flex;
+    justify-content: center;
     position: relative;
 }
 
-#standupTitle > h2 > span {
-    color: #f8f9fa;
-    padding: 1rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    border: 1px solid #9c9c9c;
-    background-color: #6c757d;
-    border-radius: 10px;
+#body {
+    margin-bottom: 15rem;
 }
 
 #body > div > div > div {
@@ -44,7 +38,7 @@ div.card {
 
 .imageSelector {
     cursor: pointer;
-  }
+}
 
 #trash-icon {
     position: absolute;

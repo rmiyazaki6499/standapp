@@ -3,17 +3,6 @@ body > app-root > app-standup > section {
     overflow: auto;
 }
 
-#header {
-    color: #f8f9fa;
-    margin-top: auto;
-    padding: 1rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    border: 1px solid #9c9c9c;
-    background-color: #6c757d;
-    border-radius: 10px;
-}
-
 div.card {
     text-decoration: none;
     color: #000;
@@ -25,10 +14,6 @@ div.card {
     display: flex;
     justify-content: center;
     box-shadow: 10px 10px 5px grey;
-}
-
-h4 {
-    text-decoration: underline;
 }
 
 .noHover {

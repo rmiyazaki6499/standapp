@@ -1,5 +1,5 @@
 .background {
-    background-image: url("/assets/img/backgroundApp.jpg");
+    background-color: #d3d3d3;
     background-size: cover;
     background-position: center center;
     position: relative;
@@ -17,15 +17,4 @@
     display: flex;
     justify-content: center;
     position: relative;
-}
-
-#standup {
-    color: #f8f9fa;
-    margin-top: auto;
-    padding: 1rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    border: 1px solid #9c9c9c;
-    background-color: #6c757d;
-    border-radius: 10px;
 }
