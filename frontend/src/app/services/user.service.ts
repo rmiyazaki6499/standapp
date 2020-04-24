@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  baseurl = 'http://127.0.0.1:8000';
+  baseurl = environment.serverUrl;
   httpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
     'Authorization': 'Token ' + sessionStorage.getItem('token')
