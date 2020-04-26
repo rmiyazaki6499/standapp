@@ -24,40 +24,12 @@ ul {
     list-style-type: none;
 }
 
-#team {
-    text-align: center;
-}
-
 .row .img-thumbnail {
     height: auto;
     width: 15rem;
     padding: 12px;
-    margin: 10px;
-    border-radius: 50%;
-    border-color: #294c51;
-}
-
-.timeline > li .timeline-image {
-    position: absolute;
-    z-index: 100;
-    left: 0;
-    width: 80px;
-    height: 80px;
-    margin-left: 0;
-    text-align: center;
-    color: #FAFAFA;
-    border: 7px solid #F6F6F6;
-    border-radius: 100%;
-    background-color: #F6F6F6;
-}
-
-.col-sm-4 p {
-    color: #171717;
-}
-
-.col-sm-4 h3 {
-    color: #fda216;
-    font-weight: 400;
+    margin-bottom: 10px;
+    // border-radius: 50%;
 }
 
 .timeline {
