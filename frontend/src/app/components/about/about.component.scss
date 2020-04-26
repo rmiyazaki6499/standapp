@@ -12,11 +12,20 @@
     text-align: center;
 }
 
+#buildTeam {
+    margin-left: -2rem;
+    border-radius: initial;
+}
+
+#trackProgress {
+    margin-right: -4rem;
+}
+
 #aboutus {
     background-color: #d3d3d3;
 }
 
-img {
+#aboutus img {
     border-radius: 100%;
 }
 
@@ -29,7 +38,6 @@ ul {
     width: 15rem;
     padding: 12px;
     margin-bottom: 10px;
-    // border-radius: 50%;
 }
 
 .timeline {
