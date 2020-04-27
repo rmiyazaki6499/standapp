@@ -17,10 +17,6 @@
     border-radius: initial;
 }
 
-#trackProgress {
-    margin-right: -4rem;
-}
-
 #aboutus {
     background-color: #d3d3d3;
 }
@@ -44,4 +40,10 @@ ul {
     position: relative;
     padding: 0;
     list-style: none;
+}
+
+.border-10 {
+    border-style: solid;
+    border-width: 10px;
+    color: white;
 }
