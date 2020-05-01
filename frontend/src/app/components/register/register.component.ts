@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit {
         sessionStorage.setItem('token', response.key);
         sessionStorage.setItem('username', this.register.username);
         this.toastr.success('User ' + this.register.username + ' account has been created!');
-        window.location.href = "/"
+        window.location.href = "/teams"
       },
       error => {
         console.log('error', error);

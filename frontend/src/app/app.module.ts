@@ -45,7 +45,10 @@ import { ProgressListComponent } from './components/progress-list/progress-list.
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-center',
+      preventDuplicates: true,
+    })
   ],
   bootstrap: [AppComponent]
 })

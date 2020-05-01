@@ -6,7 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: 'header.component.html',
-  styles: []
+  styles: ['header.component.scss']
 })
 export class HeaderComponent implements OnInit {
   loggedIn = false;
