@@ -57,6 +57,7 @@ INSTALLED_APPS = [
 SITE_ID = 1
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -66,6 +67,15 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ORIGIN_WHITELIST = (
+    "http://localhost:4200",
+    "http://localhost:8000",
+    "https://draychee-standapp.web.app",
+    "https://draychee.github.io"
+)
 
 ROOT_URLCONF = 'standapp_be.urls'
 
@@ -143,9 +153,3 @@ DATETIME_FORMAT = '%Y-%d-%b'
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-
-CORS_ORIGIN_WHITELIST = (
-    "localhost:4200",
-    "https://draychee-standapp.web.app",
-    "https://draychee.github.io"
-)
