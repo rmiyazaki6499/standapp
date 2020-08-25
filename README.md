@@ -9,8 +9,9 @@ This repository was built with the Angular front-end framework and Django back-e
 ## Table of Contents
 
 - [Requirements](#requirements)
-  - [Installation](#installation)
-- [Deployment](#deployment)
+- [Setting up the project](#setting-up-the-project)
+- [Setting up the project with Docker](#setting-up-the-project-with-docker)
+- [Cleaning up the Container and Image](#cleaning-up-the-container-and-image)
 - [Views](#views)
 - [Features](#features)
 - [Authors](#authors)
@@ -23,46 +24,69 @@ This repository was built with the Angular front-end framework and Django back-e
 - Python 3.6+
 - Django 2.2+
 
-### Installation
+## Setting up the project
 
-- On your terminal, clone the repository with Git:
+  Start by cloning the project with the command:
+  ```
+  $ git clone https://github.com/rmiyazaki6499/standapp.git
+  ```
+  
+  ## Setting up the project with Docker
 
-`git clone https://github.com/draychee/standapp.git`
+  For those that are not interested in setting up the project manually or would simply not have to worry about downloading node.js and its dependencies, I have created a Dockerfile and docker-compose.yml file to help create a container with everything you would need to run the **standapp project**.
 
-**Back-end Django Server**
+  ### Install Docker
 
-- Go to the backend directory
+  To make this as easy as possible, we will be using *Docker Compose* to creat our container.
 
-`cd backend/`
+  - If you do not have Docker yet, start by downloading it here if you are on a Mac or Windows:
+  https://www.docker.com/products/docker-desktop
 
-- To install Python dependencies, run this command from the root of the repo:
+  - Or if you are on a Linux Distribution follow the directions here:
+  https://docs.docker.com/compose/install/
 
-`pipenv install`
+  - To confirm you have Docker Compose, open up your terminal and run the command below:
 
-- To run the backend dev server, use the following command:
+  ```
+  $ docker-compose --version
+  docker-compose version 1.26.2, build eefe0d31
+  ```
+  
+  - Go into the project directory to build and run the container with:
 
-`python3 manage.py runserver`
+  ```
+  $ cd standapp/
+  $ docker-compose up -d --build
+  ```
 
-- Navigate to http://localhost:8000 to view our backend APIs.
+  **This may take a few moments, especially for the Angular Server to spin up**
+  
+  Navigate to http://localhost:4200 to view the Angular Frontend on the local server.
+It should look something like this:
 
-**Front-end Angular Server**
+![Landing](./frontend/src/assets/img/landing_page.png)
 
-- Go to the frontend directory
+Navigate to http://localhost/8000 to view the Django REST Framework API on the local server.
+  
+  ### Cleaning up the Container and Image
 
-`cd frontend/`
+  - To stop the container from running, use `<Ctrl-C>` twice.
+  - To close down the container use the command:
 
-- To install Node dependencies, run this command from the root of the repo:
+  ```
+  $ docker-compose down
+  ```
+  - Then to clean up the container and image which we are no longer using use the command:
 
-`npm install`
+  ```
+  $ docker system prune -fa
+  ```
 
-- To build and serve the front-end, use the following command:
+  - Confirm that the container and image is no longer there with:
 
-`ng serve --open`
-
-- A window with our App should pop up.
-
-## Deployment
-
+  ```
+  $ docker system df -v
+  ```
 
 ## Views
 
